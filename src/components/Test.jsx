@@ -1,11 +1,10 @@
-import { useEffect } from "react";
-import { personalFetch } from "../redux/actions";
-import { useDispatch } from "react-redux";
+import ProfileModal from "./ProfileModal";
 
 const Test = () => {
   return (
     <>
       <p>ciao!</p>
+      <ProfileModal />
     </>
   );
 };
