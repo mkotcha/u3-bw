@@ -22,7 +22,7 @@ const AsideProfilePage = () => {
 
   return (
     <>
-      <div className="border-dark-subtle border rounded py-2 px-2 mb-2 backgroundWhite">
+      <div className="border-dark-subtle border rounded py-2 px-2 mb-2 backgroundWhite mt-4">
         <div className="d-flex justify-content-between mb-2">
           <h5>Profile language</h5>
           <i className="bi bi-pencil"></i>
