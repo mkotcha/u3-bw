@@ -55,9 +55,9 @@ const AsideProfilePage = () => {
         <h6 className="mb-0">People you may know</h6>
         <p className="textGreyAside">From your school</p>
         {profiles
-          ? profiles.map(profile => {
+          ? profiles.map((profile, i) => {
               return (
-                <div className="border-bottom  py-2">
+                <div className="border-bottom  py-2" key={`divProfile-${i}`}>
                   <div className="d-flex">
                     <img src={profile.image} alt="" className="otherProfiles rounded-circle align-self-start me-2" />
                     <div>
