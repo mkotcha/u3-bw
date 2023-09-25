@@ -81,8 +81,6 @@ const Topbar = () => {
 
               <NavDropdown title="Per le aziende" id="basic-nav-dropdown">
                 <NavDropdown.Divider />
-
-                <NavDropdown.Item href="#action/3.4">Per le aziende</NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
