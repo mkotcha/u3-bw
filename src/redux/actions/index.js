@@ -14,11 +14,9 @@ export const personalFetch = () => {
     // console.log("personal fetch");
     try {
       const response = await fetch(url + "me", options);
-
       if (response.ok) {
         const result = await response.json();
         dispatch(setPersonalProfile(result));
-        console.log(result);
       }
     } catch (error) {
       console.log(error);
@@ -33,9 +31,7 @@ export const putPersonalFetch = async profile => {
     body: JSON.stringify(profile),
     headers: { ...options.headers, "Content-Type": "application/json" },
   };
-  console.log("put", putOptions);
 
-  console.log("PUT personal fetch");
   try {
     const response = await fetch(url, putOptions);
 
