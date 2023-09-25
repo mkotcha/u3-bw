@@ -71,10 +71,7 @@ const MainProfilePage = () => {
           </div>
           <div className="my-3">
             <Button className="primary rounded-pill px-3 fw-semibold border-2">I am...</Button>
-            <Button
-              className="bg-transparent text-primary mx-2 rounded-pill px-3 fw-semibold border-2"
-              onMouseOver="this.style.color='red'"
-            >
+            <Button className="bg-transparent text-primary mx-2 rounded-pill px-3 fw-semibold border-2">
               Add profile section
             </Button>
             <Button className="text-secondary bg-transparent border-secondary rounded-pill px-3 fw-semibold border-2">
