@@ -31,12 +31,7 @@ export const otherProfileFetch = () => {
     let profilesArray = [];
     console.log("other profile fetch");
     try {
-      const resp = await fetch(url, {
-        headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTExM2NlOTM3NTJhODAwMTQ1Njg3NjciLCJpYXQiOjE2OTU2Mjg1MjIsImV4cCI6MTY5NjgzODEyMn0.SrkS56T505QY6pnzO8arD1CibOq1XJ9LxYw0yBOMRm4",
-        },
-      });
+      const resp = await fetch(url, options);
 
       if (resp.ok) {
         profilesArray = await resp.json();

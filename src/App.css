@@ -1,3 +1,23 @@
 .bottoniLingueAside {
   width: 48%;
 }
+.linkedinLogoAside {
+  width: 6%;
+}
+.otherProfiles {
+  width: 15%;
+}
+.buttonProfilesAside {
+  margin-inline: 30%;
+}
+.textGreyAside {
+  color: rgb(159, 159, 159);
+}
+.otherProfilesUsernameAside {
+  text-decoration: none;
+  color: black;
+}
+.otherProfilesUsernameAside:hover {
+  text-decoration: underline;
+  color: rgb(0, 12, 230);
+}
