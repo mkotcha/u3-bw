@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-export const SET_PERSONAL_PROFILE = 'SET_PERSONAL_PROFILE';
-export const SET_OTHER_PROFILES = 'SET_OTHER_PROFILES';
-
-export const setPersonalProfile = personalProfile => ({ type: SET_PERSONAL_PROFILE, payload: personalProfile });
-export const setOtherProfiles = otherProfils => ({ type: SET_OTHER_PROFILES, payload: otherProfils });
-=======
 export const SET_PERSONAL_PROFILE = "SET_PERSONAL_PROFILE";
 export const SET_OTHER_PROFILES = "SET_OTHER_PROFILES";
 export const SHOW_PROFILE_MODAL = "SHOW_PROFILE_MODAL";
@@ -14,15 +7,10 @@ export const setPersonalProfile = personalProfile => ({ type: SET_PERSONAL_PROFI
 export const setOtherProfiles = otherProfils => ({ type: SET_OTHER_PROFILES, payload: otherProfils });
 export const showProfileModal = () => ({ type: SHOW_PROFILE_MODAL });
 export const hideProfileModal = () => ({ type: HIDE_PROFILE_MODAL });
->>>>>>> 60225cbf8c3f98431cfbfdf469740812988fdf95
 
 const url = "https://striveschool-api.herokuapp.com/api/profile/";
 const options = {
-<<<<<<< HEAD
   headers: { Authorization: process.env.REACT_APP_BEARER },
-=======
-  headers: { Authorization: "Bearer " + process.env.REACT_APP_BEARER },
->>>>>>> 60225cbf8c3f98431cfbfdf469740812988fdf95
 };
 
 export const personalFetch = () => {
