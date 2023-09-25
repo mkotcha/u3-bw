@@ -6,14 +6,14 @@ function EducationCard () {
     <Card className='mt-3'>
       <Card.Header>
         <Container>
-            <Row className="justify-content-between">
+            <Row className="justify-content-between align-items-center">
                 <Col sm={2}> 
-                    <Card.Title>Education</Card.Title>
+                    <Card.Title className='pt-3'>Education</Card.Title>
                 </Col>
 
                 <Col sm={2}>
-                    <Card.Link href="#"><i class="bi bi-plus"></i></Card.Link>
-                    <Card.Link href="#"><i class="bi bi-pencil"></i></Card.Link>
+                    <Card.Link href="#"><i class="bi bi-plus fs-4"></i></Card.Link>
+                    <Card.Link href="#"><i class="bi bi-pencil fs-4 mx-2"></i></Card.Link>
                 </Col>
             </Row>
         </Container>
@@ -32,7 +32,7 @@ function EducationCard () {
             <Card.Text>City</Card.Text>
         </Card.Body>
 
-       <Card.Footer>
+       <Card.Footer className='text-center'>
         <Card.Link href="#">Show all education<i class="bi bi-arrow-right-short"></i></Card.Link>
         </Card.Footer>
 

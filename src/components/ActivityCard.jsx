@@ -16,16 +16,16 @@ function ActivityCard () {
 
                 <Col sm={4}>
                     <Button variant="outline-primary">Create a post</Button>{' '}
-                    <Card.Link href="#"><i class="bi bi-pencil"></i></Card.Link>
+                    <Card.Link href="#"><i class="bi bi-pencil fs-4 mx-4"></i></Card.Link>
                 </Col>
             </Row>
         </Container>
         
-        <Card.Text>You haven't posted yet</Card.Text>
-        <Card.Text>Posts you share will be displayed here.</Card.Text>
+        <Card.Text className='mt-4 mb-0 fw-bold'>You haven't posted yet</Card.Text>
+        <Card.Text className='mt-1'>Posts you share will be displayed here.</Card.Text>
 
         </Card.Body>
-       <Card.Footer>
+       <Card.Footer className='text-center'>
         <Card.Link href="#">Show all activity <i class="bi bi-arrow-right-short"></i></Card.Link>
         </Card.Footer>
 

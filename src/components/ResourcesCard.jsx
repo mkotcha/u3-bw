@@ -14,7 +14,7 @@ function ResourcesCard () {
         <Card.Text>See and manage your connections and interests</Card.Text>
         </Card.Body>
 
-        <Card.Footer>
+        <Card.Footer className='text-center'>
         <Card.Link href="#">Show all 5 resources <i class="bi bi-arrow-right-short"></i></Card.Link>
         </Card.Footer>
       
