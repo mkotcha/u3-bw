@@ -1,12 +1,11 @@
 import { Button, Form, Modal } from "react-bootstrap";
-import { useSelector } from "react-redux";
-import { putPersonalFetch } from "../redux/actions";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { hideProfileModal, putPersonalFetch, showProfileModal } from "../redux/actions";
 
 const ProfileModal = () => {
   const me = useSelector(state => state.me);
-  const [show, setShow] = useState(true);
-
+  const show = useSelector(state => state.profileModal.show);
+  const dispatch = useDispatch();
   const handleSubmit = event => {
     event.preventDefault();
 
@@ -23,8 +22,10 @@ const ProfileModal = () => {
     putPersonalFetch(profile);
   };
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleClose = () => {
+    console.log("close");
+    dispatch(hideProfileModal());
+  };
 
   return (
     <Modal show={show} size="lg">

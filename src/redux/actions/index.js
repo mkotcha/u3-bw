@@ -1,8 +1,12 @@
 export const SET_PERSONAL_PROFILE = "SET_PERSONAL_PROFILE";
 // export const PUT_PERSONAL_PROFILE = "SET_PERSONAL_PROFILE";
+export const SHOW_PROFILE_MODAL = "SHOW_PROFILE_MODAL";
+export const HIDE_PROFILE_MODAL = "HIDE_PROFILE_MODAL";
 
 export const setPersonalProfile = personalProfile => ({ type: SET_PERSONAL_PROFILE, payload: personalProfile });
 // export const putPersonalProfile = personalProfile => ({ type: SET_PERSONAL_PROFILE });
+export const showProfileModal = () => ({ type: SHOW_PROFILE_MODAL });
+export const hideProfileModal = () => ({ type: HIDE_PROFILE_MODAL });
 
 const url = "https://striveschool-api.herokuapp.com/api/profile/";
 const options = {
