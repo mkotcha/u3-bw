@@ -11,14 +11,12 @@ const options = {
 
 export const personalFetch = () => {
   return async dispatch => {
-    console.log("personal fetch");
+    // console.log("personal fetch");
     try {
       const response = await fetch(url + "me", options);
-
       if (response.ok) {
         const result = await response.json();
         dispatch(setPersonalProfile(result));
-        console.log(result);
       }
     } catch (error) {
       console.log(error);
@@ -49,4 +47,25 @@ export const otherProfileFetch = () => {
       return profilesArray;
     }
   };
+};
+
+export const putPersonalFetch = async profile => {
+  const putOptions = {
+    ...options,
+    method: "PUT",
+    body: JSON.stringify(profile),
+    headers: { ...options.headers, "Content-Type": "application/json" },
+  };
+
+  try {
+    const response = await fetch(url, putOptions);
+
+    if (response.ok) {
+      const result = await response.json();
+
+      console.log(result);
+    }
+  } catch (error) {
+    console.log(error);
+  }
 };
