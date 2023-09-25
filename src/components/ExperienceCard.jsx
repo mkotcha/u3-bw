@@ -3,11 +3,11 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 function ExperienceCard () {
   return (
-    <Card>
+    <Card className='mt-3'>
       <Card.Header>
         <Container>
             <Row className="justify-content-between">
-                <Col sm={2}> 
+                <Col sm={3}> 
                     <Card.Title>Experience</Card.Title>
                 </Col>
 

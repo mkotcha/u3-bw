@@ -14,7 +14,7 @@ const ProfilePage = () => {
     <>
       <Container>
         <Row>
-          <Col xs={7}>
+          <Col xs={7} className="gy-3">
             <MainProfilePage />
             <Recommended4u></Recommended4u>
             <AnalyticsCard></AnalyticsCard>
