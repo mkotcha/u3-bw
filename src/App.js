@@ -8,8 +8,8 @@ import { personalFetch } from "./redux/actions";
 
 function App() {
   const dispatch = useDispatch();
+
   useEffect(() => {
-    console.log("yo!");
     dispatch(personalFetch());
   }, [dispatch]);
 
