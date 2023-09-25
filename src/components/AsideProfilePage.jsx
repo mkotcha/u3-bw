@@ -1,8 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Container } from "react-bootstrap";
+import { otherProfileFetch } from "../redux/actions";
+import { useDispatch } from "react-redux";
 
 const AsideProfilePage = () => {
   const [profiles, setProfile] = useState([]);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(otherProfileFetch());
+  }, []);
 
   return (
     <>
@@ -24,7 +31,7 @@ const AsideProfilePage = () => {
         </Container>
         <div className="d-flex justify-content-between mb-2">
           <h5 className="d-inline">Public profile & URL</h5>
-          <i class="bi bi-pencil"></i>
+          <i className="bi bi-pencil"></i>
         </div>
         <p>www.linkedin.com/in/flavio-de-angelis-4b50b3293</p>
       </div>
