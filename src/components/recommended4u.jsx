@@ -11,9 +11,9 @@ function Recommended4u () {
         <Card.Subtitle>Intermediate</Card.Subtitle>
         <ProgressBar now={90}/> <span>6/7</span>;
         <Card.Text>
-        Complete 2 steps to reach the 
+        Complete 2 steps to achieve 
            {/* //TODO BLU - hover sottolineato - click si apre un modale */}
-           <Card.Link href="#">Maximum</Card.Link> level
+           <Card.Link href="#">All-star</Card.Link>
         </Card.Text>
       </Card.Body>
     </Card>
