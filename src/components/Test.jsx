@@ -1,11 +1,10 @@
-import PersonalModal from "./PersonalModal";
-import ProfileModal from "./PersonalModal";
+import ProfileModal from "./ProfileModal";
 
 const Test = () => {
   return (
     <>
       <p>ciao!</p>
-      <PersonalModal />
+      <ProfileModal />
     </>
   );
 };
