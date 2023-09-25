@@ -26,7 +26,6 @@ const ProfileModal = () => {
   };
 
   const handleClose = () => {
-    console.log("close");
     dispatch(hideProfileModal());
   };
 
