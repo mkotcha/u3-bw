@@ -22,16 +22,14 @@ function EducationCard () {
             <Card.Title>University / School name</Card.Title>
             <Card.Subtitle>Degree Title </Card.Subtitle>
             <Card.Text>Period of time studying.</Card.Text>
-            <Card.Text>Work location</Card.Text>
-            <Card.Text>Some detail about job.</Card.Text>
+            <Card.Text>City</Card.Text>
         </Card.Body>
 
         <Card.Body>
-            <Card.Title>Professional activity - Role</Card.Title>
-            <Card.Subtitle>Company Name</Card.Subtitle>
-            <Card.Text>Period of time working.</Card.Text>
-            <Card.Text>Work location</Card.Text>
-            <Card.Text>Some detail about job.</Card.Text>
+            <Card.Title>University / School name</Card.Title>
+            <Card.Subtitle>Degree Title </Card.Subtitle>
+            <Card.Text>Period of time studying.</Card.Text>
+            <Card.Text>City</Card.Text>
         </Card.Body>
 
        <Card.Footer>

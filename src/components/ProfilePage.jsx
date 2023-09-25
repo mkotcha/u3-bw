@@ -7,6 +7,7 @@ import ActivityCard from "./ActivityCard";
 import ExperienceCard from "./ExperienceCard"
 import EducationCard from "./EducationCard";
 import AnalyticsCard from "./AnalyticsCard";
+import SkillsCard from "./SkillsCard";
  
 const ProfilePage = () => {
   return (
@@ -19,8 +20,9 @@ const ProfilePage = () => {
             <AnalyticsCard></AnalyticsCard>
             <ResourcesCard></ResourcesCard>
             <ActivityCard></ActivityCard>
-           <ExperienceCard></ExperienceCard>
-           <EducationCard></EducationCard>
+            <ExperienceCard></ExperienceCard>
+            <EducationCard></EducationCard>
+            <SkillsCard></SkillsCard>
             
           </Col>
           <Col xs={4}>
