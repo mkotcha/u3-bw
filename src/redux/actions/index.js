@@ -1,5 +1,3 @@
-import { useDispatch } from "react-redux";
-
 export const SET_PERSONAL_PROFILE = "SET_PERSONAL_PROFILE";
 export const SET_SELECTED_PROFILE = "SET_SELECTED_PROFILE";
 export const SET_OTHER_PROFILES = "SET_OTHER_PROFILES";

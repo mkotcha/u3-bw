@@ -1,6 +1,6 @@
 import { Button, Form, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { hideProfileModal, putPersonalFetch, showProfileModal } from "../redux/actions";
+import { hideProfileModal, putPersonalFetch } from "../redux/actions";
 
 const ProfileModal = () => {
   const me = useSelector(state => state.me);
