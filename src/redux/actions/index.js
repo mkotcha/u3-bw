@@ -34,7 +34,6 @@ export const otherProfileFetch = () => {
     console.log("other profile fetch");
     try {
       const resp = await fetch(url, options);
-
       if (resp.ok) {
         profilesArray = await resp.json();
         dispatch(setOtherProfiles(profilesArray));
