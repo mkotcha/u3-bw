@@ -1,3 +1,5 @@
+import { useDispatch } from "react-redux";
+
 export const SET_PERSONAL_PROFILE = "SET_PERSONAL_PROFILE";
 export const SET_OTHER_PROFILES = "SET_OTHER_PROFILES";
 export const SHOW_PROFILE_MODAL = "SHOW_PROFILE_MODAL";
@@ -47,23 +49,25 @@ export const otherProfileFetch = () => {
   };
 };
 
-export const putPersonalFetch = async profile => {
-  const putOptions = {
-    ...options,
-    method: "PUT",
-    body: JSON.stringify(profile),
-    headers: { ...options.headers, "Content-Type": "application/json" },
-  };
+export const putPersonalFetch = profile => {
+  return async dispatch => {
+    const putOptions = {
+      ...options,
+      method: "PUT",
+      body: JSON.stringify(profile),
+      headers: { ...options.headers, "Content-Type": "application/json" },
+    };
 
-  try {
-    const response = await fetch(url, putOptions);
+    try {
+      const response = await fetch(url, putOptions);
 
-    if (response.ok) {
-      const result = await response.json();
-
-      console.log(result);
+      if (response.ok) {
+        const result = await response.json();
+        dispatch(personalFetch());
+        console.log(result);
+      }
+    } catch (error) {
+      console.log(error);
     }
-  } catch (error) {
-    console.log(error);
-  }
+  };
 };
