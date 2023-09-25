@@ -20,7 +20,7 @@ const meReducer = (state = initialState, action) => {
     case SET_PERSONAL_PROFILE:
       return {
         ...state,
-        me: action.payload,
+        ...action.payload,
       };
 
     default:

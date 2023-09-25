@@ -10,7 +10,7 @@ const ProfilePage = () => {
           <Col xs={7}>
             <MainProfilePage />
           </Col>
-          <Col xs={4}>
+          <Col xs={3}>
             <AsideProfilePage />
           </Col>
         </Row>
