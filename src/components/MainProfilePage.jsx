@@ -7,7 +7,7 @@ const MainProfilePage = () => {
 
   return (
     <>
-      <Container className="d-flex">
+      <Container className="d-flex mt-2">
         <div className="fluid bg-secondary justify-content-center" style={{ height: '280px', width: '100%' }}>
           <img src="" alt="" />
           <div className="d-flex justify-content-end me-5 fs-5">
@@ -38,16 +38,18 @@ const MainProfilePage = () => {
       <Container>
         <div className="ms-4">
           <div>
-            <h1>{me.name}</h1>
+            <h1>
+              {me.name} {me.surname}
+            </h1>
           </div>
           <div>
-            <p>Bio</p>
+            <p>{me.bio}</p>
           </div>
           <div className="d-flex">
-            <span>Location</span>
+            <span>{me.area}</span>
 
             <span className="ms-3">
-              <Link>Contact Info</Link>
+              <Link>{me.email}</Link>
             </span>
           </div>
           <div className="my-3">

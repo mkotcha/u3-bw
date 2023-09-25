@@ -6,7 +6,7 @@ export const setOtherProfiles = (otherProfils) => ({ type: SET_OTHER_PROFILES, p
 
 const url = 'https://striveschool-api.herokuapp.com/api/profile/';
 const options = {
-  headers: { Authorization: 'Bearer ' + process.env.REACT_APP_BEARER },
+  headers: { Authorization: process.env.REACT_APP_BEARER },
 };
 
 export const personalFetch = () => {
