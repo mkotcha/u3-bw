@@ -9,7 +9,7 @@ const otherProfilesReducers = (state = initialState, action) => {
     case SET_OTHER_PROFILES:
       return {
         ...state,
-        profiles: action.payload,
+        ...action.payload,
       };
     default:
       return state;
