@@ -24,6 +24,26 @@ const ProfileModal = () => {
               <Form.Label>Last Name*</Form.Label>
               <Form.Control type="text" placeholder={me.surname} required />
             </Form.Group>
+            <Form.Group className="mb-3 text-secondary">
+              <Form.Label>email*</Form.Label>
+              <Form.Control type="email" placeholder={me.email} required />
+            </Form.Group>
+            <Form.Group className="mb-3 text-secondary">
+              <Form.Label>Bio*</Form.Label>
+              <Form.Control type="textarea" placeholder={me.bio} required />
+            </Form.Group>
+            <Form.Group className="mb-3 text-secondary">
+              <Form.Label>Title*</Form.Label>
+              <Form.Control type="text" placeholder={me.title} required />
+            </Form.Group>
+            <Form.Group className="mb-3 text-secondary">
+              <Form.Label>Area*</Form.Label>
+              <Form.Control type="text" placeholder={me.area} required />
+            </Form.Group>
+            <Form.Group className="mb-3 text-secondary">
+              <Form.Label>Image url</Form.Label>
+              <Form.Control type="text" placeholder={me.area} />
+            </Form.Group>
           </Form>
         </Modal.Body>
 
