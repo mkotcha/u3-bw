@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 function EducationCard () {
   return (
-    <Card>
+    <Card className='mt-3'>
       <Card.Header>
         <Container>
             <Row className="justify-content-between">

@@ -5,11 +5,11 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 function ActivityCard () {
   return (
-    <Card>
+    <Card className='mt-3'>
       <Card.Body>
         <Container>
             <Row className="justify-content-between">
-                <Col sm={2}> 
+                <Col sm={3}> 
                     <Card.Title>Activity</Card.Title>
                     <Card.Link href='#'> 258 followers </Card.Link>
                 </Col>

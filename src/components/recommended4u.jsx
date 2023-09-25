@@ -4,7 +4,7 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 
 function Recommended4u () {
   return (
-    <Card>
+    <Card className='mt-3'>
       <Card.Body>
         <Card.Title>Suggested for you</Card.Title>
         <Card.Subtitle> <i class="bi bi-eye-fill"></i> Private to you </Card.Subtitle>

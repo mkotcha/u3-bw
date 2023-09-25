@@ -5,11 +5,11 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 function SkillsCard () {
   return (
-    <Card>
+    <Card className='mt-3'>
      <Card.Header>
         <Container>
             <Row className="justify-content-between">
-                <Col sm={1}> 
+                <Col sm={3}> 
                     <Card.Title>Skills</Card.Title>
                 </Col>
 
@@ -32,7 +32,7 @@ function SkillsCard () {
         </Card.Body>
 
        <Card.Footer>
-        <Card.Link href="#">Show all Skills <i class="bi bi-arrow-right-short"></i></Card.Link>
+        <Card.Link href="#" className='text-center'>Show all Skills <i class="bi bi-arrow-right-short"></i></Card.Link>
         </Card.Footer>
 
     </Card>
