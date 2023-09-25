@@ -10,7 +10,7 @@ export const hideProfileModal = () => ({ type: HIDE_PROFILE_MODAL });
 
 const url = "https://striveschool-api.herokuapp.com/api/profile/";
 const options = {
-  headers: { Authorization: process.env.REACT_APP_BEARER },
+  headers: { Authorization: "Bearer " + process.env.REACT_APP_BEARER },
 };
 
 export const personalFetch = () => {
