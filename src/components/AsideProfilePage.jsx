@@ -16,7 +16,7 @@ const AsideProfilePage = () => {
       <div className="border-dark-subtle border rounded py-2 px-2 mb-2">
         <div className="d-flex justify-content-between mb-2">
           <h5>Profile language</h5>
-          <i class="bi bi-pencil"></i>
+          <i className="bi bi-pencil"></i>
         </div>
         <div className="d-flex justify-content-between">
           <Button variant="success" className="rounded-pill bottoniLingueAside">
