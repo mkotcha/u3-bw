@@ -1,8 +1,8 @@
 export const SET_PERSONAL_PROFILE = 'SET_PERSONAL_PROFILE';
 export const SET_OTHER_PROFILES = 'SET_OTHER_PROFILES';
 
-export const setPersonalProfile = (personalProfile) => ({ type: SET_PERSONAL_PROFILE, payload: personalProfile });
-export const setOtherProfiles = (otherProfils) => ({ type: SET_OTHER_PROFILES, payload: otherProfils });
+export const setPersonalProfile = personalProfile => ({ type: SET_PERSONAL_PROFILE, payload: personalProfile });
+export const setOtherProfiles = otherProfils => ({ type: SET_OTHER_PROFILES, payload: otherProfils });
 
 const url = 'https://striveschool-api.herokuapp.com/api/profile/';
 const options = {
@@ -10,7 +10,7 @@ const options = {
 };
 
 export const personalFetch = () => {
-  return async (dispatch) => {
+  return async dispatch => {
     // console.log("personal fetch");
     try {
       const response = await fetch(url + 'me', options);
@@ -25,7 +25,7 @@ export const personalFetch = () => {
 };
 
 export const otherProfileFetch = () => {
-  return async (dispatch) => {
+  return async dispatch => {
     let profilesArray = [];
     console.log('other profile fetch');
     try {
@@ -49,7 +49,7 @@ export const otherProfileFetch = () => {
   };
 };
 
-export const putPersonalFetch = async (profile) => {
+export const putPersonalFetch = async profile => {
   const putOptions = {
     ...options,
     method: 'PUT',
