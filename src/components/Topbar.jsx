@@ -1,4 +1,5 @@
-import { Button, Col, Form, Image, Row } from "react-bootstrap";
+import { useState } from "react";
+import { Button, Col, Form, Image, Offcanvas, Row } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -31,7 +32,7 @@ const Topbar = () => {
               <Nav.Link href="#home">
                 <Row>
                   <i class="bi bi-house-door-fill"></i>
-                  <span className="smalltext">Home</span>
+                  <span className="smalltext ">Home</span>
                 </Row>
               </Nav.Link>
               <Nav.Link href="#home">
@@ -62,7 +63,6 @@ const Topbar = () => {
               </Nav.Link>
 
               <NavDropdown title="Me" id="basic-nav-dropdown">
-                <NavDropdown.Divider />
                 <h5>Account</h5>
                 <NavDropdown.Item href="#action/3.4">work </NavDropdown.Item>
                 <Button variant="primary">View profile</Button> <hr></hr>
@@ -76,13 +76,15 @@ const Topbar = () => {
                 <p>Post an activity</p>
                 <p>Account </p>
                 <hr></hr>
-                <p>quit</p>
+                <p>Quit</p>
               </NavDropdown>
 
               <NavDropdown title="Per le aziende" id="basic-nav-dropdown">
                 <NavDropdown.Divider />
 
-                <NavDropdown.Item href="#action/3.4">Per le aziende</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.4" >
+                  Per le aziende
+                </NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
@@ -91,4 +93,26 @@ const Topbar = () => {
     </>
   );
 };
+
+// function MyOffcanvas() {
+//   const [show, setShow] = useState(false);
+
+//   const handleClose = () => setShow(false);
+//   const handleShow = () => setShow(true);
+
+//   return (
+//     <>
+//       <Button variant="primary" onClick={handleShow}>
+//         Mostra Offcanvas
+//       </Button>
+
+//       <Offcanvas show={show} onHide={handleClose} placement="end">
+//         <Offcanvas.Header closeButton>
+//           <Offcanvas.Title>Titolo Offcanvas</Offcanvas.Title>
+//         </Offcanvas.Header>
+//         <Offcanvas.Body>Contenuto dell'Offcanvas</Offcanvas.Body>
+//       </Offcanvas>
+//     </>
+//   );
+}
 export default Topbar;
