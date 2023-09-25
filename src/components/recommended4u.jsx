@@ -1,6 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import ProgressBar from 'react-bootstrap/ProgressBar';
-import { Container } from 'react-bootstrap';
+import { Container, Row} from 'react-bootstrap';
 
 
 function Recommended4u () {
@@ -9,9 +9,11 @@ function Recommended4u () {
       <Card.Body>
         <Card.Title>Suggested for you</Card.Title>
         <Card.Subtitle> <i class="bi bi-eye-fill"></i> Private to you </Card.Subtitle>
-        <Card.Subtitle className='mt-4'>Intermediate</Card.Subtitle>
+        <Card.Subtitle className='mt-4 mb-3'>Intermediate</Card.Subtitle>
         <Container>
-        <ProgressBar now={90}/> <span>6/7</span>;
+          
+                <ProgressBar now={90}/> <span>6/7</span>;
+  
         </Container>
         <Card.Text>
         Complete 2 steps to achieve 

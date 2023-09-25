@@ -8,7 +8,7 @@ function AnalyticsCard () {
       <Card className='mt-3'>
         <Card.Body>
           <Card.Title>Analytics</Card.Title>
-          <Card.Subtitle> <i class="bi bi-eye-fill"></i> Private to you </Card.Subtitle>   
+          <Card.Subtitle className='mb-3'> <i class="bi bi-eye-fill"></i> Private to you </Card.Subtitle>   
             <Container>
                 <Row>
                     <Col sm={4}> 
