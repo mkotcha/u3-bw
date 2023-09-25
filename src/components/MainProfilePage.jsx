@@ -1,12 +1,22 @@
 import { Button, Col, Container, Row } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { showProfileModal } from '../redux/actions';
+import ProfileModal from './ProfileModal';
 
 const MainProfilePage = () => {
-  const me = useSelector((state) => state.me);
+  const me = useSelector(state => state.me);
+
+  const dispatch = useDispatch();
+
+  const handleShow = () => {
+    console.log('click');
+    dispatch(showProfileModal());
+  };
 
   return (
     <>
+      <ProfileModal />
       <Container className="border rounded">
         <Container className="d-flex mt-2">
           <div
@@ -43,7 +53,7 @@ const MainProfilePage = () => {
                 />
               </button>
               <div className="d-flex ">
-                <button className="bg-transparent border-0 align-self-end me-5 fs-3">
+                <button className="bg-transparent border-0 align-self-end me-5 fs-3" onClick={handleShow}>
                   <i class="bi bi-pencil"></i>
                 </button>
               </div>
