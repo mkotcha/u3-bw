@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { Button, Col, Form, Image, Offcanvas, Row } from "react-bootstrap";
+import { Button, Col, Form, Image, Row } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -31,25 +30,25 @@ const Topbar = () => {
             <Nav className="me-auto">
               <Nav.Link href="#home">
                 <Row>
-                  <i class="bi bi-house-door-fill"></i>
+                  <i className="bi bi-house-door-fill"></i>
                   <span className="smalltext ">Home</span>
                 </Row>
               </Nav.Link>
               <Nav.Link href="#home">
                 <Row>
-                  <i class="bi bi-people-fill"></i>
+                  <i className="bi bi-people-fill"></i>
                   <span className="smalltext">My Network</span>
                 </Row>
               </Nav.Link>
               <Nav.Link href="#home">
                 <Row>
-                  <i class="bi bi-briefcase-fill"></i>
+                  <i className="bi bi-briefcase-fill"></i>
                   <span className="smalltext">Jobs</span>
                 </Row>
               </Nav.Link>
               <Nav.Link href="#home">
                 <Row>
-                  <i class="bi bi-chat-left-dots-fill"></i>
+                  <i className="bi bi-chat-left-dots-fill"></i>
 
                   <span className="smalltext">My Network</span>
                 </Row>
@@ -57,7 +56,7 @@ const Topbar = () => {
               <Nav.Link href="#home">
                 <Row>
                   {" "}
-                  <i class="bi bi-bell-fill"></i>
+                  <i className="bi bi-bell-fill"></i>
                   <span className="smalltext">Notification</span>
                 </Row>
               </Nav.Link>
