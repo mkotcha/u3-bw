@@ -1,4 +1,4 @@
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { showProfileModal } from "../redux/actions";
@@ -30,8 +30,7 @@ const MainProfilePage = () => {
               backgroundSize: "contain",
               backgroundImage:
                 "URL(https://media.licdn.com/dms/image/C4D16AQH-cFycCHgyyw/profile-displaybackgroundimage-shrink_350_1400/0/1623871492315?e=1701302400&v=beta&t=4SONOo_KOAgC36nEQ3ZuzifeRhaPpzs0iiFUHiQyUHE)",
-            }}
-          >
+            }}>
             {/*  <img
             className="w-100"
             style={{ position: 'absolute', zIndex: '-1' }}
