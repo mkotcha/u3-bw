@@ -12,6 +12,7 @@ const ExpeririencePage = () => {
   const me = useSelector(state => state.me);
   const experiences = useSelector(state => state.experiences.content);
   const navigate = useNavigate();
+
   const handleShow = () => {
     dispatch(showExperienceModal());
   };
