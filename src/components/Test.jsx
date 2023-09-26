@@ -1,10 +1,11 @@
+import ExperienceModal from "./ExperienceModal";
 import ProfileModal from "./ProfileModal";
 
 const Test = () => {
   return (
     <>
       <p>ciao!</p>
-      <ProfileModal />
+      <ExperienceModal />
     </>
   );
 };

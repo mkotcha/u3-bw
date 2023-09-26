@@ -1,9 +1,28 @@
 import Card from "react-bootstrap/Card";
 import { Container, Row, Col } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { experiencesFetch, showExperienceModal } from "../redux/actions";
+import ExperienceModal from "./ExperienceModal";
 
 function ExperienceCard() {
+  const dispatch = useDispatch();
+  const me = useSelector(state => state.me);
+  const experiences = useSelector(state => state.experiences.content);
+
+  const handleShow = () => {
+    dispatch(showExperienceModal());
+  };
+
+  useEffect(() => {
+    console.log(me);
+
+    dispatch(experiencesFetch(me._id));
+  }, [me._id]);
+
   return (
     <Card className="mt-3">
+      <ExperienceModal />
       <Card.Header>
         <Container>
           <Row className="justify-content-between align-items-center">
@@ -12,7 +31,7 @@ function ExperienceCard() {
             </Col>
 
             <Col sm={2}>
-              <Card.Link href="#">
+              <Card.Link onClick={handleShow}>
                 <i className="bi bi-plus fs-4"></i>
               </Card.Link>
               <Card.Link href="#">
@@ -22,21 +41,17 @@ function ExperienceCard() {
           </Row>
         </Container>
       </Card.Header>
-      <Card.Body>
-        <Card.Title>Professional activity - Role</Card.Title>
-        <Card.Subtitle>Company Name</Card.Subtitle>
-        <Card.Text>Period of time working.</Card.Text>
-        <Card.Text>Work location</Card.Text>
-        <Card.Text>Some detail about job.</Card.Text>
-      </Card.Body>
 
-      <Card.Body>
-        <Card.Title>Professional activity - Role</Card.Title>
-        <Card.Subtitle>Company Name</Card.Subtitle>
-        <Card.Text>Period of time working.</Card.Text>
-        <Card.Text>Work location</Card.Text>
-        <Card.Text>Some detail about job.</Card.Text>
-      </Card.Body>
+      {experiences &&
+        experiences.map(experience => (
+          <Card.Body>
+            <Card.Title>{experience.role}</Card.Title>
+            <Card.Subtitle>{experience.company}</Card.Subtitle>
+            <Card.Text>{experience.startDate}</Card.Text>
+            <Card.Text>{experience.area}</Card.Text>
+            <Card.Text>{experience.descriptio}</Card.Text>
+          </Card.Body>
+        ))}
 
       <Card.Footer className="text-center">
         <Card.Link href="#">

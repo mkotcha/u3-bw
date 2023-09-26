@@ -27,6 +27,7 @@ const ProfilePage = () => {
         <Row>
           <Col xs={7}>
             <MainProfilePage />
+
             <Recommended4u></Recommended4u>
             <AnalyticsCard></AnalyticsCard>
             <ResourcesCard></ResourcesCard>
