@@ -1,4 +1,5 @@
-import { Button, Col, Form, Image, Row } from "react-bootstrap";
+import { useState } from "react";
+import { Button, Col, Form, Image, Offcanvas, Row } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
