@@ -1,10 +1,22 @@
-import { Button, Dropdown, DropdownButton, Form, Modal } from "react-bootstrap";
+import { Button, Form, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { hideExperienceModal, postExperienceFetch } from "../redux/actions";
+import {
+  experiencesFetch,
+  hideExperienceModal,
+  postExperienceFetch,
+  putExperienceFetch,
+  unsetPersonalExperienceId,
+} from "../redux/actions";
 import { useEffect, useState } from "react";
 
 const ExperienceModal = () => {
+  const url = "https://striveschool-api.herokuapp.com/api/profile/";
+  const options = {
+    headers: { Authorization: "Bearer " + process.env.REACT_APP_BEARER },
+  };
+
   const show = useSelector(state => state.experienceModal.show);
+  const id = useSelector(state => state.experienceModal.id);
   const personal = useSelector(state => state.me);
 
   const [experience, setExperience] = useState({
@@ -26,10 +38,18 @@ const ExperienceModal = () => {
 
   const handleClose = () => {
     dispatch(hideExperienceModal());
+    dispatch(unsetPersonalExperienceId());
+    setExperience({
+      role: "",
+      company: "",
+      startDate: "",
+      endDate: "",
+      description: "",
+      area: "",
+    });
   };
 
   const handleChange = event => {
-    console.log(event.target.value);
     switch (event.target.id) {
       case "startMonth":
         setJobDate({ ...jobDate, startMonth: event.target.value });
@@ -51,23 +71,60 @@ const ExperienceModal = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch(postExperienceFetch(experience, personal._id));
+    if (id) {
+      dispatch(putExperienceFetch(experience, personal._id, id));
+    } else {
+      dispatch(postExperienceFetch(experience, personal._id));
+    }
+  };
+
+  const handleDelete = async () => {
+    const deleteOptions = {
+      ...options,
+      method: "DELETE",
+    };
+    try {
+      const response = await fetch(url + personal.id + "/experiences/" + id, deleteOptions);
+      if (response.ok) {
+        dispatch(experiencesFetch(personal._id));
+        handleClose();
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
     if (parseInt(jobDate.startMonth) && parseInt(jobDate.startYear)) {
-      setExperience({
-        ...experience,
+      setExperience(e => ({
+        ...e,
         startDate: jobDate.startYear + "-" + jobDate.startMonth,
-      });
+      }));
     }
     if (parseInt(jobDate.endMonth) && parseInt(jobDate.endYear)) {
-      setExperience({
-        ...experience,
+      setExperience(e => ({
+        ...e,
         endDate: jobDate.endYear + "-" + jobDate.endMonth,
-      });
+      }));
     }
   }, [jobDate]);
+
+  useEffect(() => {
+    const testFetch = async () => {
+      try {
+        const response = await fetch(url + personal.id + "/experiences/" + id, options);
+        if (response.ok) {
+          const result = await response.json();
+          setExperience(result);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    if (id.length > 0) {
+      testFetch();
+    }
+  }, [id, experience._id]);
 
   return (
     <>
@@ -161,6 +218,11 @@ const ExperienceModal = () => {
             </Form>
           </Modal.Body>
           <Modal.Footer>
+            {id && (
+              <div className="me-auto" onClick={handleDelete}>
+                Delete experience
+              </div>
+            )}
             <Button onClick={handleClose} variant="secondary">
               Close
             </Button>

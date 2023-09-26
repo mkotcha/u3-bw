@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { experiencesFetch, showExperienceModal } from "../redux/actions";
 import ExperienceModal from "./ExperienceModal";
+import { Link } from "react-router-dom";
 
 function ExperienceCard() {
   const dispatch = useDispatch();
@@ -32,9 +33,9 @@ function ExperienceCard() {
               <Card.Link onClick={handleShow}>
                 <i className="bi bi-plus fs-4"></i>
               </Card.Link>
-              <Card.Link href="#">
+              <Link to="/experience">
                 <i className="bi bi-pencil fs-4 mx-2"></i>
-              </Card.Link>
+              </Link>
             </Col>
           </Row>
         </Container>

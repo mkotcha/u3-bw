@@ -12,6 +12,7 @@ import { otherProfileFetch, personalFetch } from "./redux/actions";
 import ProfilePage from "./components/ProfilePage";
 import Topbar from "./components/Topbar";
 import Test from "./components/Test";
+import ExpeririencePage from "./components/ExperiencePage";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ function App() {
         <Route path="/" element={<ProfilePage />} />
         <Route path="/test" element={<Test />} />
         <Route path="/test/:id" element={<Test />} />
+        <Route path="/experience" element={<ExpeririencePage />} />
       </Routes>
     </BrowserRouter>
   );
