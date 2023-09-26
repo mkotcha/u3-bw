@@ -19,6 +19,7 @@ const MainProfilePage = () => {
   };
 
   useEffect(() => {
+    console.log();
     if (params.id) {
       setProfile(selectedProfile);
     } else {
@@ -43,7 +44,8 @@ const MainProfilePage = () => {
                 backgroundSize: "contain",
                 backgroundImage:
                   "URL(https://media.licdn.com/dms/image/C4D16AQH-cFycCHgyyw/profile-displaybackgroundimage-shrink_350_1400/0/1623871492315?e=1701302400&v=beta&t=4SONOo_KOAgC36nEQ3ZuzifeRhaPpzs0iiFUHiQyUHE)",
-              }}>
+              }}
+            >
               {/*  <img
             className="w-100"
             style={{ position: 'absolute', zIndex: '-1' }}
