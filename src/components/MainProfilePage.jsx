@@ -7,7 +7,16 @@ import { useEffect, useState } from "react";
 
 const MainProfilePage = () => {
   const params = useParams();
-  const [profile, setProfile] = useState();
+  // let me = null;
+  const personalProfile = useSelector(state => state.me);
+  const selectedProfile = useSelector(state => state.selectedProfile);
+
+  const [profile, setProfile] = useState(null);
+  const dispatch = useDispatch();
+
+  const handleShow = () => {
+    dispatch(showProfileModal());
+  };
 
   useEffect(() => {
     console.log();
@@ -58,14 +67,18 @@ const MainProfilePage = () => {
                   />
                 </button>
                 <div className="d-flex ">
-                  <button className="bg-transparent border-0 align-self-end me-5 fs-3" onClick={handleShow}>
-                    <i className="bi bi-pencil"></i>
-                  </button>
+                  {!params.id && (
+                    <button className="bg-transparent border-0 align-self-end me-5 fs-3" onClick={handleShow}>
+                      <i className="bi bi-pencil"></i>
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
+
             {/* profile name and details */}
           </Container>
+
           <Container>
             <div className="ms-2 mt-3">
               <div>
