@@ -30,3 +30,7 @@ body {
 .smalltext {
   font-size: 10px;
 }
+
+.contDropdown {
+  width: 250px;
+}

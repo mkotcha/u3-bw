@@ -7,7 +7,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 
 const Topbar = () => {
   return (
-    <>
+    <Container>
       <Navbar expand="lg" className="bg-body-tertiary ">
         <Container>
           <Row>
@@ -63,20 +63,22 @@ const Topbar = () => {
               </Nav.Link>
 
               <NavDropdown title="Me" id="basic-nav-dropdown">
-                <h5>Account</h5>
-                <NavDropdown.Item href="#action/3.4">work </NavDropdown.Item>
-                <Button variant="primary">View profile</Button> <hr></hr>
-                <h5>Account</h5>
-                <p>Try Premium free</p>
-                <p>Setting and Privacy</p>
-                <p>Help</p>
-                <p>Language</p>
-                <hr></hr>
-                <h5>Gestisci</h5>
-                <p>Post an activity</p>
-                <p>Account </p>
-                <hr></hr>
-                <p>Quit</p>
+                <Container className="contDropdown ms-3 px-3  " fluid>
+                  <h5>Account</h5>
+                  <NavDropdown.Item href="#action/3.4">work </NavDropdown.Item>
+                  <Button variant="outline-primary">View profile</Button> <hr></hr>
+                  <h5>Account</h5>
+                  <p>Try Premium free</p>
+                  <p>Setting and Privacy</p>
+                  <p>Help</p>
+                  <p>Language</p>
+                  <hr></hr>
+                  <h5>Gestisci</h5>
+                  <p>Post an activity</p>
+                  <p>Account </p>
+                  <hr></hr>
+                  <p>Quit</p>
+                </Container>
               </NavDropdown>
 
               <NavDropdown title="Per le aziende" id="basic-nav-dropdown">
@@ -86,7 +88,7 @@ const Topbar = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    </>
+    </Container>
   );
 };
 
