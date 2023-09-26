@@ -40,7 +40,7 @@ const ExperienceModal = () => {
       {experience && (
         <Modal show={show} size="lg">
           <Modal.Header closeButton onClick={handleClose}>
-            <Modal.Title>Edit experience</Modal.Title>
+            <Modal.Title>Add experience</Modal.Title>
           </Modal.Header>
 
           <Modal.Body>
