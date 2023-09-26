@@ -58,7 +58,6 @@ const MainProfilePage = () => {
               </div>
             </div>
           </div>
-
           {/* profile name and details */}
         </Container>
 
