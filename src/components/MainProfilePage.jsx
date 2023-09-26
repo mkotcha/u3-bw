@@ -60,7 +60,6 @@ const MainProfilePage = () => {
           </div>
           {/* profile name and details */}
         </Container>
-
         <Container>
           <div className="ms-2 mt-3">
             <div>
