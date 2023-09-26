@@ -1,7 +1,7 @@
 import Card from "react-bootstrap/Card";
 import { Container, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { experiencesFetch, showExperienceModal } from "../redux/actions";
 import ExperienceModal from "./ExperienceModal";
 
@@ -9,16 +9,16 @@ function ExperienceCard() {
   const dispatch = useDispatch();
   const me = useSelector(state => state.me);
   const experiences = useSelector(state => state.experiences.content);
-  dispatch(experiencesFetch(me._id));
 
   const handleShow = () => {
     dispatch(showExperienceModal());
   };
 
-  useState(() => {
+  useEffect(() => {
     console.log(me);
-    // dispatch(experiencesFetch(me._id));
-  }, []);
+
+    dispatch(experiencesFetch(me._id));
+  }, [me._id]);
 
   return (
     <Card className="mt-3">
