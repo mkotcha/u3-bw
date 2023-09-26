@@ -8,13 +8,24 @@ import ExperienceCard from "./ExperienceCard";
 import EducationCard from "./EducationCard";
 import AnalyticsCard from "./AnalyticsCard";
 import SkillsCard from "./SkillsCard";
+import { useParams } from "react-router";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { personalFetch } from "../redux/actions";
 
 const ProfilePage = () => {
+  const dispatch = useDispatch();
+  const params = useParams();
+
+  useEffect(() => {
+    if (params.id) dispatch(personalFetch(params.id));
+  }, [dispatch, params.id]);
+
   return (
     <>
       <Container>
-        <Row className="justify-content-center">
-          <Col xs={7} className="gy-3">
+        <Row>
+          <Col xs={7}>
             <MainProfilePage />
 
             <Recommended4u></Recommended4u>
