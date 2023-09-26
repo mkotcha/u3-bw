@@ -1,18 +1,20 @@
-import { Button, Container, Form } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 const Test = () => {
-  const id = useSelector(state => state.me._id);
+  const me = useSelector(state => state.me);
+  const [picture, setpicture] = useState("");
+  const handleChange = event => {
+    const url = URL.createObjectURL(event.target.files[0]);
+    setpicture(url);
+  };
+
   const handleSubmit = async event => {
     event.preventDefault();
-
     const formData = new FormData();
     formData.append("profile", event.target.formFile.files[0]);
-
-    console.log(JSON.stringify(formData));
-
     const url = "https://striveschool-api.herokuapp.com/api/profile/";
-
     const options = {
       body: formData,
       method: "POST",
@@ -20,34 +22,37 @@ const Test = () => {
         Authorization: "Bearer " + process.env.REACT_APP_BEARER,
       },
     };
-
     try {
-      const response = await fetch(url + id + "/picture", options);
-
-      if (response.ok) {
-        const result = await response.json();
-        //dispatch(());
-
-        console.log(result);
-      }
+      await fetch(url + me._id + "/picture", options);
     } catch (error) {
       console.log("error: " + error);
     }
   };
 
+  useEffect(() => {
+    setpicture(me.image);
+  }, [me.image]);
+
   return (
     <>
       <Container>
         <p>ciao!</p>
-        <Form onSubmit={handleSubmit}>
-          <Form.Group controlId="formFile" className="mb-3">
-            <Form.Label>Select a photo</Form.Label>
-            <Form.Control type="file" />
-          </Form.Group>
-          <Form.Group>
-            <Button type="submit">Submit</Button>
-          </Form.Group>
-        </Form>
+        <Row className="justify-content-center">
+          <Col sm={8} md={6}>
+            <Form onSubmit={handleSubmit}>
+              <div>
+                <img src={picture} alt="" className="w-100" />
+              </div>
+              <Form.Group controlId="formFile" className="mb-3" onChange={handleChange}>
+                <Form.Label>Select a photo</Form.Label>
+                <Form.Control type="file" />
+              </Form.Group>
+              <Form.Group>
+                <Button type="submit">Submit</Button>
+              </Form.Group>
+            </Form>
+          </Col>
+        </Row>
       </Container>
     </>
   );

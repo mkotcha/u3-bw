@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { Link } from "react-router-dom";
 
 const Topbar = () => {
   return (
@@ -11,12 +12,14 @@ const Topbar = () => {
         <Container>
           <Row>
             <Col>
-              <Image
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/800px-LinkedIn_icon.svg.png"
-                alt="Logo"
-                width={40}
-                height={40}
-              />
+              <Link to="/">
+                <Image
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/800px-LinkedIn_icon.svg.png"
+                  alt="Logo"
+                  width={40}
+                  height={40}
+                />
+              </Link>
             </Col>
             <Col xs="auto">
               <Form.Control type="text" placeholder="Search" className=" mr-sm-2" />
