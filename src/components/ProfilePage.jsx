@@ -24,8 +24,8 @@ const ProfilePage = () => {
   return (
     <>
       <Container>
-        <Row>
-          <Col xs={7}>
+        <Row className="justify-content-center">
+          <Col xs={8} lg={7}>
             <MainProfilePage />
 
             <Recommended4u></Recommended4u>
@@ -36,7 +36,7 @@ const ProfilePage = () => {
             <EducationCard></EducationCard>
             <SkillsCard></SkillsCard>
           </Col>
-          <Col xs={3}>
+          <Col xs={4} lg={3}>
             <AsideProfilePage />
           </Col>
         </Row>

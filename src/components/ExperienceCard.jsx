@@ -42,7 +42,7 @@ function ExperienceCard() {
 
       {experiences &&
         experiences.map(experience => (
-          <Card.Body>
+          <Card.Body key={experience._id}>
             <Card.Title>{experience.role}</Card.Title>
             <Card.Subtitle>{experience.company}</Card.Subtitle>
             <Card.Text>{experience.startDate}</Card.Text>
