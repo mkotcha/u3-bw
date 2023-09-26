@@ -8,19 +8,8 @@ import ExperienceCard from "./ExperienceCard";
 import EducationCard from "./EducationCard";
 import AnalyticsCard from "./AnalyticsCard";
 import SkillsCard from "./SkillsCard";
-import { useParams } from "react-router";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { personalFetch } from "../redux/actions";
 
 const ProfilePage = () => {
-  const dispatch = useDispatch();
-  const params = useParams();
-
-  useEffect(() => {
-    if (params.id) dispatch(personalFetch(params.id));
-  }, [dispatch, params.id]);
-
   return (
     <>
       <Container>

@@ -1,30 +1,18 @@
-import { Button, Container } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { showProfileModal } from "../redux/actions";
 import ProfileModal from "./ProfileModal";
-import { useEffect, useState } from "react";
 
 const MainProfilePage = () => {
-  const params = useParams();
-  // let me = null;
-  const personalProfile = useSelector(state => state.me);
-  const selectedProfile = useSelector(state => state.selectedProfile);
+  const me = useSelector(state => state.me);
 
-  const [profile, setProfile] = useState(null);
   const dispatch = useDispatch();
 
   const handleShow = () => {
+    console.log("click");
     dispatch(showProfileModal());
   };
-
-  useEffect(() => {
-    if (params.id) {
-      setProfile(selectedProfile);
-    } else {
-      setProfile(personalProfile);
-    }
-  }, [params.id, personalProfile, selectedProfile, setProfile]);
 
   return (
     <>
@@ -69,58 +57,41 @@ const MainProfilePage = () => {
                   <i className="bi bi-pencil"></i>
                 </button>
               </div>
-              <div className="d-flex justify-content-between mt-5">
-                <button className="bg-transparent border-0">
-                  <img
-                    src="https://images.unsplash.com/flagged/photo-1595514191830-3e96a518989b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80"
-                    alt="linkedin-profile"
-                    className="rounded-circle ms-1 "
-                    style={{ maxHeight: "150px", width: "150px" }}
-                  />
-                </button>
-                <div className="d-flex ">
-                  {!params.id && (
-                    <button className="bg-transparent border-0 align-self-end me-5 fs-3" onClick={handleShow}>
-                      <i className="bi bi-pencil"></i>
-                    </button>
-                  )}
-                </div>
-              </div>
             </div>
+          </div>
 
-            {/* profile name and details */}
-          </Container>
-
-          <Container>
-            <div className="ms-2 mt-3">
-              <div>
-                <h3>
-                  {profile.name} {profile.surname}
-                </h3>
-              </div>
-              <div>
-                <p>{profile.bio}</p>
-              </div>
-              <div className="d-flex">
-                <span>{profile.area}</span>
-
-                <span className="ms-3">
-                  <Link>{profile.email}</Link>
-                </span>
-              </div>
-              <div className="my-3">
-                <Button className="primary rounded-pill px-3 fw-semibold border-2">I am...</Button>
-                <Button className="bg-transparent text-primary mx-2 rounded-pill px-3 fw-semibold border-2">
-                  Add profile section
-                </Button>
-                <Button className="text-secondary bg-transparent border-secondary rounded-pill px-3 fw-semibold border-2">
-                  more
-                </Button>
-              </div>
-            </div>
-          </Container>
+          {/* profile name and details */}
         </Container>
-      )}
+
+        <Container>
+          <div className="ms-2 mt-3">
+            <div>
+              <h3>
+                {me.name} {me.surname}
+              </h3>
+            </div>
+            <div>
+              <p>{me.bio}</p>
+            </div>
+            <div className="d-flex">
+              <span>{me.area}</span>
+
+              <span className="ms-3">
+                <Link>{me.email}</Link>
+              </span>
+            </div>
+            <div className="my-3">
+              <Button className="primary rounded-pill px-3 fw-semibold border-2">I am...</Button>
+              <Button className="bg-transparent text-primary mx-2 rounded-pill px-3 fw-semibold border-2">
+                Add profile section
+              </Button>
+              <Button className="text-secondary bg-transparent border-secondary rounded-pill px-3 fw-semibold border-2">
+                more
+              </Button>
+            </div>
+          </div>
+        </Container>
+      </Container>
     </>
   );
 };

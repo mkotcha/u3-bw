@@ -1,9 +1,24 @@
+import { useEffect, useState } from "react";
 import { Button, Container } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { otherProfileFetch } from "../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const AsideProfilePage = () => {
-  let profiles = useSelector(state => state.profiles.profiles);
+  const [profiles, setProfile] = useState([]);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(otherProfileFetch());
+  }, []);
+
+  let profilesArray = useSelector(state => state.profiles.profiles);
+  useEffect(() => {
+    setProfile(profilesArray.slice(0, 6));
+  }, [profilesArray]);
+
+  useEffect(() => {
+    console.log(profiles);
+  }, [profiles]);
 
   return (
     <>
@@ -40,13 +55,13 @@ const AsideProfilePage = () => {
         <h6 className="mb-0">People you may know</h6>
         <p className="textGreyAside">From your school</p>
         {profiles
-          ? profiles.slice(0, 6).map(profile => {
+          ? profiles.map((profile, i) => {
               return (
-                <div key={profile._id} className="border-bottom  py-2">
+                <div className="border-bottom  py-2" key={`divProfile-${i}`}>
                   <div className="d-flex">
                     <img src={profile.image} alt="" className="otherProfiles rounded-circle align-self-start me-2" />
                     <div>
-                      <Link to={"/profilepage/" + profile._id} className="otherProfilesUsernameAside">
+                      <Link className="otherProfilesUsernameAside">
                         <h6 className="m-0 ">{profile.username}</h6>
                       </Link>
                       <p>{profile.title}</p>
