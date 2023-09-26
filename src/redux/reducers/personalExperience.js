@@ -1,4 +1,4 @@
-import { GET_PERSONAL_EXPERIENCE } from "../actions";
+import { SET_PERSONAL_EXPERIENCE } from "../actions";
 
 const initialState = {
   _id: "",
@@ -16,7 +16,7 @@ const initialState = {
 
 const experienceReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_PERSONAL_EXPERIENCE:
+    case SET_PERSONAL_EXPERIENCE:
       return {
         ...state,
         ...action.payload,

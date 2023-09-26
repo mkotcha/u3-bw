@@ -5,7 +5,9 @@ export const SHOW_PROFILE_MODAL = "SHOW_PROFILE_MODAL";
 export const HIDE_PROFILE_MODAL = "HIDE_PROFILE_MODAL";
 export const SHOW_EXPERIENCE_MODAL = "HIDE_EXPERIENCE_MODALL";
 export const HIDE_EXPERIENCE_MODAL = "HIDE_EXPERIENCE_MODAL";
-export const GET_PERSONAL_EXPERIENCE = "GET_PERSONAL_EXPERIENCE";
+export const SET_PERSONAL_EXPERIENCE = "SET_PERSONAL_EXPERIENCE";
+export const PUT_PERSONAL_EXPERIENCE = "PUT_PERSONAL_EXPERIENCE";
+export const POST_PERSONAL_EXPERIENCE = "POST_PERSONAL_EXPERIENCE";
 
 export const setPersonalProfile = personalProfile => ({ type: SET_PERSONAL_PROFILE, payload: personalProfile });
 export const setSelectedProfile = selectedProfile => ({ type: SET_SELECTED_PROFILE, payload: selectedProfile });
@@ -14,7 +16,9 @@ export const showProfileModal = () => ({ type: SHOW_PROFILE_MODAL });
 export const hideProfileModal = () => ({ type: HIDE_PROFILE_MODAL });
 export const showExperienceModal = () => ({ type: SHOW_EXPERIENCE_MODAL });
 export const hideExperienceModal = () => ({ type: HIDE_EXPERIENCE_MODAL });
-export const getPersonalExperience = experience => ({ type: GET_PERSONAL_EXPERIENCE, payload: experience });
+export const setPersonalExperience = experience => ({ type: SET_PERSONAL_EXPERIENCE, payload: experience });
+export const putPersonalExperience = experience => ({ type: PUT_PERSONAL_EXPERIENCE, payload: experience });
+export const postPersonalExperience = experience => ({ type: POST_PERSONAL_EXPERIENCE, payload: experience });
 
 // const url = "https://striveschool-api.herokuapp.com/api/profile/";
 const url = "https://barbie-linkedin.cyclic.cloud/api/profile/";
@@ -91,7 +95,30 @@ export const experienceFetch = id => {
       if (response.ok) {
         const result = await response.json();
 
-        dispatch(getPersonalExperience(result));
+        dispatch(setPersonalExperience(result));
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const postExperienceFetch = (experience, id) => {
+  return async dispatch => {
+    const putOptions = {
+      ...options,
+      method: "POST",
+      body: JSON.stringify(experience),
+      headers: { ...options.headers, "Content-Type": "application/json" },
+    };
+
+    try {
+      const response = await fetch(url + id + "/experiences", putOptions);
+
+      if (response.ok) {
+        const result = await response.json();
+        //dispatch(());
+        console.log(result);
       }
     } catch (error) {
       console.log(error);
