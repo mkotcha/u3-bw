@@ -16,7 +16,7 @@ function ExperienceCard() {
   };
 
   useEffect(() => {
-    dispatch(experiencesFetch(me._id));
+    if (me._id) dispatch(experiencesFetch(me._id));
   }, [dispatch, me._id]);
 
   return (
