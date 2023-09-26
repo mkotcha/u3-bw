@@ -1,11 +1,12 @@
 import { Button, Form, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { hideProfileModal, putPersonalFetch, showProfileModal } from "../redux/actions";
+import { hideProfileModal, putPersonalFetch } from "../redux/actions";
 
 const ProfileModal = () => {
   const me = useSelector(state => state.me);
   const show = useSelector(state => state.profileModal.show);
   const dispatch = useDispatch();
+
   const handleSubmit = event => {
     event.preventDefault();
 
@@ -19,17 +20,18 @@ const ProfileModal = () => {
       image: event.target.image.value,
     };
 
-    putPersonalFetch(profile);
+    dispatch(putPersonalFetch(profile));
+
+    handleClose();
   };
 
   const handleClose = () => {
-    console.log("close");
     dispatch(hideProfileModal());
   };
 
   return (
     <Modal show={show} size="lg">
-      <Modal.Header closeButton>
+      <Modal.Header closeButton onClick={handleClose}>
         <Modal.Title>Edit intro</Modal.Title>
       </Modal.Header>
 
