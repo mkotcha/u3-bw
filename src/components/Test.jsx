@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { personalFetch } from "../redux/actions";
 
 const Test = () => {
   const me = useSelector(state => state.me);
   const [picture, setpicture] = useState("");
+  const dispatch = useDispatch();
   const handleChange = event => {
     const url = URL.createObjectURL(event.target.files[0]);
     setpicture(url);
@@ -23,15 +25,18 @@ const Test = () => {
       },
     };
     try {
-      await fetch(url + me._id + "/picture", options);
+      const response = await fetch(url + me._id + "/picture", options);
+      if (response.ok) dispatch(personalFetch());
     } catch (error) {
       console.log("error: " + error);
     }
   };
 
   useEffect(() => {
-    setpicture(me.image);
-  }, [me.image]);
+    if (me.image) {
+      setpicture(me.image);
+    }
+  }, [dispatch, me.image]);
 
   return (
     <>
