@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import { otherProfileFetch, personalFetch } from "./redux/actions";
 import ProfilePage from "./components/ProfilePage";
 import Topbar from "./components/Topbar";
+import Test from "./components/Test";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,6 +29,8 @@ function App() {
         <Route path="/profilepage/" element={<ProfilePage />} />
         <Route path="/profilepage/:id" element={<ProfilePage />} />
         <Route path="/" element={<ProfilePage />} />
+        <Route path="/test" element={<Test />} />
+        <Route path="/test/:id" element={<Test />} />
       </Routes>
     </BrowserRouter>
   );

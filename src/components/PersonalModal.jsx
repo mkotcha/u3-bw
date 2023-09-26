@@ -1,4 +1,4 @@
-import { Button, Modal } from "bootstrap";
+import {} from "bootstrap";
 
 const PersonalModal = () => {
   return <></>;
