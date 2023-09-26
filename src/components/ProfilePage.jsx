@@ -16,6 +16,7 @@ const ProfilePage = () => {
         <Row className="justify-content-center">
           <Col xs={7} className="gy-3">
             <MainProfilePage />
+
             <Recommended4u></Recommended4u>
             <AnalyticsCard></AnalyticsCard>
             <ResourcesCard></ResourcesCard>
