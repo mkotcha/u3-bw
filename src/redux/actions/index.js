@@ -2,11 +2,15 @@ export const SET_PERSONAL_PROFILE = "SET_PERSONAL_PROFILE";
 export const SET_OTHER_PROFILES = "SET_OTHER_PROFILES";
 export const SHOW_PROFILE_MODAL = "SHOW_PROFILE_MODAL";
 export const HIDE_PROFILE_MODAL = "HIDE_PROFILE_MODAL";
+export const SHOW_PROFILE_IMAGE_MODAL = "SHOW_PROFILE_IMAGE_MODAL";
+export const HIDE_PROFILE_IMAGE_MODAL = "HIDE_PROFILE_IMAGE_MODAL";
 
 export const setPersonalProfile = personalProfile => ({ type: SET_PERSONAL_PROFILE, payload: personalProfile });
 export const setOtherProfiles = otherProfils => ({ type: SET_OTHER_PROFILES, payload: otherProfils });
 export const showProfileModal = () => ({ type: SHOW_PROFILE_MODAL });
 export const hideProfileModal = () => ({ type: HIDE_PROFILE_MODAL });
+export const showProfileImageModal = () => ({ type: SHOW_PROFILE_IMAGE_MODAL });
+export const hideProfileImageModal = () => ({ type: HIDE_PROFILE_IMAGE_MODAL });
 
 const url = "https://striveschool-api.herokuapp.com/api/profile/";
 const options = {
@@ -55,6 +59,26 @@ export const putPersonalFetch = async profile => {
     headers: { ...options.headers, "Content-Type": "application/json" },
   };
 
+  try {
+    const response = await fetch(url, putOptions);
+
+    if (response.ok) {
+      const result = await response.json();
+
+      console.log(result);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const putImageProfileFetch = async imgProfile => {
+  const putOptions = {
+    ...options,
+    method: "POST",
+    body: imgProfile,
+    headers: { ...options.headers },
+  };
   try {
     const response = await fetch(url, putOptions);
 
