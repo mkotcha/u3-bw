@@ -1,7 +1,7 @@
 import { HIDE_EXPERIENCE_MODAL, SHOW_EXPERIENCE_MODAL } from "../actions";
 
 const initialState = {
-  show: true,
+  show: false,
 };
 
 const experienceModalReducer = (state = initialState, action) => {

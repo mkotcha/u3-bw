@@ -5,7 +5,7 @@ export const SHOW_PROFILE_MODAL = "SHOW_PROFILE_MODAL";
 export const HIDE_PROFILE_MODAL = "HIDE_PROFILE_MODAL";
 export const SHOW_EXPERIENCE_MODAL = "HIDE_EXPERIENCE_MODALL";
 export const HIDE_EXPERIENCE_MODAL = "HIDE_EXPERIENCE_MODAL";
-export const SET_PERSONAL_EXPERIENCE = "SET_PERSONAL_EXPERIENCE";
+export const SET_PERSONAL_EXPERIENCES = "SET_PERSONAL_EXPERIENCES";
 export const PUT_PERSONAL_EXPERIENCE = "PUT_PERSONAL_EXPERIENCE";
 export const POST_PERSONAL_EXPERIENCE = "POST_PERSONAL_EXPERIENCE";
 
@@ -16,7 +16,7 @@ export const showProfileModal = () => ({ type: SHOW_PROFILE_MODAL });
 export const hideProfileModal = () => ({ type: HIDE_PROFILE_MODAL });
 export const showExperienceModal = () => ({ type: SHOW_EXPERIENCE_MODAL });
 export const hideExperienceModal = () => ({ type: HIDE_EXPERIENCE_MODAL });
-export const setPersonalExperience = experience => ({ type: SET_PERSONAL_EXPERIENCE, payload: experience });
+export const setPersonalExperiences = experience => ({ type: SET_PERSONAL_EXPERIENCES, payload: experience });
 export const putPersonalExperience = experience => ({ type: PUT_PERSONAL_EXPERIENCE, payload: experience });
 export const postPersonalExperience = experience => ({ type: POST_PERSONAL_EXPERIENCE, payload: experience });
 
@@ -87,7 +87,7 @@ export const putPersonalFetch = profile => {
   };
 };
 
-export const experienceFetch = id => {
+export const experiencesFetch = id => {
   return async dispatch => {
     // console.log("personal fetch");
     try {
@@ -95,7 +95,7 @@ export const experienceFetch = id => {
       if (response.ok) {
         const result = await response.json();
 
-        dispatch(setPersonalExperience(result));
+        dispatch(setPersonalExperiences(result));
       }
     } catch (error) {
       console.log(error);
@@ -118,6 +118,7 @@ export const postExperienceFetch = (experience, id) => {
       if (response.ok) {
         const result = await response.json();
         //dispatch(());
+        dispatch(hideExperienceModal());
         console.log(result);
       }
     } catch (error) {
