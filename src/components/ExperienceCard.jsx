@@ -15,10 +15,8 @@ function ExperienceCard() {
   };
 
   useEffect(() => {
-    console.log(me);
-
     dispatch(experiencesFetch(me._id));
-  }, [me._id]);
+  }, [dispatch, me._id]);
 
   return (
     <Card className="mt-3">
@@ -49,7 +47,7 @@ function ExperienceCard() {
             <Card.Subtitle>{experience.company}</Card.Subtitle>
             <Card.Text>{experience.startDate}</Card.Text>
             <Card.Text>{experience.area}</Card.Text>
-            <Card.Text>{experience.descriptio}</Card.Text>
+            <Card.Text>{experience.description}</Card.Text>
           </Card.Body>
         ))}
 

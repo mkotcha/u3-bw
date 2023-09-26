@@ -20,14 +20,14 @@ export const setPersonalExperiences = experience => ({ type: SET_PERSONAL_EXPERI
 export const putPersonalExperience = experience => ({ type: PUT_PERSONAL_EXPERIENCE, payload: experience });
 export const postPersonalExperience = experience => ({ type: POST_PERSONAL_EXPERIENCE, payload: experience });
 
-// const url = "https://striveschool-api.herokuapp.com/api/profile/";
-const url = "https://barbie-linkedin.cyclic.cloud/api/profile/";
+const url = "https://striveschool-api.herokuapp.com/api/profile/";
+// const url = "https://barbie-linkedin.cyclic.cloud/api/profile/";
 
 const options = {
-  // headers: { Authorization: "Bearer " + process.env.REACT_APP_BEARER },
-  headers: {
-    team: "team-5",
-  },
+  headers: { Authorization: "Bearer " + process.env.REACT_APP_BEARER },
+  // headers: {
+  //   team: "team-5",
+  // },
 };
 
 export const personalFetch = (id = "me") => {
