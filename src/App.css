@@ -34,3 +34,10 @@ body {
 .contDropdown {
   width: 250px;
 }
+
+#Footer p {
+  font-size: small;
+}
+#Footer h5 {
+  font-size: medium;
+}

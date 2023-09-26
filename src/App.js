@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import { otherProfileFetch, personalFetch } from "./redux/actions";
 import ProfilePage from "./components/ProfilePage";
 import Topbar from "./components/Topbar";
+import FooTer from "./components/FooTer";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +33,7 @@ function App() {
         <Route path="/profilepage/:id" element={<ProfilePage />} />
         <Route path="/" element={<ProfilePage />} />
       </Routes>
+      <FooTer />
     </BrowserRouter>
   );
 }

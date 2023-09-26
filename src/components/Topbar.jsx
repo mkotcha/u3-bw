@@ -8,7 +8,7 @@ const Topbar = () => {
   return (
     <Container>
       <Navbar expand="lg" className="bg-body-tertiary ">
-        <Container>
+        <Container className="">
           <Row>
             <Col>
               <Image
