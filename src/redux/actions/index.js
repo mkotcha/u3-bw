@@ -10,6 +10,8 @@ export const SET_PERSONAL_EXPERIENCE_ID = "SET_PERSONAL_EXPERIENCE_ID";
 export const UNSET_PERSONAL_EXPERIENCE_ID = "UNSET_PERSONAL_EXPERIENCE_ID";
 export const PUT_PERSONAL_EXPERIENCE = "PUT_PERSONAL_EXPERIENCE";
 export const POST_PERSONAL_EXPERIENCE = "POST_PERSONAL_EXPERIENCE";
+export const HIDE_PROFILE_IMAGE_MODAL = "HIDE_PROFILE_IMAGE_MODAL";
+export const SHOW_PROFILE_IMAGE_MODAL = "SHOW_PROFILE_IMAGE_MODAL";
 
 export const setPersonalProfile = personalProfile => ({ type: SET_PERSONAL_PROFILE, payload: personalProfile });
 export const setSelectedProfile = selectedProfile => ({ type: SET_SELECTED_PROFILE, payload: selectedProfile });
@@ -23,6 +25,8 @@ export const setPersonalExperienceId = id => ({ type: SET_PERSONAL_EXPERIENCE_ID
 export const unsetPersonalExperienceId = id => ({ type: UNSET_PERSONAL_EXPERIENCE_ID });
 export const putPersonalExperience = experience => ({ type: PUT_PERSONAL_EXPERIENCE, payload: experience });
 export const postPersonalExperience = experience => ({ type: POST_PERSONAL_EXPERIENCE, payload: experience });
+export const showProfileImageModal = () => ({ type: SHOW_PROFILE_IMAGE_MODAL });
+export const hideProfileImageModal = () => ({ type: HIDE_PROFILE_IMAGE_MODAL });
 
 const url = "https://striveschool-api.herokuapp.com/api/profile/";
 // const url = "https://barbie-linkedin.cyclic.cloud/api/profile/";

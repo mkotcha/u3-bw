@@ -28,6 +28,7 @@ const mainReducer = combineReducers({
   profileModal: profileModalReducer,
   experienceModal: experienceModalReducer,
   experiences: experiencesReducer,
+  imageProfilesModal: profileImageModalReducer,
 });
 
 // const persistedReducer = persistReducer(persistConfig, mainReducer);
