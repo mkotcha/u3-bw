@@ -99,7 +99,7 @@ const Topbar = () => {
                             </NavDropdown>
                           </div>
                           <div className="align-self-center border-start d-flex flex-column align-items-center">
-                            <i class="bi bi-grid-3x3-gap-fill ms-3"></i>
+                            <i className="bi bi-grid-3x3-gap-fill ms-3"></i>
                             <NavDropdown title="Per le aziende" id="basic-nav-dropdown" className="d-none d-lg-inline">
                               <NavDropdown.Item href="#action/3.4">Per le aziende</NavDropdown.Item>
                             </NavDropdown>
