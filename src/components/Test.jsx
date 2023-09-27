@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Button, Col, Container, Form, Modal, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { personalFetch } from "../redux/actions";
 
@@ -40,14 +40,20 @@ const Test = () => {
 
   return (
     <>
-      <Container>
-        <p>ciao!</p>
-        <Row className="justify-content-center">
-          <Col sm={8} md={6}>
+      <Modal show={show}>
+        <Modal.Dialog>
+          <Modal.Header closeButton>
+            <Modal.Title>Modal title</Modal.Title>
+          </Modal.Header>
+
+          <Modal.Body>
+            <div>
+              <img src={picture} alt="" className="w-100" />
+            </div>
+          </Modal.Body>
+
+          <Modal.Footer>
             <Form onSubmit={handleSubmit}>
-              <div>
-                <img src={picture} alt="" className="w-100" />
-              </div>
               <Form.Group controlId="formFile" className="mb-3" onChange={handleChange}>
                 <Form.Label>Select a photo</Form.Label>
                 <Form.Control type="file" />
@@ -56,9 +62,10 @@ const Test = () => {
                 <Button type="submit">Submit</Button>
               </Form.Group>
             </Form>
-          </Col>
-        </Row>
-      </Container>
+          </Modal.Footer>
+        </Modal.Dialog>
+      </Modal>
+      ;
     </>
   );
 };
