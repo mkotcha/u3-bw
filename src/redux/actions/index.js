@@ -34,7 +34,6 @@ export const unsetPersonalExperienceId = id => ({ type: UNSET_PERSONAL_EXPERIENC
 export const putPersonalExperience = experience => ({ type: PUT_PERSONAL_EXPERIENCE, payload: experience });
 export const postPersonalExperience = experience => ({ type: POST_PERSONAL_EXPERIENCE, payload: experience });
 export const setMainPagePosts = posts => ({ type: GENERAL_POSTS, payload: posts });
-const url = "https://striveschool-api.herokuapp.com/api/profile/";
 export const showProfileImageModal = () => ({ type: SHOW_PROFILE_IMAGE_MODAL });
 export const hideProfileImageModal = () => ({ type: HIDE_PROFILE_IMAGE_MODAL });
 export const showPostModal = () => ({ type: SHOW_POST_MODAL });
