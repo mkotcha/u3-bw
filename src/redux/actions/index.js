@@ -1,19 +1,19 @@
-export const SET_PERSONAL_PROFILE = 'SET_PERSONAL_PROFILE';
-export const SET_SELECTED_PROFILE = 'SET_SELECTED_PROFILE';
-export const SET_OTHER_PROFILES = 'SET_OTHER_PROFILES';
-export const SHOW_PROFILE_MODAL = 'SHOW_PROFILE_MODAL';
-export const HIDE_PROFILE_MODAL = 'HIDE_PROFILE_MODAL';
-export const SHOW_EXPERIENCE_MODAL = 'HIDE_EXPERIENCE_MODALL';
-export const HIDE_EXPERIENCE_MODAL = 'HIDE_EXPERIENCE_MODAL';
-export const SET_PERSONAL_EXPERIENCES = 'SET_PERSONAL_EXPERIENCES';
-export const SET_PERSONAL_EXPERIENCE_ID = 'SET_PERSONAL_EXPERIENCE_ID';
-export const UNSET_PERSONAL_EXPERIENCE_ID = 'UNSET_PERSONAL_EXPERIENCE_ID';
-export const PUT_PERSONAL_EXPERIENCE = 'PUT_PERSONAL_EXPERIENCE';
-export const POST_PERSONAL_EXPERIENCE = 'POST_PERSONAL_EXPERIENCE';
+export const SET_PERSONAL_PROFILE = "SET_PERSONAL_PROFILE";
+export const SET_SELECTED_PROFILE = "SET_SELECTED_PROFILE";
+export const SET_OTHER_PROFILES = "SET_OTHER_PROFILES";
+export const SHOW_PROFILE_MODAL = "SHOW_PROFILE_MODAL";
+export const HIDE_PROFILE_MODAL = "HIDE_PROFILE_MODAL";
+export const SHOW_EXPERIENCE_MODAL = "HIDE_EXPERIENCE_MODALL";
+export const HIDE_EXPERIENCE_MODAL = "HIDE_EXPERIENCE_MODAL";
+export const SET_PERSONAL_EXPERIENCES = "SET_PERSONAL_EXPERIENCES";
+export const SET_PERSONAL_EXPERIENCE_ID = "SET_PERSONAL_EXPERIENCE_ID";
+export const UNSET_PERSONAL_EXPERIENCE_ID = "UNSET_PERSONAL_EXPERIENCE_ID";
+export const PUT_PERSONAL_EXPERIENCE = "PUT_PERSONAL_EXPERIENCE";
+export const POST_PERSONAL_EXPERIENCE = "POST_PERSONAL_EXPERIENCE";
 
-export const GENERAL_POSTS = 'GENERAL_POSTS'; /* home page posts fetch */
-export const HIDE_PROFILE_IMAGE_MODAL = 'HIDE_PROFILE_IMAGE_MODAL';
-export const SHOW_PROFILE_IMAGE_MODAL = 'SHOW_PROFILE_IMAGE_MODAL';
+export const GENERAL_POSTS = "GENERAL_POSTS"; /* home page posts fetch */
+export const HIDE_PROFILE_IMAGE_MODAL = "HIDE_PROFILE_IMAGE_MODAL";
+export const SHOW_PROFILE_IMAGE_MODAL = "SHOW_PROFILE_IMAGE_MODAL";
 
 export const setPersonalProfile = personalProfile => ({ type: SET_PERSONAL_PROFILE, payload: personalProfile });
 export const setSelectedProfile = selectedProfile => ({ type: SET_SELECTED_PROFILE, payload: selectedProfile });
@@ -28,28 +28,28 @@ export const unsetPersonalExperienceId = id => ({ type: UNSET_PERSONAL_EXPERIENC
 export const putPersonalExperience = experience => ({ type: PUT_PERSONAL_EXPERIENCE, payload: experience });
 export const postPersonalExperience = experience => ({ type: POST_PERSONAL_EXPERIENCE, payload: experience });
 export const setMainPagePosts = posts => ({ type: GENERAL_POSTS, payload: posts });
-const url = 'https://striveschool-api.herokuapp.com/api/profile/';
 export const showProfileImageModal = () => ({ type: SHOW_PROFILE_IMAGE_MODAL });
 export const hideProfileImageModal = () => ({ type: HIDE_PROFILE_IMAGE_MODAL });
 
-const postsUrl = 'https://striveschool-api.herokuapp.com/api/posts/';
+// const postsUrl = 'https://striveschool-api.herokuapp.com/api/posts/';
+const url = "https://striveschool-api.herokuapp.com/api/profile/";
 // const url = "https://barbie-linkedin.cyclic.cloud/api/profile/";
 
 const options = {
-  headers: { Authorization: 'Bearer ' + process.env.REACT_APP_BEARER },
+  headers: { Authorization: "Bearer " + process.env.REACT_APP_BEARER },
   // headers: {
   //   team: "team-5",
   // },
 };
 
-export const personalFetch = (id = 'me') => {
+export const personalFetch = (id = "me") => {
   return async dispatch => {
     // console.log("personal fetch");
     try {
       const response = await fetch(url + id, options);
       if (response.ok) {
         const result = await response.json();
-        if (id === 'me') {
+        if (id === "me") {
           dispatch(setPersonalProfile(result));
         } else {
           dispatch(setSelectedProfile(result));
@@ -80,9 +80,9 @@ export const putPersonalFetch = profile => {
   return async dispatch => {
     const putOptions = {
       ...options,
-      method: 'PUT',
+      method: "PUT",
       body: JSON.stringify(profile),
-      headers: { ...options.headers, 'Content-Type': 'application/json' },
+      headers: { ...options.headers, "Content-Type": "application/json" },
     };
 
     try {
@@ -103,7 +103,7 @@ export const experiencesFetch = id => {
   return async dispatch => {
     // console.log("personal fetch");
     try {
-      const response = await fetch(url + id + '/experiences', options);
+      const response = await fetch(url + id + "/experiences", options);
       if (response.ok) {
         const result = await response.json();
 
@@ -119,13 +119,13 @@ export const postExperienceFetch = (experience, id, formData) => {
   return async dispatch => {
     const putOptions = {
       ...options,
-      method: 'POST',
+      method: "POST",
       body: JSON.stringify(experience),
-      headers: { ...options.headers, 'Content-Type': 'application/json' },
+      headers: { ...options.headers, "Content-Type": "application/json" },
     };
 
     try {
-      const response = await fetch(url + id + '/experiences', putOptions);
+      const response = await fetch(url + id + "/experiences", putOptions);
 
       if (response.ok) {
         const result = await response.json();
@@ -133,7 +133,7 @@ export const postExperienceFetch = (experience, id, formData) => {
         dispatch(hideExperienceModal());
         dispatch(unsetPersonalExperienceId());
         dispatch(experiencesFetch(id));
-        if (formData.get('experience') !== 'undefined') {
+        if (formData.get("experience") !== "undefined") {
           postExperienceImage(id, result._id, formData);
         }
       }
@@ -147,13 +147,13 @@ export const putExperienceFetch = (experience, userId, expId, formData) => {
   return async dispatch => {
     const putOptions = {
       ...options,
-      method: 'PUT',
+      method: "PUT",
       body: JSON.stringify(experience),
-      headers: { ...options.headers, 'Content-Type': 'application/json' },
+      headers: { ...options.headers, "Content-Type": "application/json" },
     };
 
     try {
-      const response = await fetch(url + userId + '/experiences/' + expId, putOptions);
+      const response = await fetch(url + userId + "/experiences/" + expId, putOptions);
 
       if (response.ok) {
         const result = await response.json();
@@ -172,7 +172,7 @@ export const putExperienceFetch = (experience, userId, expId, formData) => {
 export const experienceFetch = async (userId, expId) => {
   // console.log("personal fetch");
   try {
-    const response = await fetch(url + userId + '/experiences/' + expId, options);
+    const response = await fetch(url + userId + "/experiences/" + expId, options);
     if (response.ok) {
       const result = await response.json();
 
@@ -188,7 +188,7 @@ export const experienceFetch = async (userId, expId) => {
 export const fetchPosts = () => {
   return async dispatch => {
     try {
-      const response = await fetch('https://striveschool-api.herokuapp.com/api/posts/', options);
+      const response = await fetch("https://striveschool-api.herokuapp.com/api/posts/", options);
 
       if (response.ok) {
         const posts = await response.json();
@@ -202,20 +202,20 @@ export const fetchPosts = () => {
 };
 
 export const postExperienceImage = async (userId, expId, xformData) => {
-  console.log('formData ', xformData);
+  console.log("formData ", xformData);
   const postOptions = {
     body: xformData,
-    method: 'POST',
+    method: "POST",
     headers: {
-      Authorization: 'Bearer ' + process.env.REACT_APP_BEARER,
+      Authorization: "Bearer " + process.env.REACT_APP_BEARER,
     },
   };
   try {
-    const response = await fetch(url + userId + '/experiences/' + expId + '/picture', postOptions);
+    const response = await fetch(url + userId + "/experiences/" + expId + "/picture", postOptions);
     if (response.ok) {
       console.log(response);
     }
   } catch (error) {
-    console.log('error: ' + error);
+    console.log("error: " + error);
   }
 };

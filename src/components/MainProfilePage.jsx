@@ -51,14 +51,7 @@ const MainProfilePage = () => {
                 backgroundSize: "contain",
                 backgroundImage:
                   "URL(https://media.licdn.com/dms/image/C4D16AQH-cFycCHgyyw/profile-displaybackgroundimage-shrink_350_1400/0/1623871492315?e=1701302400&v=beta&t=4SONOo_KOAgC36nEQ3ZuzifeRhaPpzs0iiFUHiQyUHE)",
-              }}
-            >
-              {/*  <img
-            className="w-100"
-            style={{ position: 'absolute', zIndex: '-1' }}
-            src=""
-            alt=""
-          /> */}
+              }}>
               <div className="d-flex justify-content-end me-5 fs-5">
                 <button className="bg-transparent border-0">
                   <i className="bi bi-pencil"></i>
@@ -83,10 +76,8 @@ const MainProfilePage = () => {
                 </div>
               </div>
             </div>
-
             {/* profile name and details */}
           </Container>
-
           <Container>
             <div className="ms-2 mt-3">
               <div>

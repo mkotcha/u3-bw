@@ -75,7 +75,6 @@ const Test = () => {
           </Modal.Footer>
         </Modal.Dialog>
       </Modal>
-      ;
     </>
   );
 };
