@@ -17,6 +17,7 @@ import Topbar from "./components/Topbar";
 import FooTer from "./components/FooTer";
 import Test from "./components/Test";
 import ExpeririencePage from "./components/ExperiencePage";
+import AsideMainPage from "./components/AsideMainPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ function App() {
       <Topbar />
       <Routes>
         {/* <Route path="/" element={<Test />} /> */}
+        <Route path="/asidemainpage" element={<AsideMainPage/>}/>
         <Route path="/profilepage/" element={<ProfilePage />} />
         <Route path="/profilepage/:id" element={<ProfilePage />} />
         <Route path="/" element={<ProfilePage />} />
