@@ -25,7 +25,7 @@ const ProfilePage = () => {
     <>
       <Container>
         <Row className="justify-content-center">
-          <Col xs={8} lg={7}>
+          <Col xs={8} lg={7} className="">
             <MainProfilePage />
 
             <Recommended4u></Recommended4u>

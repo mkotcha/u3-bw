@@ -34,49 +34,34 @@ const MainProfilePage = () => {
 
   return (
     <>
+      <ProfileModal />
+      <Test />
       {profile && (
-        <Container className="border rounded bg-white mt-4">
-          <ProfileModal />
-          <Test />
-          <Container className="d-flex mt-2">
-            <div
-              className="fluid  justify-content-center p-0"
-              style={{
-                height: "235px",
-                width: "100%",
-                position: "relative",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "contain",
-                backgroundImage:
-                  "URL(https://media.licdn.com/dms/image/C4D16AQH-cFycCHgyyw/profile-displaybackgroundimage-shrink_350_1400/0/1623871492315?e=1701302400&v=beta&t=4SONOo_KOAgC36nEQ3ZuzifeRhaPpzs0iiFUHiQyUHE)",
-              }}>
-              <div className="d-flex justify-content-end me-5 fs-5">
-                <button className="bg-transparent border-0">
-                  <i className="bi bi-pencil"></i>
-                </button>
+        <div className="border rounded shadow-sm bg-white mt-4">
+          <div className="bg-warning profile-background"></div>
+          <div className="px-4">
+            <div className="d-flex w-100">
+              <div className="me-auto" role={!params.id ? "button" : ""}>
+                <img
+                  id="profile-page-picture"
+                  src={profile.image}
+                  alt="linkedin-profile"
+                  className="rounded-circle"
+                  style={{ height: "150px", width: "150px" }}
+                  onClick={handleShowImage}
+                />
               </div>
-              <div className="d-flex justify-content-between mt-5">
-                <span className="bg-transparent border-0 " role={!params.id ? "button" : ""}>
-                  <img
-                    src={profile.image}
-                    alt="linkedin-profile"
-                    className="rounded-circle ms-1 "
-                    style={{ maxHeight: "150px", width: "150px" }}
-                    onClick={handleShowImage}
-                  />
-                </span>
-                <div className="d-flex ">
-                  {!params.id && (
-                    <button className="bg-transparent border-0 align-self-end me-5 fs-3" onClick={handleShow}>
-                      <i className="bi bi-pencil"></i>
-                    </button>
-                  )}
-                </div>
+              <div className="mt-auto">
+                {!params.id && (
+                  <div className="fs-4" role="button" onClick={handleShow}>
+                    <i className="bi bi-pencil"></i>
+                  </div>
+                )}
               </div>
             </div>
+
             {/* profile name and details */}
-          </Container>
+          </div>
           <Container>
             <div className="ms-2 mt-3">
               <div>
@@ -105,7 +90,7 @@ const MainProfilePage = () => {
               </div>
             </div>
           </Container>
-        </Container>
+        </div>
       )}
     </>
   );

@@ -59,3 +59,12 @@ body {
 .fontSizeIconTopBar {
   font-size: 150%;
 }
+
+.profile-background {
+  height: 160px;
+  background-image: url(./bg.svg);
+}
+
+#profile-page-picture {
+  margin-top: -100px;
+}

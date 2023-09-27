@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./App.css";
-
+import bg from "./bg.svg";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchPosts, otherProfileFetch, personalFetch } from "./redux/actions";
