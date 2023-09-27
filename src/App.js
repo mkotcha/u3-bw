@@ -38,6 +38,7 @@ function App() {
         <Route path="/test" element={<Test />} />
         <Route path="/test/:id" element={<Test />} />
         <Route path="/experience" element={<ExpeririencePage />} />
+        <Route path="/experience/:id" element={<ExpeririencePage />} />
       </Routes>
       <FooTer />
     </BrowserRouter>

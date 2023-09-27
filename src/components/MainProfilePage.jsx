@@ -20,12 +20,11 @@ const MainProfilePage = () => {
   };
 
   const handleShowImage = () => {
-    console.log("click");
-    dispatch(showProfileImageModal());
+    if (!params.id) dispatch(showProfileImageModal());
   };
 
   useEffect(() => {
-    console.log();
+    console.log("log ", profile);
     if (params.id) {
       setProfile(selectedProfile);
     } else {
@@ -58,15 +57,15 @@ const MainProfilePage = () => {
                 </button>
               </div>
               <div className="d-flex justify-content-between mt-5">
-                <button className="bg-transparent border-0">
+                <span className="bg-transparent border-0 " role={!params.id ? "button" : ""}>
                   <img
-                    src={personalProfile.image}
+                    src={profile.image}
                     alt="linkedin-profile"
                     className="rounded-circle ms-1 "
                     style={{ maxHeight: "150px", width: "150px" }}
                     onClick={handleShowImage}
                   />
-                </button>
+                </span>
                 <div className="d-flex ">
                   {!params.id && (
                     <button className="bg-transparent border-0 align-self-end me-5 fs-3" onClick={handleShow}>

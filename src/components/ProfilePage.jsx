@@ -29,10 +29,10 @@ const ProfilePage = () => {
             <MainProfilePage />
 
             <Recommended4u></Recommended4u>
+            <ExperienceCard></ExperienceCard>
             <AnalyticsCard></AnalyticsCard>
             <ResourcesCard></ResourcesCard>
             <ActivityCard></ActivityCard>
-            <ExperienceCard></ExperienceCard>
             <EducationCard></EducationCard>
             <SkillsCard></SkillsCard>
           </Col>

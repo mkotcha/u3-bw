@@ -5,21 +5,26 @@ import { experiencesFetch, showExperienceModal } from "../redux/actions";
 import { useEffect } from "react";
 import SingleExperience from "./SingleExperience";
 import ExperienceModal from "./ExperienceModal";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
 const ExpeririencePage = () => {
   const dispatch = useDispatch();
   const me = useSelector(state => state.me);
   const experiences = useSelector(state => state.experiences.content);
   const navigate = useNavigate();
+  const params = useParams();
 
   const handleShow = () => {
     dispatch(showExperienceModal());
   };
 
   useEffect(() => {
-    dispatch(experiencesFetch(me._id));
-  }, [dispatch, me._id]);
+    if (params.id) {
+      dispatch(experiencesFetch(params.id));
+    } else {
+      dispatch(experiencesFetch(me._id));
+    }
+  }, [dispatch, me._id, params.id]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -39,9 +44,11 @@ const ExpeririencePage = () => {
                 <div className="ps-2 me-auto">
                   <h3 className="fw-bold">Experience</h3>
                 </div>
-                <div className="fs-2" onClick={handleShow}>
-                  <i className="bi bi-plus-lg"></i>
-                </div>
+                {!params.id && (
+                  <div className="fs-2" onClick={handleShow}>
+                    <i className="bi bi-plus-lg"></i>
+                  </div>
+                )}
               </div>
 
               <div>
