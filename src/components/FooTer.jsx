@@ -62,19 +62,19 @@ const FooTer = () => {
       <Row className="Container">
         <Col>
           <h5>
-            <i class="bi bi-question-circle"></i>Request?
+            <i className="bi bi-question-circle"></i>Request?
           </h5>
           <p>Visit our help center</p>
           <Row>
             <Col>
               <h5>
-                <i class="bi bi-gear-fill"></i> Manage your account and your privacy
+                <i className="bi bi-gear-fill"></i> Manage your account and your privacy
               </h5>
               <p>Go to settings</p>
               <Row>
                 <Col>
                   <h5>
-                    <i class="bi bi-shield-shaded"></i> Transparency on recommended content
+                    <i className="bi bi-shield-shaded"></i> Transparency on recommended content
                   </h5>
                   <p>Learn more about recommended content.</p>
                 </Col>
