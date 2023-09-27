@@ -9,7 +9,6 @@ import profileModalReducer from "../reducers/profileModal";
 import selectedProfileReducer from "../reducers/selectedProfile";
 import experienceModalReducer from "../reducers/experienceModal";
 import experiencesReducer from "../reducers/personalExperiences";
-import mainPagePosts from "../reducers/GeneralPosts";
 import mainPagePostsReducer from "../reducers/GeneralPosts";
 import profileImageModalReducer from "../reducers/imagineProfileModal";
 import postModalReducer from "../reducers/postReducer";
