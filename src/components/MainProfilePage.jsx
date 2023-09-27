@@ -36,7 +36,7 @@ const MainProfilePage = () => {
   return (
     <>
       {profile && (
-        <Container className="border rounded">
+        <Container className="border rounded bg-white mt-4">
           <ProfileModal />
           <Test />
           <Container className="d-flex mt-2">

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Modal, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { personalFetch } from "../redux/actions";
+import { hideProfileImageModal, personalFetch } from "../redux/actions";
 
 const Test = () => {
   const me = useSelector(state => state.me);
@@ -13,6 +13,10 @@ const Test = () => {
   const handleChange = event => {
     const url = URL.createObjectURL(event.target.files[0]);
     setpicture(url);
+  };
+  const handleClose = () => {
+    console.log("close");
+    dispatch(hideProfileImageModal());
   };
 
   const handleSubmit = async event => {
@@ -47,7 +51,7 @@ const Test = () => {
         <Modal.Dialog>
           <Modal.Header>
             <Modal.Title>Modal title</Modal.Title>
-            <Button>
+            <Button onClick={handleClose}>
               <i class="bi bi-x-lg"></i>
             </Button>
           </Modal.Header>

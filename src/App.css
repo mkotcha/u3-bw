@@ -30,3 +30,6 @@ body {
 .smalltext {
   font-size: 10px;
 }
+.fontSizeIconTopBar {
+  font-size: 150%;
+}
