@@ -16,6 +16,7 @@ import ExpeririencePage from "./components/ExperiencePage";
 import FrontPageSizing from "./components/FrontPageSizing";
 import AsideMainPage from "./components/AsideMainPage";
 import FooTer from "./components/FooTer";
+import PostModal from "./components/PostModal";
 
 function App() {
   const dispatch = useDispatch();
@@ -38,6 +39,7 @@ function App() {
         <Route path="/test" element={<Test />} />
         <Route path="/test/:id" element={<Test />} />
         <Route path="/experience" element={<ExpeririencePage />} />
+        <Route path="/post" element={<PostModal />} />
       </Routes>
       <FooTer />
     </BrowserRouter>
