@@ -9,6 +9,7 @@ import profileModalReducer from "../reducers/profileModal";
 import selectedProfileReducer from "../reducers/selectedProfile";
 import experienceModalReducer from "../reducers/experienceModal";
 import experiencesReducer from "../reducers/personalExperiences";
+import profileImageModalReducer from "../reducers/imagineProfileModal";
 
 // const persistConfig = {
 //   key: "root",
@@ -28,6 +29,7 @@ const mainReducer = combineReducers({
   profileModal: profileModalReducer,
   experienceModal: experienceModalReducer,
   experiences: experiencesReducer,
+  imageProfilesModal: profileImageModalReducer,
 });
 
 // const persistedReducer = persistReducer(persistConfig, mainReducer);

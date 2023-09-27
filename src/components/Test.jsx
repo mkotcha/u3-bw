@@ -1,15 +1,22 @@
 import { useEffect, useState } from "react";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Button, Col, Container, Form, Modal, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { personalFetch } from "../redux/actions";
+import { hideProfileImageModal, personalFetch } from "../redux/actions";
 
 const Test = () => {
   const me = useSelector(state => state.me);
   const [picture, setpicture] = useState("");
   const dispatch = useDispatch();
+
+  const show = useSelector(state => state.imageProfilesModal.showImage);
+
   const handleChange = event => {
     const url = URL.createObjectURL(event.target.files[0]);
     setpicture(url);
+  };
+  const handleClose = () => {
+    console.log("close");
+    dispatch(hideProfileImageModal());
   };
 
   const handleSubmit = async event => {
@@ -40,14 +47,23 @@ const Test = () => {
 
   return (
     <>
-      <Container>
-        <p>ciao!</p>
-        <Row className="justify-content-center">
-          <Col sm={8} md={6}>
+      <Modal show={show}>
+        <Modal.Dialog>
+          <Modal.Header>
+            <Modal.Title>Modal title</Modal.Title>
+            <Button onClick={handleClose}>
+              <i class="bi bi-x-lg"></i>
+            </Button>
+          </Modal.Header>
+
+          <Modal.Body>
+            <div>
+              <img src={picture} alt="" className="w-100" />
+            </div>
+          </Modal.Body>
+
+          <Modal.Footer>
             <Form onSubmit={handleSubmit}>
-              <div>
-                <img src={picture} alt="" className="w-100" />
-              </div>
               <Form.Group controlId="formFile" className="mb-3" onChange={handleChange}>
                 <Form.Label>Select a photo</Form.Label>
                 <Form.Control type="file" />
@@ -56,9 +72,10 @@ const Test = () => {
                 <Button type="submit">Submit</Button>
               </Form.Group>
             </Form>
-          </Col>
-        </Row>
-      </Container>
+          </Modal.Footer>
+        </Modal.Dialog>
+      </Modal>
+      ;
     </>
   );
 };

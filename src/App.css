@@ -56,3 +56,6 @@ body {
 .Container {
   margin-inline: 20px;
 }
+.fontSizeIconTopBar {
+  font-size: 150%;
+}
