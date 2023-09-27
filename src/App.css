@@ -30,3 +30,29 @@ body {
 .smalltext {
   font-size: 10px;
 }
+
+.contDropdown {
+  width: 250px;
+}
+
+#Footer p {
+  font-size: small;
+  padding-inline: 5px;
+}
+#Footer h5 {
+  font-size: medium;
+}
+@media (max-width: 768px) {
+  #Footer {
+    padding-inline: 0;
+    display: flex;
+    justify-content: column;
+  }
+}
+
+#dropupFooter {
+  min-width: 300px;
+}
+.Container {
+  margin-inline: 20px;
+}
