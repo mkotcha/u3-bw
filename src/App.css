@@ -70,3 +70,32 @@ body {
 #profile-page-picture {
   margin-top: -100px;
 }
+
+.fontSizeFooterHompage {
+  font-size: 70%;
+}
+.aside-profile-backgraund {
+  height: 70px;
+  background-image: url(./bg.svg);
+}
+#aside-profile-image {
+  margin-top: -40px;
+}
+/* .input-group {
+  width: 100% !important;
+}
+.form-inline {
+  width: 100%;
+}
+
+.form-group {
+  width: 100%;
+}
+
+.input-group {
+  width: 100% !important;
+}
+
+.form-control {
+  width: 80% !important;
+} */

@@ -17,8 +17,8 @@ const HomePagePost = () => {
       <Container>
         {posts &&
           posts.slice(0, 21).map(post => (
-            <Container key={post._id}>
-              <Container className="d-flex mt-3 bg-light p-3 ">
+            <Container key={post._id} className="rounded border-dark-subtle border p-0 mb-2">
+              <Container className="d-flex bg-light pt-2">
                 <Row>
                   <Col className="d-flex ">
                     <div className="">
