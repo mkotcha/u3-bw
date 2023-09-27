@@ -1,30 +1,26 @@
 import { Button, Col, Container, NavDropdown, Row } from "react-bootstrap";
+import LanguageDropdown from "./LanguageDropdown";
 
 const FooTer = () => {
   return (
-    <Container className="d-flex justify-content-evenly my-4" id="Footer">
+    <Container className="d-flex justify-content-centre my-4" id="Footer">
       <Row>
         <Col>
-          <p>Informazioni</p>
+          <p>Information</p>
           <Row>
             <Col>
-              <p>Linea guida per la community</p>
+              <p>Ccommunity guideline</p>
               <Row>
                 <Col>
-                  <NavDropdown title="Privacy e condizioni" id="basic-nav-dropdown">
-                    <Container className="contDropdown ms-3 px-3  " fluid>
-                      <h5>Account</h5>
-                      <NavDropdown.Item href="#action/3.4">work </NavDropdown.Item>
-                      <p>Post an activity</p>
-                      <p>Account </p>
-                      <p>Quit</p>
-                    </Container>
+                  <NavDropdown title="Privacy condition" id="basic-nav-dropdown">
+                    <p>Informazioni sulla privacy</p>
+                    <p>Contratto di licenza</p>
+                    <p>Termini e condizioni delle pagine</p>
+                    <p>Informativa sui coockie</p>
+                    <p>Informativa sul copyright</p>
                   </NavDropdown>
-                  <p>Sale solution</p>
+                  <p>Sale solution</p> <p>Security centre</p>
                 </Col>
-                <Row>
-                  <p>Centro di sicurezza</p>
-                </Row>
               </Row>
             </Col>
           </Row>
@@ -32,17 +28,16 @@ const FooTer = () => {
       </Row>
       <Row>
         <Col>
-          <p>Accessibilità</p>
+          <p>Accessibility</p>
           <Row>
             <Col>
-              <p>Carriera</p>
+              <p>Carrer</p>
               <Row>
                 <Col>
-                  <p>Opzioni per gli annunci pubblicitari</p>
-                </Col>
-                <Row>
+                  <p>Advertising options</p>
                   <p>Mobile</p>
-                </Row>
+                </Col>
+                <Row></Row>
               </Row>
             </Col>
           </Row>
@@ -53,14 +48,12 @@ const FooTer = () => {
           <p>Talent solution</p>
           <Row>
             <Col>
-              <p>Soluzioni di marketing</p>
+              <p>Marketing Solutions</p>
               <Row>
                 <Col>
-                  <p>Publicità</p>
+                  <p>Advertising</p>
+                  <p>Small businesses</p>
                 </Col>
-                <Row>
-                  <p>Piccole imprese</p>
-                </Row>
               </Row>
             </Col>
           </Row>
@@ -68,21 +61,44 @@ const FooTer = () => {
       </Row>
       <Row>
         <Col>
-          <h5>Domande?</h5>
-          <p>Visita il nostro centro assistenza</p>
+          <h5>
+            <i class="bi bi-question-circle"></i>Request?
+          </h5>
+          <p>Visit our help center</p>
           <Row>
             <Col>
-              <h5>Gestisci il tuo account e la tua privacy</h5>
-              <p>Vai alle impostazioni</p>
+              <h5>
+                <i class="bi bi-gear-fill"></i> Manage your account and your privacy
+              </h5>
+              <p>Go to settings</p>
               <Row>
                 <Col>
-                  <h5>Trasparenza sui contenuti consigliati</h5>
-                  <p>Scopri di più sui contenuti consigliati.</p>
+                  <h5>
+                    <i class="bi bi-shield-shaded"></i> Transparency on recommended content
+                  </h5>
+                  <p>Learn more about recommended content.</p>
                 </Col>
-                <Row>Centro di sicurezza</Row>
               </Row>
             </Col>
           </Row>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <p>Select language</p>
+          <LanguageDropdown />
+          {/* <Container class="btn-group dropup " id="dropupFooter">
+            <button
+              type="button"
+              className="btn btn-light dropdown-toggle"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Inglish
+            </button>
+            <Container className="dropdown-menu"></Container> */}
+          {/* </Container> */}
         </Col>
       </Row>
     </Container>

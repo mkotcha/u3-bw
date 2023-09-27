@@ -37,7 +37,15 @@ body {
 
 #Footer p {
   font-size: small;
+  padding-inline: 5px;
 }
 #Footer h5 {
   font-size: medium;
+}
+#Footer {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+#dropupFooter {
+  min-width: 300px;
 }
