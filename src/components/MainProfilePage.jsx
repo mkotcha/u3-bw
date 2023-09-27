@@ -1,9 +1,10 @@
 import { Button, Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { showProfileModal } from "../redux/actions";
+import { showProfileImageModal, showProfileModal } from "../redux/actions";
 import ProfileModal from "./ProfileModal";
 import { useEffect, useState } from "react";
+import Test from "./Test";
 
 const MainProfilePage = () => {
   const params = useParams();
@@ -16,6 +17,11 @@ const MainProfilePage = () => {
 
   const handleShow = () => {
     dispatch(showProfileModal());
+  };
+
+  const handleShowImage = () => {
+    console.log("click");
+    dispatch(showProfileImageModal());
   };
 
   useEffect(() => {
@@ -32,6 +38,7 @@ const MainProfilePage = () => {
       {profile && (
         <Container className="border rounded">
           <ProfileModal />
+          <Test />
           <Container className="d-flex mt-2">
             <div
               className="fluid  justify-content-center p-0"
@@ -44,7 +51,8 @@ const MainProfilePage = () => {
                 backgroundSize: "contain",
                 backgroundImage:
                   "URL(https://media.licdn.com/dms/image/C4D16AQH-cFycCHgyyw/profile-displaybackgroundimage-shrink_350_1400/0/1623871492315?e=1701302400&v=beta&t=4SONOo_KOAgC36nEQ3ZuzifeRhaPpzs0iiFUHiQyUHE)",
-              }}>
+              }}
+            >
               {/*  <img
             className="w-100"
             style={{ position: 'absolute', zIndex: '-1' }}
@@ -63,6 +71,7 @@ const MainProfilePage = () => {
                     alt="linkedin-profile"
                     className="rounded-circle ms-1 "
                     style={{ maxHeight: "150px", width: "150px" }}
+                    onClick={handleShowImage}
                   />
                 </button>
                 <div className="d-flex ">

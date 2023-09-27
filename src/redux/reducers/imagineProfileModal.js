@@ -1,20 +1,20 @@
-import { HIDE_PROFILE_MODAL, SHOW_PROFILE_MODAL } from "../actions";
+import { HIDE_PROFILE_IMAGE_MODAL, SHOW_PROFILE_IMAGE_MODAL } from "../actions";
 
 const initialState = {
-  show: false,
+  showImage: false,
 };
 
-const profileModalReducer = (state = initialState, action) => {
+const profileImageModalReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SHOW_PROFILE_MODAL:
+    case SHOW_PROFILE_IMAGE_MODAL:
       return {
         ...state,
-        show: true,
+        showImage: true,
       };
-    case HIDE_PROFILE_MODAL:
+    case HIDE_PROFILE_IMAGE_MODAL:
       return {
         ...state,
-        show: false,
+        showImage: false,
       };
 
     default:
@@ -22,4 +22,4 @@ const profileModalReducer = (state = initialState, action) => {
   }
 };
 
-export default profileModalReducer;
+export default profileImageModalReducer;

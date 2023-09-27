@@ -7,6 +7,9 @@ const Test = () => {
   const me = useSelector(state => state.me);
   const [picture, setpicture] = useState("");
   const dispatch = useDispatch();
+
+  const show = useSelector(state => state.imageProfilesModal.showImage);
+
   const handleChange = event => {
     const url = URL.createObjectURL(event.target.files[0]);
     setpicture(url);
@@ -42,8 +45,11 @@ const Test = () => {
     <>
       <Modal show={show}>
         <Modal.Dialog>
-          <Modal.Header closeButton>
+          <Modal.Header>
             <Modal.Title>Modal title</Modal.Title>
+            <Button>
+              <i class="bi bi-x-lg"></i>
+            </Button>
           </Modal.Header>
 
           <Modal.Body>
