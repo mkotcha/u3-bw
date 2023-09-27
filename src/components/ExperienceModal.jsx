@@ -4,6 +4,7 @@ import {
   experiencesFetch,
   hideExperienceModal,
   postExperienceFetch,
+  postExperienceImage,
   putExperienceFetch,
   unsetPersonalExperienceId,
 } from "../redux/actions";
@@ -18,6 +19,7 @@ const ExperienceModal = () => {
   const show = useSelector(state => state.experienceModal.show);
   const id = useSelector(state => state.experienceModal.id);
   const personal = useSelector(state => state.me);
+  const [picture, setPicture] = useState("");
 
   const [experience, setExperience] = useState({
     role: "",
@@ -47,6 +49,7 @@ const ExperienceModal = () => {
       description: "",
       area: "",
     });
+    setPicture("");
   };
 
   const handleChange = event => {
@@ -69,12 +72,22 @@ const ExperienceModal = () => {
     }
   };
 
+  const handleImageChange = event => {
+    const url = URL.createObjectURL(event.target.files[0]);
+    setPicture(url);
+  };
+
   const handleSubmit = event => {
     event.preventDefault();
+    const formData = new FormData();
+    formData.append("experience", event.target.formFile.files[0]);
     if (id) {
+      if (formData.get("experience") !== "undefined") {
+        postExperienceImage(personal._id, id, formData);
+      }
       dispatch(putExperienceFetch(experience, personal._id, id));
     } else {
-      dispatch(postExperienceFetch(experience, personal._id));
+      dispatch(postExperienceFetch(experience, personal._id, formData));
     }
   };
 
@@ -110,7 +123,7 @@ const ExperienceModal = () => {
   }, [jobDate]);
 
   useEffect(() => {
-    const testFetch = async () => {
+    const experienceFetch = async () => {
       try {
         const response = await fetch(url + personal.id + "/experiences/" + id, options);
         if (response.ok) {
@@ -122,7 +135,11 @@ const ExperienceModal = () => {
       }
     };
     if (id.length > 0) {
-      testFetch();
+      experienceFetch();
+    }
+
+    if (experience.image) {
+      setPicture(experience.image);
     }
   }, [id, experience._id]);
 
@@ -147,6 +164,15 @@ const ExperienceModal = () => {
                 <Form.Label>Company name</Form.Label>
                 <Form.Control id="company" type="text" value={experience.company} required onChange={handleChange} />
               </Form.Group>
+
+              <div>
+                <img src={picture} alt="" className=" w-50" />
+              </div>
+              <Form.Group controlId="formFile" className="mb-3" onChange={handleImageChange}>
+                <Form.Label>Company image</Form.Label>
+                <Form.Control type="file" />
+              </Form.Group>
+
               <Form.Group className="mb-3 text-secondary">
                 <Form.Label>Location</Form.Label>
                 <Form.Control id="area" type="text" value={experience.area} required onChange={handleChange} />

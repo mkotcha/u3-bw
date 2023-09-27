@@ -107,7 +107,7 @@ export const experiencesFetch = id => {
   };
 };
 
-export const postExperienceFetch = (experience, id) => {
+export const postExperienceFetch = (experience, id, formData) => {
   return async dispatch => {
     const putOptions = {
       ...options,
@@ -125,7 +125,9 @@ export const postExperienceFetch = (experience, id) => {
         dispatch(hideExperienceModal());
         dispatch(unsetPersonalExperienceId());
         dispatch(experiencesFetch(id));
-        console.log(result);
+        if (formData.get("experience") !== "undefined") {
+          postExperienceImage(id, result._id, formData);
+        }
       }
     } catch (error) {
       console.log(error);
@@ -133,7 +135,7 @@ export const postExperienceFetch = (experience, id) => {
   };
 };
 
-export const putExperienceFetch = (experience, userId, expId) => {
+export const putExperienceFetch = (experience, userId, expId, formData) => {
   return async dispatch => {
     const putOptions = {
       ...options,
@@ -170,5 +172,24 @@ export const experienceFetch = async (userId, expId) => {
     }
   } catch (error) {
     console.log(error);
+  }
+};
+
+export const postExperienceImage = async (userId, expId, xformData) => {
+  console.log("formData ", xformData);
+  const postOptions = {
+    body: xformData,
+    method: "POST",
+    headers: {
+      Authorization: "Bearer " + process.env.REACT_APP_BEARER,
+    },
+  };
+  try {
+    const response = await fetch(url + userId + "/experiences/" + expId + "/picture", postOptions);
+    if (response.ok) {
+      console.log(response);
+    }
+  } catch (error) {
+    console.log("error: " + error);
   }
 };

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { experiencesFetch, showExperienceModal } from "../redux/actions";
 import ExperienceModal from "./ExperienceModal";
 import { Link } from "react-router-dom";
+import SingleExperience from "./SingleExperience";
 
 function ExperienceCard() {
   const dispatch = useDispatch();
@@ -22,40 +23,32 @@ function ExperienceCard() {
   return (
     <Card className="mt-3">
       <ExperienceModal />
-      <Card.Header>
-        <Container>
-          <Row className="justify-content-between align-items-center">
-            <Col sm={3}>
-              <Card.Title className="pt-3">Experience</Card.Title>
-            </Col>
 
-            <Col sm={2}>
-              <Card.Link onClick={handleShow}>
-                <i className="bi bi-plus fs-4"></i>
-              </Card.Link>
-              <Link to="/experience">
-                <i className="bi bi-pencil fs-4 mx-2"></i>
-              </Link>
-            </Col>
-          </Row>
-        </Container>
-      </Card.Header>
+      <Container className="m-2">
+        <div className="d-flex align-items-center">
+          <div className="me-auto">
+            <div className="pt-3 fw-bold fs-4">Experience</div>
+          </div>
 
-      {experiences &&
-        experiences.map(experience => (
-          <Card.Body key={experience._id}>
-            <Card.Title>{experience.role}</Card.Title>
-            <Card.Subtitle>{experience.company}</Card.Subtitle>
-            <Card.Text>{experience.startDate}</Card.Text>
-            <Card.Text>{experience.area}</Card.Text>
-            <Card.Text>{experience.description}</Card.Text>
-          </Card.Body>
-        ))}
+          <Link onClick={handleShow} className="text-reset">
+            <i className="bi bi-plus-lg fs-4 me-4 text-tertiary"></i>
+          </Link>
 
+          <Link to="/experience" className="text-reset">
+            <i className="bi bi-pencil fs-4 mx-2 text-secondary"></i>
+          </Link>
+        </div>
+      </Container>
+      <div className="mx-2 px-3 ">
+        {experiences &&
+          experiences.map(experience => <SingleExperience key={experience._id} experience={experience} />)}
+      </div>
       <Card.Footer className="text-center">
-        <Card.Link href="#">
-          Show all experiences<i className="bi bi-arrow-right-short"></i>
-        </Card.Link>
+        <Link to="/experience" className="text-reset text-decoration-none">
+          <span className="text-tertia text-body-tertiary">
+            Show all experiences<i className="bi bi-arrow-right-short"></i>
+          </span>
+        </Link>
       </Card.Footer>
     </Card>
   );

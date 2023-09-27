@@ -21,14 +21,18 @@ const ExpeririencePage = () => {
     dispatch(experiencesFetch(me._id));
   }, [dispatch, me._id]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Container>
         <ExperienceModal />
         <Row className="justify-content-center">
           <Col xs={8} lg={7}>
-            <Container className="bg-light my-4 rounded-3 border border-dark-subtle shadow-sm">
-              <div className="d-flex  align-items-baseline">
+            <Container className="p-4 bg-light my-4 rounded-3 border border-dark-subtle shadow-sm">
+              <div className="d-flex  align-items-baseline mb-3">
                 <div className="fs-2" onClick={() => navigate(-1)}>
                   <i className="bi bi-arrow-left"></i>
                 </div>
