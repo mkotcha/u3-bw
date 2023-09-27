@@ -63,6 +63,8 @@ body {
 .profile-background {
   height: 160px;
   background-image: url(./bg.svg);
+  background-size: cover;
+  background-position: center center;
 }
 
 #profile-page-picture {
