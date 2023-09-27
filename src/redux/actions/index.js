@@ -41,7 +41,6 @@ export const hidePostModal = () => ({ type: HIDE_POST_MODAL });
 export const setExperienceModal = () => ({ type: SET_PERSONAL_POST_ID });
 export const unsetExperienceModal = () => ({ type: UNSET_PERSONAL_EXPERIENCE_ID });
 
-// const postsUrl = 'https://striveschool-api.herokuapp.com/api/posts/';
 const url = "https://striveschool-api.herokuapp.com/api/profile/";
 const postsUrl = "https://striveschool-api.herokuapp.com/api/posts/";
 // const url = "https://barbie-linkedin.cyclic.cloud/api/profile/";
