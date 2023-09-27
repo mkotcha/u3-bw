@@ -11,7 +11,7 @@ const FrontPageSizing = () => {
         </Col>
         <Col xs={10} lg={6}>
           <HomePageMiddle />
-          {/* <HomePagePost /> */}
+          <HomePagePost />
         </Col>
       </Row>
     </Container>

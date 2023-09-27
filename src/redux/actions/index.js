@@ -179,14 +179,14 @@ export const experienceFetch = async (userId, expId) => {
 
 /* posts Fetch */
 
-export const fetchPosts = async () => {
+export const fetchPosts = () => {
   return async dispatch => {
     try {
       const response = await fetch('https://striveschool-api.herokuapp.com/api/posts/', options);
 
       if (response.ok) {
         const posts = await response.json();
-        console.log(posts);
+        /* console.log(posts); */
         dispatch(setMainPagePosts(posts));
       }
     } catch (error) {
