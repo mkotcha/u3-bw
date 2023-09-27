@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button, Container, Form, Modal } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { newPostFetch } from "../redux/actions";
 
@@ -40,7 +40,7 @@ const PostModal = () => {
                 <span className="fs-5">
                   Name{" "}
                   <span className="ms-2 fs-6">
-                    <i class="bi bi-caret-down-fill"></i>
+                    <i className="bi bi-caret-down-fill"></i>
                   </span>
                 </span>
                 <div className="fs-6">Post To Anyone</div>
@@ -72,7 +72,7 @@ const PostModal = () => {
 
         <Container className="fs-4 ps-0">
           <span className="opacity-75 fw-bolder">
-            <i class="bi bi-emoji-smile"></i>
+            <i className="bi bi-emoji-smile"></i>
           </span>
         </Container>
 
