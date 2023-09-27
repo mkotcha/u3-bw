@@ -3,8 +3,8 @@ import LanguageDropdown from "./LanguageDropdown";
 
 const FooTer = () => {
   return (
-    <Container className="d-flex justify-content-centre my-4" id="Footer">
-      <Row>
+    <Container className="d-flex justify-content-centre my-4" id="Footer" fluid>
+      <Row className="Container">
         <Col>
           <p>Information</p>
           <Row>
@@ -26,7 +26,7 @@ const FooTer = () => {
           </Row>
         </Col>
       </Row>
-      <Row>
+      <Row className="Container">
         <Col>
           <p>Accessibility</p>
           <Row>
@@ -43,7 +43,7 @@ const FooTer = () => {
           </Row>
         </Col>
       </Row>
-      <Row>
+      <Row className="Container">
         <Col>
           <p>Talent solution</p>
           <Row>
@@ -59,7 +59,7 @@ const FooTer = () => {
           </Row>
         </Col>
       </Row>
-      <Row>
+      <Row className="Container">
         <Col>
           <h5>
             <i class="bi bi-question-circle"></i>Request?
@@ -83,22 +83,10 @@ const FooTer = () => {
           </Row>
         </Col>
       </Row>
-      <Row>
+      <Row className="Container">
         <Col>
           <p>Select language</p>
           <LanguageDropdown />
-          {/* <Container class="btn-group dropup " id="dropupFooter">
-            <button
-              type="button"
-              className="btn btn-light dropdown-toggle"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Inglish
-            </button>
-            <Container className="dropdown-menu"></Container> */}
-          {/* </Container> */}
         </Col>
       </Row>
     </Container>

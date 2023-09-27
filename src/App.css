@@ -42,10 +42,17 @@ body {
 #Footer h5 {
   font-size: medium;
 }
-#Footer {
-  padding-left: 10%;
-  padding-right: 10%;
+@media (max-width: 768px) {
+  #Footer {
+    padding-inline: 0;
+    display: flex;
+    justify-content: column;
+  }
 }
+
 #dropupFooter {
   min-width: 300px;
+}
+.Container {
+  margin-inline: 20px;
 }
