@@ -1,17 +1,18 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import persistStore from 'redux-persist/es/persistStore';
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import persistStore from "redux-persist/es/persistStore";
 // import storage from "redux-persist/lib/storage";
 // import persistReducer from "redux-persist/es/persistReducer";
 // import { encryptTransform } from "redux-persist-transform-encrypt";
-import meReducer from '../reducers/me';
-import otherProfilesReducers from '../reducers/otherProfils';
-import profileModalReducer from '../reducers/profileModal';
-import selectedProfileReducer from '../reducers/selectedProfile';
-import experienceModalReducer from '../reducers/experienceModal';
-import experiencesReducer from '../reducers/personalExperiences';
-import mainPagePosts from '../reducers/GeneralPosts';
-import mainPagePostsReducer from '../reducers/GeneralPosts';
-import profileImageModalReducer from '../reducers/imagineProfileModal';
+import meReducer from "../reducers/me";
+import otherProfilesReducers from "../reducers/otherProfils";
+import profileModalReducer from "../reducers/profileModal";
+import selectedProfileReducer from "../reducers/selectedProfile";
+import experienceModalReducer from "../reducers/experienceModal";
+import experiencesReducer from "../reducers/personalExperiences";
+import mainPagePosts from "../reducers/GeneralPosts";
+import mainPagePostsReducer from "../reducers/GeneralPosts";
+import profileImageModalReducer from "../reducers/imagineProfileModal";
+import postModalReducer from "../reducers/postReducer";
 
 // const persistConfig = {
 //   key: "root",
@@ -33,6 +34,7 @@ const mainReducer = combineReducers({
   experiences: experiencesReducer,
   mainPagePosts: mainPagePostsReducer,
   imageProfilesModal: profileImageModalReducer,
+  postModal: postModalReducer,
 });
 
 // const persistedReducer = persistReducer(persistConfig, mainReducer);

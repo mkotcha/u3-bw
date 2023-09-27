@@ -192,7 +192,8 @@ const ExperienceModal = () => {
                     className="ms-1"
                     aria-label="Default select example"
                     id="startYear"
-                    onChange={handleChange}>
+                    onChange={handleChange}
+                  >
                     <option>Year</option>
 
                     {new Array(43).fill("a").map((elm, i) => (
@@ -219,7 +220,8 @@ const ExperienceModal = () => {
                     className="ms-1"
                     aria-label="Default select example"
                     id="endYear"
-                    onChange={handleChange}>
+                    onChange={handleChange}
+                  >
                     <option>Year</option>
 
                     {new Array(43).fill("a").map((elm, i) => (
