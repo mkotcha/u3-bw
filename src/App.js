@@ -6,6 +6,14 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./App.css";
 import bg from "./bg.svg";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+
+import "bootstrap-icons/font/bootstrap-icons.css";
+
+import "./App.css";
+
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchPosts, otherProfileFetch, personalFetch } from "./redux/actions";
@@ -16,6 +24,9 @@ import ExpeririencePage from "./components/ExperiencePage";
 import FrontPageSizing from "./components/FrontPageSizing";
 import FooTer from "./components/FooTer";
 import AsideMainPage from "./components/AsideMainPage";
+import HomePageMiddle from "./components/HomePageMiddle";
+import FrontPageSizing from "./components/FrontPageSizing";
+import PostModal from "./components/PostModal";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,7 +42,7 @@ function App() {
       <Topbar />
       <Routes>
         <Route path="/home" element={<FrontPageSizing />} />
-        <Route path="/asidemainpage" element={<AsideMainPage />} />
+        {/* <Route path="/asidemainpage" element={<AsideMainPage />} /> */}
         <Route path="/profilepage/" element={<ProfilePage />} />
         <Route path="/profilepage/:id" element={<ProfilePage />} />
         <Route path="/" element={<ProfilePage />} />
@@ -39,8 +50,9 @@ function App() {
         <Route path="/test/:id" element={<Test />} />
         <Route path="/experience" element={<ExpeririencePage />} />
         <Route path="/experience/:id" element={<ExpeririencePage />} />
+        <Route path="/post" element={<PostModal />} />
       </Routes>
-      <FooTer />
+      {/*  <FooTer /> */}
     </BrowserRouter>
   );
 }

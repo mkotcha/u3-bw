@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { fetchPosts } from '../redux/actions';
+import { useEffect } from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { fetchPosts } from "../redux/actions";
 
 const HomePagePost = () => {
   const posts = useSelector(state => state.mainPagePosts.posts);
@@ -26,7 +26,7 @@ const HomePagePost = () => {
                         className="rounded-circle"
                         src={post.user.image}
                         alt=""
-                        style={{ height: '50px', width: '50px' }}
+                        style={{ height: "50px", width: "50px" }}
                       />
                     </div>
 
