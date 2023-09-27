@@ -6,6 +6,8 @@ export const HIDE_PROFILE_MODAL = "HIDE_PROFILE_MODAL";
 export const SHOW_EXPERIENCE_MODAL = "HIDE_EXPERIENCE_MODALL";
 export const HIDE_EXPERIENCE_MODAL = "HIDE_EXPERIENCE_MODAL";
 export const SET_PERSONAL_EXPERIENCES = "SET_PERSONAL_EXPERIENCES";
+export const SET_PERSONAL_EXPERIENCE_ID = "SET_PERSONAL_EXPERIENCE_ID";
+export const UNSET_PERSONAL_EXPERIENCE_ID = "UNSET_PERSONAL_EXPERIENCE_ID";
 export const PUT_PERSONAL_EXPERIENCE = "PUT_PERSONAL_EXPERIENCE";
 export const POST_PERSONAL_EXPERIENCE = "POST_PERSONAL_EXPERIENCE";
 
@@ -17,17 +19,19 @@ export const hideProfileModal = () => ({ type: HIDE_PROFILE_MODAL });
 export const showExperienceModal = () => ({ type: SHOW_EXPERIENCE_MODAL });
 export const hideExperienceModal = () => ({ type: HIDE_EXPERIENCE_MODAL });
 export const setPersonalExperiences = experience => ({ type: SET_PERSONAL_EXPERIENCES, payload: experience });
+export const setPersonalExperienceId = id => ({ type: SET_PERSONAL_EXPERIENCE_ID, payload: id });
+export const unsetPersonalExperienceId = id => ({ type: UNSET_PERSONAL_EXPERIENCE_ID });
 export const putPersonalExperience = experience => ({ type: PUT_PERSONAL_EXPERIENCE, payload: experience });
 export const postPersonalExperience = experience => ({ type: POST_PERSONAL_EXPERIENCE, payload: experience });
 
-// const url = "https://striveschool-api.herokuapp.com/api/profile/";
-const url = "https://barbie-linkedin.cyclic.cloud/api/profile/";
+const url = "https://striveschool-api.herokuapp.com/api/profile/";
+// const url = "https://barbie-linkedin.cyclic.cloud/api/profile/";
 
 const options = {
-  // headers: { Authorization: "Bearer " + process.env.REACT_APP_BEARER },
-  headers: {
-    team: "team-5",
-  },
+  headers: { Authorization: "Bearer " + process.env.REACT_APP_BEARER },
+  // headers: {
+  //   team: "team-5",
+  // },
 };
 
 export const personalFetch = (id = "me") => {
@@ -119,10 +123,52 @@ export const postExperienceFetch = (experience, id) => {
         const result = await response.json();
         //dispatch(());
         dispatch(hideExperienceModal());
+        dispatch(unsetPersonalExperienceId());
+        dispatch(experiencesFetch(id));
         console.log(result);
       }
     } catch (error) {
       console.log(error);
     }
   };
+};
+
+export const putExperienceFetch = (experience, userId, expId) => {
+  return async dispatch => {
+    const putOptions = {
+      ...options,
+      method: "PUT",
+      body: JSON.stringify(experience),
+      headers: { ...options.headers, "Content-Type": "application/json" },
+    };
+
+    try {
+      const response = await fetch(url + userId + "/experiences/" + expId, putOptions);
+
+      if (response.ok) {
+        const result = await response.json();
+        //dispatch(());
+        dispatch(hideExperienceModal());
+        dispatch(unsetPersonalExperienceId());
+        dispatch(experiencesFetch(userId));
+        console.log(result);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const experienceFetch = async (userId, expId) => {
+  // console.log("personal fetch");
+  try {
+    const response = await fetch(url + userId + "/experiences/" + expId, options);
+    if (response.ok) {
+      const result = await response.json();
+
+      return result;
+    }
+  } catch (error) {
+    console.log(error);
+  }
 };

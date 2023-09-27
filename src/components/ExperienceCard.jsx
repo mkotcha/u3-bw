@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { experiencesFetch, showExperienceModal } from "../redux/actions";
 import ExperienceModal from "./ExperienceModal";
+import { Link } from "react-router-dom";
 
 function ExperienceCard() {
   const dispatch = useDispatch();
@@ -15,10 +16,8 @@ function ExperienceCard() {
   };
 
   useEffect(() => {
-    console.log(me);
-
-    dispatch(experiencesFetch(me._id));
-  }, [me._id]);
+    if (me._id) dispatch(experiencesFetch(me._id));
+  }, [dispatch, me._id]);
 
   return (
     <Card className="mt-3">
@@ -34,9 +33,9 @@ function ExperienceCard() {
               <Card.Link onClick={handleShow}>
                 <i className="bi bi-plus fs-4"></i>
               </Card.Link>
-              <Card.Link href="#">
+              <Link to="/experience">
                 <i className="bi bi-pencil fs-4 mx-2"></i>
-              </Card.Link>
+              </Link>
             </Col>
           </Row>
         </Container>
@@ -44,12 +43,12 @@ function ExperienceCard() {
 
       {experiences &&
         experiences.map(experience => (
-          <Card.Body>
+          <Card.Body key={experience._id}>
             <Card.Title>{experience.role}</Card.Title>
             <Card.Subtitle>{experience.company}</Card.Subtitle>
             <Card.Text>{experience.startDate}</Card.Text>
             <Card.Text>{experience.area}</Card.Text>
-            <Card.Text>{experience.descriptio}</Card.Text>
+            <Card.Text>{experience.description}</Card.Text>
           </Card.Body>
         ))}
 

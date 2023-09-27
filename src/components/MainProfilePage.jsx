@@ -44,8 +44,7 @@ const MainProfilePage = () => {
                 backgroundSize: "contain",
                 backgroundImage:
                   "URL(https://media.licdn.com/dms/image/C4D16AQH-cFycCHgyyw/profile-displaybackgroundimage-shrink_350_1400/0/1623871492315?e=1701302400&v=beta&t=4SONOo_KOAgC36nEQ3ZuzifeRhaPpzs0iiFUHiQyUHE)",
-              }}
-            >
+              }}>
               {/*  <img
             className="w-100"
             style={{ position: 'absolute', zIndex: '-1' }}
@@ -60,7 +59,7 @@ const MainProfilePage = () => {
               <div className="d-flex justify-content-between mt-5">
                 <button className="bg-transparent border-0">
                   <img
-                    src="https://images.unsplash.com/flagged/photo-1595514191830-3e96a518989b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80"
+                    src={personalProfile.image}
                     alt="linkedin-profile"
                     className="rounded-circle ms-1 "
                     style={{ maxHeight: "150px", width: "150px" }}
