@@ -213,7 +213,6 @@ export const fetchPosts = () => {
 
 export const postExperienceImage = (userId, expId, xformData) => {
   return async dispatch => {
-    console.log("formData ", xformData);
     const postOptions = {
       body: xformData,
       method: "POST",
@@ -266,7 +265,6 @@ export const putPostFetch = (post, postId) => {
       body: JSON.stringify(post),
       headers: { ...options.headers, "Content-Type": "application/json" },
     };
-    console.log("la put...");
     try {
       const response = await fetch(postsUrl + postId, putOptions);
 
@@ -286,7 +284,6 @@ export const putPostFetch = (post, postId) => {
 
 export const postPostImage = (userId, postId, xformData) => {
   return async dispatch => {
-    console.log("formData ", xformData);
     const postOptions = {
       body: xformData,
       method: "POST",

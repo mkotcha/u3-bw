@@ -8,10 +8,6 @@ const PersonalPosts = () => {
   const [personalPost, setPersonalPost] = useState([]);
   // const postId = useSelector(state => state.postModal.id);
   useEffect(() => {
-    console.log(
-      "post: ",
-      posts.filter(post => post.user._id == me._id)
-    );
     setPersonalPost(posts.filter(post => post.user._id === me._id));
   }, [me._id, posts]);
 

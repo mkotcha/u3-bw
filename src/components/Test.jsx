@@ -15,7 +15,6 @@ const Test = () => {
     setpicture(url);
   };
   const handleClose = () => {
-    console.log("close");
     dispatch(hideProfileImageModal());
   };
 
