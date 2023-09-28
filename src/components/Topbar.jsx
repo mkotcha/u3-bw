@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Topbar = () => {
   const personalProfile = useSelector(state => state.me);
@@ -36,37 +36,39 @@ const Topbar = () => {
                   <Container>
                     <Navbar id="basic-navbar-nav">
                       <Nav className="me-auto">
-                        <Nav.Link href="#home">
-                          <Row>
-                            <i className="bi bi-house-door-fill text-center fontSizeIconTopBar"></i>
+                        <NavLink to={"/"} className="nav-link">
+                          <div className="d-flex flex-column text-center text-reset text-decoration-none">
+                            <i className="bi bi-house-door-fill text-center fs-3"></i>
                             <span className="smalltext text-center d-none d-lg-inline">Home</span>
-                          </Row>
-                        </Nav.Link>
-                        <Nav.Link href="#home">
-                          <Row>
+                          </div>
+                        </NavLink>
+
+                        <NavLink to={"/My Network"} className="nav-link">
+                          <div className="d-flex flex-column text-center text-reset text-decoration-none">
                             <i className="bi bi-people-fill text-center fontSizeIconTopBar"></i>
                             <span className="smalltext text-center d-none d-lg-inline">My Network</span>
-                          </Row>
-                        </Nav.Link>
-                        <Nav.Link href="#home">
-                          <Row>
+                          </div>
+                        </NavLink>
+
+                        <NavLink to={"/Jobs"} className="nav-link">
+                          <div className="d-flex flex-column text-center text-reset text-decoration-none">
                             <i className="bi bi-briefcase-fill text-center fontSizeIconTopBar"></i>
                             <span className="smalltext text-center d-none d-lg-inline">Jobs</span>
-                          </Row>
-                        </Nav.Link>
-                        <Nav.Link href="#home">
-                          <Row>
+                          </div>
+                        </NavLink>
+                        <NavLink to={"/Messaging"} className="nav-link">
+                          <div className="d-flex flex-column text-center text-reset text-decoration-none">
                             <i className="bi bi-chat-left-dots-fill text-center fontSizeIconTopBar"></i>
 
-                            <span className="smalltext text-center d-none d-lg-inline">My Network</span>
-                          </Row>
-                        </Nav.Link>
-                        <Nav.Link href="#home">
-                          <Row>
+                            <span className="smalltext text-center d-none d-lg-inline">Messaging</span>
+                          </div>
+                        </NavLink>
+                        <NavLink to={"/Notification"} className="nav-link">
+                          <div className="d-flex flex-column text-center text-reset text-decoration-none">
                             <i className="bi bi-bell-fill text-center fontSizeIconTopBar"></i>
                             <span className="smalltext text-center d-none d-lg-inline">Notification</span>
-                          </Row>
-                        </Nav.Link>
+                          </div>
+                        </NavLink>
 
                         <div className="align-self-center d-flex-inline flex-column align-items-center me-3">
                           <Link to={"/profilepage/"}>

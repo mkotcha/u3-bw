@@ -27,11 +27,10 @@ function App() {
     <BrowserRouter>
       <Topbar />
       <Routes>
-        <Route path="/home" element={<FrontPageSizing />} />
+        <Route path="/" element={<FrontPageSizing />} />
         <Route path="/asidemainpage" element={<AsideMainPage />} />
-        <Route path="/profilepage/" element={<ProfilePage />} />
+        <Route path="/profilepage" element={<ProfilePage />} />
         <Route path="/profilepage/:id" element={<ProfilePage />} />
-        <Route path="/" element={<ProfilePage />} />
         <Route path="/test" element={<Test />} />
         <Route path="/test/:id" element={<Test />} />
         <Route path="/experience" element={<ExpeririencePage />} />
