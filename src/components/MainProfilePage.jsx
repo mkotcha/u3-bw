@@ -24,7 +24,6 @@ const MainProfilePage = () => {
   };
 
   useEffect(() => {
-    console.log("log ", profile);
     if (params.id) {
       setProfile(selectedProfile);
     } else {

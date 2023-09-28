@@ -14,7 +14,6 @@ const PostModal = () => {
   const handleSubmit = event => {
     event.preventDefault();
     dispatch(newPostFetch(postText));
-    console.log(postText);
     /* dispatch() */
   };
 
