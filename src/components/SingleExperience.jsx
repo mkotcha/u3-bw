@@ -25,7 +25,7 @@ const SingleExperience = ({ experience }) => {
       <div className="d-flex mb-3">
         <div className="d-flex me-auto">
           <div className="w-25">
-            <img src={experience?.image ? experience?.image : "/assets/img/company.png"} alt="" className="w-75" />
+            <img src={experience.image ? experience.image : "/assets/img/company.png"} alt="" className="w-75" />
           </div>
 
           <div>

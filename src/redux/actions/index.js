@@ -21,9 +21,9 @@ export const UNSET_POST_MODAL_ID = "UNSET_POST_MODAL_ID";
 export const ADD_FRIEND = "ADD_FRIEND";
 export const REM_FRIEND = "REM_FRIEND";
 
-export const setPersonalProfile = (personalProfile) => ({ type: SET_PERSONAL_PROFILE, payload: personalProfile });
-export const setSelectedProfile = (selectedProfile) => ({ type: SET_SELECTED_PROFILE, payload: selectedProfile });
-export const setOtherProfiles = (otherProfils) => ({ type: SET_OTHER_PROFILES, payload: otherProfils });
+export const setPersonalProfile = personalProfile => ({ type: SET_PERSONAL_PROFILE, payload: personalProfile });
+export const setSelectedProfile = selectedProfile => ({ type: SET_SELECTED_PROFILE, payload: selectedProfile });
+export const setOtherProfiles = otherProfils => ({ type: SET_OTHER_PROFILES, payload: otherProfils });
 export const showProfileModal = () => ({ type: SHOW_PROFILE_MODAL });
 export const hideProfileModal = () => ({ type: HIDE_PROFILE_MODAL });
 export const showProfileImageModal = () => ({ type: SHOW_PROFILE_IMAGE_MODAL });
@@ -33,7 +33,7 @@ export const hideExperienceModal = () => ({ type: HIDE_EXPERIENCE_MODAL });
 export const setExperienceModalId = id => ({ type: SET_EXPERIENCE_MODAL_ID, payload: id });
 export const unsetExperienceModalId = () => ({ type: UNSET_EXPERIENCE_MODAL_ID });
 export const setPersonalExperiences = experience => ({ type: SET_PERSONAL_EXPERIENCES, payload: experience });
-export const putPersonalExperience = experience => ({ type: PUT_PERSONAL_EXPERIENCE, payload: experience });
+export const experienPersonalExperience = experience => ({ type: PUT_PERSONAL_EXPERIENCE, payload: experience });
 export const postPersonalExperience = experience => ({ type: POST_PERSONAL_EXPERIENCE, payload: experience });
 export const setMainPagePosts = posts => ({ type: GENERAL_POSTS, payload: posts });
 export const showPostModal = () => ({ type: SHOW_POST_MODAL });
@@ -53,7 +53,7 @@ const options = {
 };
 
 export const personalFetch = (id = "me") => {
-  return async (dispatch) => {
+  return async dispatch => {
     // console.log("personal fetch");
     try {
       const response = await fetch(url + id, options);
@@ -72,7 +72,7 @@ export const personalFetch = (id = "me") => {
 };
 
 export const otherProfileFetch = () => {
-  return async (dispatch) => {
+  return async dispatch => {
     try {
       const resp = await fetch(url, options);
       if (resp.ok) {
@@ -86,8 +86,8 @@ export const otherProfileFetch = () => {
   };
 };
 
-export const putPersonalFetch = (profile) => {
-  return async (dispatch) => {
+export const putPersonalFetch = profile => {
+  return async dispatch => {
     const putOptions = {
       ...options,
       method: "PUT",
@@ -109,14 +109,13 @@ export const putPersonalFetch = (profile) => {
   };
 };
 
-export const experiencesFetch = (id) => {
-  return async (dispatch) => {
+export const experiencesFetch = id => {
+  return async dispatch => {
     // console.log("personal fetch");
     try {
       const response = await fetch(url + id + "/experiences", options);
       if (response.ok) {
         const result = await response.json();
-
         dispatch(setPersonalExperiences(result));
       }
     } catch (error) {
@@ -126,7 +125,7 @@ export const experiencesFetch = (id) => {
 };
 
 export const postExperienceFetch = (experience, id, formData) => {
-  return async (dispatch) => {
+  return async dispatch => {
     const putOptions = {
       ...options,
       method: "POST",
@@ -140,11 +139,12 @@ export const postExperienceFetch = (experience, id, formData) => {
       if (response.ok) {
         const result = await response.json();
         //dispatch(());
-        dispatch(hideExperienceModal());
         dispatch(unsetExperienceModalId());
-        dispatch(experiencesFetch(id));
+        dispatch(hideExperienceModal());
         if (formData.get("experience") !== "undefined") {
-          postExperienceImage(id, result._id, formData);
+          dispatch(postExperienceImage(id, result._id, formData));
+        } else {
+          dispatch(experiencesFetch(id));
         }
       }
     } catch (error) {
@@ -153,8 +153,8 @@ export const postExperienceFetch = (experience, id, formData) => {
   };
 };
 
-export const putExperienceFetch = (experience, userId, expId, formData) => {
-  return async (dispatch) => {
+export const putExperienceFetch = (experience, userId, expId) => {
+  return async dispatch => {
     const putOptions = {
       ...options,
       method: "PUT",
@@ -168,8 +168,8 @@ export const putExperienceFetch = (experience, userId, expId, formData) => {
       if (response.ok) {
         const result = await response.json();
         //dispatch(());
-        dispatch(hideExperienceModal());
         dispatch(unsetExperienceModalId());
+        dispatch(hideExperienceModal());
         dispatch(experiencesFetch(userId));
         console.log(result);
       }
@@ -196,7 +196,7 @@ export const experienceFetch = async (userId, expId) => {
 /* posts Fetch */
 
 export const fetchPosts = () => {
-  return async (dispatch) => {
+  return async dispatch => {
     try {
       const response = await fetch("https://striveschool-api.herokuapp.com/api/posts/", options);
 
@@ -211,29 +211,32 @@ export const fetchPosts = () => {
   };
 };
 
-export const postExperienceImage = async (userId, expId, xformData) => {
-  console.log("formData ", xformData);
-  const postOptions = {
-    body: xformData,
-    method: "POST",
-    headers: {
-      Authorization: "Bearer " + process.env.REACT_APP_BEARER,
-    },
-  };
-  try {
-    const response = await fetch(url + userId + "/experiences/" + expId + "/picture", postOptions);
-    if (response.ok) {
-      console.log(response);
+export const postExperienceImage = (userId, expId, xformData) => {
+  return async dispatch => {
+    console.log("formData ", xformData);
+    const postOptions = {
+      body: xformData,
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + process.env.REACT_APP_BEARER,
+      },
+    };
+    try {
+      const response = await fetch(url + userId + "/experiences/" + expId + "/picture", postOptions);
+      if (response.ok) {
+        console.log(response);
+        dispatch(unsetExperienceModalId());
+        dispatch(experiencesFetch(userId));
+      }
+    } catch (error) {
+      console.log("error: " + error);
     }
-  } catch (error) {
-    console.log("error: " + error);
-  }
+  };
 };
-
 /* Fetch for newPost */
 
-export const newPostFetch = (postText) => {
-  return async (dispatch) => {
+export const newPostFetch = postText => {
+  return async dispatch => {
     const newPost = {
       ...options,
       method: "POST",
@@ -251,6 +254,55 @@ export const newPostFetch = (postText) => {
       }
     } catch (error) {
       console.log(error);
+    }
+  };
+};
+
+export const putPostFetch = (post, postId) => {
+  return async dispatch => {
+    const putOptions = {
+      ...options,
+      method: "PUT",
+      body: JSON.stringify(post),
+      headers: { ...options.headers, "Content-Type": "application/json" },
+    };
+    console.log("la put...");
+    try {
+      const response = await fetch(postsUrl + postId, putOptions);
+
+      if (response.ok) {
+        const result = await response.json();
+        //dispatch(());
+        dispatch(hidePostModal());
+        dispatch(unsetPostModalId());
+        dispatch(fetchPosts());
+        console.log(result);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const postPostImage = (userId, postId, xformData) => {
+  return async dispatch => {
+    console.log("formData ", xformData);
+    const postOptions = {
+      body: xformData,
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + process.env.REACT_APP_BEARER,
+      },
+    };
+    try {
+      const response = await fetch(postsUrl + postId, postOptions);
+      if (response.ok) {
+        console.log(response);
+        dispatch(unsetPostModalId());
+        dispatch(fetchPosts(userId));
+      }
+    } catch (error) {
+      console.log("error: " + error);
     }
   };
 };

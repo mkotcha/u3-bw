@@ -22,7 +22,9 @@ const ExpeririencePage = () => {
     if (params.id) {
       dispatch(experiencesFetch(params.id));
     } else {
-      dispatch(experiencesFetch(me._id));
+      if (me._id) {
+        dispatch(experiencesFetch(me._id));
+      }
     }
   }, [dispatch, me._id, params.id]);
 

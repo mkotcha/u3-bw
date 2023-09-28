@@ -37,7 +37,7 @@ const AsideMainPage = () => {
 
       <Card.Footer>
         <Card.Text>
-          <i class="bi bi-bookmark-fill"></i> My items
+          <i className="bi bi-bookmark-fill"></i> My items
         </Card.Text>
       </Card.Footer>
     </Card>

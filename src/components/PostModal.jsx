@@ -2,10 +2,17 @@ import { useEffect, useState } from "react";
 import { Button, Container, Form, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { hidePostModal, newPostFetch } from "../redux/actions";
+import { hidePostModal, newPostFetch, fetchPosts, postPostImage, putPostFetch } from "../redux/actions";
 
 const PostModal = () => {
+  const url = "https://striveschool-api.herokuapp.com/api/posts/";
+  const options = {
+    headers: { Authorization: "Bearer " + process.env.REACT_APP_BEARER },
+  };
   const show = useSelector(state => state.postModal.show);
+  const id = useSelector(state => state.postModal.id);
+  const personal = useSelector(state => state.me);
+  const [picture, setPicture] = useState("");
   const [postText, setPostText] = useState({
     text: "",
   });
@@ -13,19 +20,63 @@ const PostModal = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch(newPostFetch(postText));
-    /* dispatch() */
+    const formData = new FormData();
+    formData.append("post", event.target.formFile.files[0]);
+    if (id) {
+      if (formData.get("experience") !== "undefined") {
+        dispatch(postPostImage(personal._id, id, formData));
+      }
+      dispatch(putPostFetch(postText, id));
+    } else {
+      dispatch(newPostFetch(postText, personal._id, formData));
+    }
   };
 
   const handleChange = event => {
     setPostText({ text: event.target.value });
   };
 
+  const handleImageChange = event => {
+    const url = URL.createObjectURL(event.target.files[0]);
+    setPicture(url);
+  };
+
+  const handleDelete = async () => {
+    const deleteOptions = {
+      ...options,
+      method: "DELETE",
+    };
+    try {
+      const response = await fetch(url + id, deleteOptions);
+      if (response.ok) {
+        dispatch(fetchPosts());
+        handleClose();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleClose = () => {
     dispatch(hidePostModal());
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const postFetch = async () => {
+      try {
+        const response = await fetch(url + id, options);
+        if (response.ok) {
+          const result = await response.json();
+          setPostText(result);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    if (id.length > 0) {
+      postFetch();
+    }
+  }, [id]);
 
   return (
     <Modal show={show} size="lg" className="">
@@ -54,6 +105,14 @@ const PostModal = () => {
       <Modal.Body>
         <div className="p-3 fs-5">
           <Form id="post-form" onSubmit={event => handleSubmit(event)}>
+            <div>
+              <img src={picture} alt="" className=" w-50" />
+            </div>
+            <Form.Group controlId="formFile" className="mb-3" onChange={handleImageChange}>
+              <Form.Label>Company image</Form.Label>
+              <Form.Control type="file" />
+            </Form.Group>
+
             <Form.Group>
               <Form.Control
                 required
@@ -102,6 +161,12 @@ const PostModal = () => {
         </div>
       </Modal.Body>
       <Modal.Footer>
+        {id && (
+          <div className="me-auto" onClick={handleDelete} role="button">
+            Delete experience
+          </div>
+        )}
+
         <Button type="submit" form="post-form" variant="outline-secondary">
           Post
         </Button>

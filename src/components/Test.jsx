@@ -52,7 +52,7 @@ const Test = () => {
           <Modal.Header>
             <Modal.Title>Modal title</Modal.Title>
             <Button onClick={handleClose}>
-              <i class="bi bi-x-lg"></i>
+              <i className="bi bi-x-lg"></i>
             </Button>
           </Modal.Header>
 

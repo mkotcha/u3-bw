@@ -21,14 +21,7 @@ const ExperienceModal = () => {
   const personal = useSelector(state => state.me);
   const [picture, setPicture] = useState("");
 
-  const [experience, setExperience] = useState({
-    role: "",
-    company: "",
-    startDate: "",
-    endDate: "",
-    description: "",
-    area: "",
-  });
+  const [experience, setExperience] = useState({});
   const [jobDate, setJobDate] = useState({
     startMonth: "Month",
     startYear: "Year",
@@ -41,14 +34,7 @@ const ExperienceModal = () => {
   const handleClose = () => {
     dispatch(hideExperienceModal());
     dispatch(unsetExperienceModalId());
-    setExperience({
-      role: "",
-      company: "",
-      startDate: "",
-      endDate: "",
-      description: "",
-      area: "",
-    });
+    setExperience({});
     setPicture("");
   };
 
@@ -83,7 +69,7 @@ const ExperienceModal = () => {
     formData.append("experience", event.target.formFile.files[0]);
     if (id) {
       if (formData.get("experience") !== "undefined") {
-        postExperienceImage(personal._id, id, formData);
+        dispatch(postExperienceImage(personal._id, id, formData));
       }
       dispatch(putExperienceFetch(experience, personal._id, id));
     } else {
@@ -134,12 +120,17 @@ const ExperienceModal = () => {
         console.log(error);
       }
     };
+
     if (id.length > 0) {
       experienceFetch();
+    } else {
+      setExperience({});
     }
 
     if (experience.image) {
       setPicture(experience.image);
+    } else {
+      setPicture("");
     }
   }, [id, experience._id]);
 
@@ -245,7 +236,7 @@ const ExperienceModal = () => {
           </Modal.Body>
           <Modal.Footer>
             {id && (
-              <div className="me-auto" onClick={handleDelete}>
+              <div className="me-auto" onClick={handleDelete} role="button">
                 Delete experience
               </div>
             )}

@@ -1,6 +1,15 @@
 import { Col, Container, Row } from "react-bootstrap";
+import { setPostModalId, showPostModal } from "../redux/actions";
+import { useDispatch } from "react-redux";
 
 const SinglePost = ({ post }) => {
+  const dispatch = useDispatch();
+
+  const handleMod = () => {
+    dispatch(setPostModalId(post._id));
+    dispatch(showPostModal());
+  };
+
   return (
     <>
       <div className="bg-white rounded border border-secondary-subtle   my-3">
@@ -18,11 +27,19 @@ const SinglePost = ({ post }) => {
             <span className="fw-bold">{post.user.name}</span>
             <small className="text-secondary">{post.user.area}</small>
             <small className="text-secondary">
-              {post.user.updatedAt} • <i className="bi bi-globe-americas"></i>
+              {post.user.updatedAt} <i className="bi bi-globe-americas"></i>
             </small>
+          </div>
+          <div className="ms-auto" onClick={handleMod}>
+            <i className="bi bi-pencil"></i>
           </div>
         </div>
         <div className=" ">
+          {post.image && (
+            <div>
+              <img b src={post.image} alt="post img" className="w-100" />
+            </div>
+          )}
           <div className="p-4 ">{post.text}</div>
 
           <div className="d-flex justify-content-around border-top py-2 text-center">

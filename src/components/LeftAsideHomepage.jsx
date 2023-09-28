@@ -34,7 +34,7 @@ const LeftAsideHomepage = () => {
         <p className="mb-0 px-2">Try Premium for free</p>
         <hr />
         <div className="d-flex px-2">
-          <i class="bi bi-bookmark-fill"></i>
+          <i className="bi bi-bookmark-fill"></i>
           <p>My items</p>
         </div>
       </div>
@@ -42,7 +42,7 @@ const LeftAsideHomepage = () => {
         <p>Groups</p>
         <div className="d-flex justify-content-between">
           <p>Events</p>
-          <i class="bi bi-plus"></i>
+          <i className="bi bi-plus"></i>
         </div>
         <p>Followed Hashtags</p>
         <hr />
