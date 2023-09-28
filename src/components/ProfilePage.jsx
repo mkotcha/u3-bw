@@ -32,10 +32,10 @@ const ProfilePage = () => {
             <ExperienceCard />
             <PersonalPosts />
             <AnalyticsCard />
-            <ResourcesCard></ResourcesCard>
-            <ActivityCard></ActivityCard>
-            <EducationCard></EducationCard>
-            <SkillsCard></SkillsCard>
+            <ResourcesCard />
+            <ActivityCard />
+            <EducationCard />
+            <SkillsCard />
           </Col>
           <Col xs={4} lg={3}>
             <AsideProfilePage />
