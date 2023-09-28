@@ -8,6 +8,7 @@ import ExperienceCard from "./ExperienceCard";
 import EducationCard from "./EducationCard";
 import AnalyticsCard from "./AnalyticsCard";
 import SkillsCard from "./SkillsCard";
+import PersonalPosts from "./PersonalPosts";
 import { useParams } from "react-router";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -27,10 +28,10 @@ const ProfilePage = () => {
         <Row className="justify-content-center">
           <Col xs={8} lg={7} className="">
             <MainProfilePage />
-
-            <Recommended4u></Recommended4u>
-            <ExperienceCard></ExperienceCard>
-            <AnalyticsCard></AnalyticsCard>
+            <Recommended4u />
+            <ExperienceCard />
+            <PersonalPosts />
+            <AnalyticsCard />
             <ResourcesCard></ResourcesCard>
             <ActivityCard></ActivityCard>
             <EducationCard></EducationCard>
