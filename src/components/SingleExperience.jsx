@@ -1,5 +1,5 @@
-import { useDispatch, useSelector } from "react-redux";
-import { setPersonalExperienceId, showExperienceModal } from "../redux/actions";
+import { useDispatch } from "react-redux";
+import { setExperienceModalId, showExperienceModal } from "../redux/actions";
 import { useLocation } from "react-router";
 import { useEffect, useState } from "react";
 
@@ -11,7 +11,7 @@ const SingleExperience = ({ experience }) => {
   const monthNames = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
   const handleMod = () => {
-    dispatch(setPersonalExperienceId(experience._id));
+    dispatch(setExperienceModalId(experience._id));
     dispatch(showExperienceModal());
   };
 

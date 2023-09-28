@@ -1,7 +1,7 @@
-import { HIDE_POST_MODAL, SET_PERSONAL_POST_ID, SHOW_POST_MODAL, UNSET_PERSONAL_POST_ID } from "../actions";
+import { HIDE_POST_MODAL, SET_POST_MODAL_ID, SHOW_POST_MODAL, UNSET_POST_MODAL_ID } from "../actions";
 
 const initialState = {
-  show: false,
+  show: true,
   id: "",
 };
 
@@ -17,12 +17,12 @@ const postModalReducer = (state = initialState, action) => {
         ...state,
         show: false,
       };
-    case SET_PERSONAL_POST_ID:
+    case SET_POST_MODAL_ID:
       return {
         ...state,
         id: action.payload,
       };
-    case UNSET_PERSONAL_POST_ID:
+    case UNSET_POST_MODAL_ID:
       return {
         ...state,
         id: "",

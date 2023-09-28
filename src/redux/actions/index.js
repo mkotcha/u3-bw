@@ -6,14 +6,16 @@ export const HIDE_PROFILE_MODAL = "HIDE_PROFILE_MODAL";
 export const SHOW_EXPERIENCE_MODAL = "HIDE_EXPERIENCE_MODALL";
 export const HIDE_EXPERIENCE_MODAL = "HIDE_EXPERIENCE_MODAL";
 export const SET_PERSONAL_EXPERIENCES = "SET_PERSONAL_EXPERIENCES";
-export const SET_PERSONAL_EXPERIENCE_ID = "SET_PERSONAL_EXPERIENCE_ID";
-export const UNSET_PERSONAL_EXPERIENCE_ID = "UNSET_PERSONAL_EXPERIENCE_ID";
+export const SET_EXPERIENCE_MODAL_ID = "SET_PERSONAL_EXPERIENCE_ID";
+export const UNSET_EXPERIENCE_MODAL_ID = "UNSET_PERSONAL_EXPERIENCE_ID";
 export const PUT_PERSONAL_EXPERIENCE = "PUT_PERSONAL_EXPERIENCE";
 export const POST_PERSONAL_EXPERIENCE = "POST_PERSONAL_EXPERIENCE";
 export const ADD_FRIEND = "ADD_FRIEND";
 export const REM_FRIEND = "REM_FRIEND";
 export const SHOW_POST_MODAL = "SHOW_POST_MODAL";
 export const HIDE_POST_MODAL = "HIDE_POST_MODAL";
+export const SET_POST_MODAL_ID = "SET_POST_MODAL_ID";
+export const UNSET_POST_MODAL_ID = "UNSET_POST_MODAL_ID";
 export const SET_PERSONAL_POST_ID = "SET_PERSONAL_POST_ID";
 export const UNSET_PERSONAL_POST_ID = "UNSET_PERSONAL_POST_ID";
 
@@ -28,9 +30,11 @@ export const showProfileModal = () => ({ type: SHOW_PROFILE_MODAL });
 export const hideProfileModal = () => ({ type: HIDE_PROFILE_MODAL });
 export const showExperienceModal = () => ({ type: SHOW_EXPERIENCE_MODAL });
 export const hideExperienceModal = () => ({ type: HIDE_EXPERIENCE_MODAL });
+export const setExperienceModalId = id => ({ type: SET_EXPERIENCE_MODAL_ID, payload: id });
+export const unsetExperienceModalId = () => ({ type: UNSET_EXPERIENCE_MODAL_ID });
 export const setPersonalExperiences = experience => ({ type: SET_PERSONAL_EXPERIENCES, payload: experience });
-export const setPersonalExperienceId = id => ({ type: SET_PERSONAL_EXPERIENCE_ID, payload: id });
-export const unsetPersonalExperienceId = id => ({ type: UNSET_PERSONAL_EXPERIENCE_ID });
+// export const setPersonalExperienceId = id => ({ type: SET_PERSONAL_EXPERIENCE_ID, payload: id });
+// export const unsetPersonalExperienceId = id => ({ type: UNSET_PERSONAL_EXPERIENCE_ID });
 export const putPersonalExperience = experience => ({ type: PUT_PERSONAL_EXPERIENCE, payload: experience });
 export const postPersonalExperience = experience => ({ type: POST_PERSONAL_EXPERIENCE, payload: experience });
 export const setMainPagePosts = posts => ({ type: GENERAL_POSTS, payload: posts });
@@ -38,8 +42,6 @@ export const showProfileImageModal = () => ({ type: SHOW_PROFILE_IMAGE_MODAL });
 export const hideProfileImageModal = () => ({ type: HIDE_PROFILE_IMAGE_MODAL });
 export const showPostModal = () => ({ type: SHOW_POST_MODAL });
 export const hidePostModal = () => ({ type: HIDE_POST_MODAL });
-export const setExperienceModal = () => ({ type: SET_PERSONAL_POST_ID });
-export const unsetExperienceModal = () => ({ type: UNSET_PERSONAL_EXPERIENCE_ID });
 
 const url = "https://striveschool-api.herokuapp.com/api/profile/";
 const postsUrl = "https://striveschool-api.herokuapp.com/api/posts/";
@@ -141,7 +143,7 @@ export const postExperienceFetch = (experience, id, formData) => {
         const result = await response.json();
         //dispatch(());
         dispatch(hideExperienceModal());
-        dispatch(unsetPersonalExperienceId());
+        dispatch(unsetExperienceModalId());
         dispatch(experiencesFetch(id));
         if (formData.get("experience") !== "undefined") {
           postExperienceImage(id, result._id, formData);
@@ -169,7 +171,7 @@ export const putExperienceFetch = (experience, userId, expId, formData) => {
         const result = await response.json();
         //dispatch(());
         dispatch(hideExperienceModal());
-        dispatch(unsetPersonalExperienceId());
+        dispatch(unsetExperienceModalId());
         dispatch(experiencesFetch(userId));
         console.log(result);
       }

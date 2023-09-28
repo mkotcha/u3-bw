@@ -11,7 +11,7 @@ import experienceModalReducer from "../reducers/experienceModal";
 import experiencesReducer from "../reducers/personalExperiences";
 import mainPagePostsReducer from "../reducers/GeneralPosts";
 import profileImageModalReducer from "../reducers/imagineProfileModal";
-import postModalReducer from "../reducers/postReducer";
+import postModalReducer from "../reducers/postModal";
 
 // const persistConfig = {
 //   key: "root",

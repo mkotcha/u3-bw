@@ -1,8 +1,8 @@
 import {
   HIDE_EXPERIENCE_MODAL,
-  SET_PERSONAL_EXPERIENCE_ID,
+  SET_EXPERIENCE_MODAL_ID,
   SHOW_EXPERIENCE_MODAL,
-  UNSET_PERSONAL_EXPERIENCE_ID,
+  UNSET_EXPERIENCE_MODAL_ID,
 } from "../actions";
 
 const initialState = {
@@ -22,12 +22,12 @@ const experienceModalReducer = (state = initialState, action) => {
         ...state,
         show: false,
       };
-    case SET_PERSONAL_EXPERIENCE_ID:
+    case SET_EXPERIENCE_MODAL_ID:
       return {
         ...state,
         id: action.payload,
       };
-    case UNSET_PERSONAL_EXPERIENCE_ID:
+    case UNSET_EXPERIENCE_MODAL_ID:
       return {
         ...state,
         id: "",
