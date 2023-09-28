@@ -14,6 +14,7 @@ import AsideMainPage from "./components/AsideMainPage";
 import FooTer from "./components/FooTer";
 import PostModal from "./components/PostModal";
 import Jobs from "./components/Jobs";
+import JobsPageSizing from "./components/JobsPageSizing";
 
 function App() {
   const dispatch = useDispatch();
@@ -37,7 +38,7 @@ function App() {
         <Route path="/test/:id" element={<Test />} />
         <Route path="/experience" element={<ExpeririencePage />} />
         <Route path="/post" element={<PostModal />} />
-        <Route path="/jobs" element={<Jobs />} />
+        <Route path="/jobs" element={<JobsPageSizing/>} />
       </Routes>
       <FooTer />
     </BrowserRouter>
