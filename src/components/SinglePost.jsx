@@ -38,7 +38,7 @@ const SinglePost = ({ post }) => {
         <div className=" ">
           {post.image && (
             <div>
-              <img b src={post.image} alt="post img" className="w-100" />
+              <img src={post.image} alt="post img" className="w-100" />
             </div>
           )}
           <div className="p-4 ">{post.text}</div>
