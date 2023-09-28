@@ -2,13 +2,15 @@ import { useEffect } from "react";
 import { Col, Container, Form, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchPosts } from "../redux/actions";
+import { fetchPosts, showPostModal } from "../redux/actions";
+import PostModal from "./PostModal";
 
 const HomePageMiddle = () => {
   const personalProfile = useSelector(state => state.me);
+  const dispatch = useDispatch();
   return (
     <>
-      <Container className="my-3 ">
+      <Container className="my-3 " onClick={() => dispatch(showPostModal())}>
         <Container className=" border-dark-subtle border w-100 d-flex p-3 align-items-center  bg-white rounded">
           <div>
             <img

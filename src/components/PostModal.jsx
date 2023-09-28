@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Button, Container, Form, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { newPostFetch } from "../redux/actions";
+import { hidePostModal, newPostFetch } from "../redux/actions";
 
 const PostModal = () => {
   const show = useSelector(state => state.postModal.show);
@@ -22,11 +22,15 @@ const PostModal = () => {
     setPostText({ text: event.target.value });
   };
 
+  const handleClose = () => {
+    dispatch(hidePostModal());
+  };
+
   useEffect(() => {}, []);
 
   return (
     <Modal show={show} size="lg" className="">
-      <Modal.Header closeButton className="">
+      <Modal.Header closeButton onClick={handleClose}>
         <Link className="text-decoration-none text-dark">
           <div className="d-flex align-items-center  m-3">
             <img
