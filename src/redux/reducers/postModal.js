@@ -1,7 +1,7 @@
 import { HIDE_POST_MODAL, SET_POST_MODAL_ID, SHOW_POST_MODAL, UNSET_POST_MODAL_ID } from "../actions";
 
 const initialState = {
-  show: true,
+  show: false,
   id: "",
 };
 

@@ -9,9 +9,7 @@ const HomePagePost = () => {
   const dispatch = useDispatch();
   /*  console.log(state); */
 
-  useEffect(() => {
-    dispatch(fetchPosts());
-  }, []);
+  useEffect(() => {}, []);
   return (
     <>
       <Container>
