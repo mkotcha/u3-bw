@@ -1,4 +1,4 @@
-import { Button, Col, Container, NavDropdown, Row } from "react-bootstrap";
+import { Col, Container, NavDropdown, Row } from "react-bootstrap";
 import LanguageDropdown from "./LanguageDropdown";
 
 const FooTer = () => {
