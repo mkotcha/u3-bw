@@ -6,7 +6,7 @@ import {
   postExperienceFetch,
   postExperienceImage,
   putExperienceFetch,
-  unsetPersonalExperienceId,
+  unsetExperienceModalId,
 } from "../redux/actions";
 import { useEffect, useState } from "react";
 
@@ -40,7 +40,7 @@ const ExperienceModal = () => {
 
   const handleClose = () => {
     dispatch(hideExperienceModal());
-    dispatch(unsetPersonalExperienceId());
+    dispatch(unsetExperienceModalId());
     setExperience({
       role: "",
       company: "",
