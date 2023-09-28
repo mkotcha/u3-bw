@@ -1,9 +1,10 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { setPostModalId, showPostModal } from "../redux/actions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const SinglePost = ({ post }) => {
   const dispatch = useDispatch();
+  const me = useSelector(state => state.me);
 
   const handleMod = () => {
     dispatch(setPostModalId(post._id));
@@ -31,7 +32,7 @@ const SinglePost = ({ post }) => {
             </small>
           </div>
           <div className="ms-auto" onClick={handleMod}>
-            <i className="bi bi-pencil"></i>
+            {post.user._id === me._id && <i className="bi bi-pencil"></i>}
           </div>
         </div>
         <div className=" ">
