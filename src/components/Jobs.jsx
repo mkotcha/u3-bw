@@ -24,10 +24,10 @@ const Jobs = () => {
   return (
     <Card>
     {arrayJobs.slice(0,20).map(job => (
-      <Container>
+      <Container key={job._id}>
         <Row>
           <Col sm={2}>
-            <Card.Img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2673&q=80" rounded />
+            <Card.Img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2673&q=80" className="rounded" />
           </Col>
           <Col sm={8}>
             <Card.Link> {job.title}</Card.Link>
