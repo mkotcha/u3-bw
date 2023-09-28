@@ -1,6 +1,7 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import Jobs from "./Jobs";
-
+import RightAsideJobsPage from "./RightAsideJobsPage";
+import LeftAsideJobsPage from "./LeftAsideJobsPage";
 
 const JobsPageSizing = () => {
   return (
@@ -8,13 +9,13 @@ const JobsPageSizing = () => {
       <Col lg={7}>
         <Row className="justify-content-center">
           <Col lg={3}>
-            {/* <LeftAsideHomepage /> */}
+            <LeftAsideJobsPage />
           </Col>
           <Col xs={10} lg={6}>
             <Jobs />
           </Col>
           <Col lg={3}>
-            {/* <RightAsideHompage /> */}
+            <RightAsideJobsPage />
           </Col>
         </Row>
       </Col>
