@@ -51,7 +51,7 @@ const Jobs = () => {
   }, [searchJobFilter]);
 
   return (
-    <div className="rounded border border-secondary-subtle bg-white ">
+    <div className="rounded border border-secondary-subtle bg-white mt-3">
       {searchJobFilter.length >= 3 ? <h2>Serched Jobs</h2> : <h2>Jobs</h2>}
       {searchJobFilter.length >= 3
         ? arrayJobsSearchTitle.slice(0, 20).map(job => (
