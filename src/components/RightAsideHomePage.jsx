@@ -1,9 +1,12 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { addNewFriend, removeAFriend } from "../redux/actions";
 
 const RightAsideHompage = () => {
   let profiles = useSelector(state => state.profiles.profiles);
+  let addFriend = useSelector(state => state.addFriend.friendsList);
+  const dispatch = useDispatch();
   return (
     <>
       <div className="border-dark-subtle border rounded py-2 px-2 mb-2 backgroundWhite mt-3">
@@ -22,10 +25,29 @@ const RightAsideHompage = () => {
                     </div>
                   </div>
                   <div className="d-flex">
-                    <Button className="rounded-pill border border-black text-center mx-auto" variant="light">
-                      <i className="bi bi-person-plus-fill me-1"></i>
-                      Connect
-                    </Button>
+                    {addFriend ? (
+                      <Button
+                        onClick={
+                          addFriend.some(el => el._id === profiles._id) ? dispatch(removeAFriend(profiles._id)) : "none"
+                        }
+                        className="rounded-pill border border-black text-center mx-auto"
+                        variant="light"
+                      >
+                        <i class="bi bi-person-dash-fill"></i>
+                        Remove
+                      </Button>
+                    ) : (
+                      <Button
+                        onClick={
+                          addFriend.some(el => el._id === profiles._id) ? dispatch(addNewFriend(profiles)) : "none"
+                        }
+                        className="rounded-pill border border-black text-center mx-auto"
+                        variant="light"
+                      >
+                        <i className="bi bi-person-plus-fill me-1"></i>
+                        Connect
+                      </Button>
+                    )}
                   </div>
                 </div>
               );
