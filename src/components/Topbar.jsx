@@ -1,12 +1,27 @@
+import { useEffect, useState } from "react";
 import { Button, Col, Form, Image, Row } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { searchForJobs } from "../redux/actions";
 
 const Topbar = () => {
+  /* const [query, setQuery] = useState(""); */
+  const [changeJob, setChangeJob] = useState("");
+  const dispatch = useDispatch();
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    /* console.log("ciao"); */
+    /*  setQuery(changeJob); */
+    dispatch(searchForJobs(changeJob));
+  };
+
+  useEffect(() => {}, []);
+
   const personalProfile = useSelector(state => state.me);
   return (
     <>
@@ -28,7 +43,17 @@ const Topbar = () => {
                     </Link>
 
                     <i className="bi bi-search d-lg-none fontSizeIconTopBar"></i>
-                    <Form.Control type="text" placeholder="Search" className="mr-sm-2 d-none d-lg-inline" />
+                    <Form onSubmit={handleSubmit}>
+                      <Form.Control
+                        type="text"
+                        placeholder="Search"
+                        className="mr-sm-2 d-none d-lg-inline"
+                        onChange={e => setChangeJob(e.target.value)}
+                      />
+                      <Button className="d-none" type="submit">
+                        click
+                      </Button>
+                    </Form>
                   </div>
                 </Col>
                 {/* CONTAINER ICONE NAV */}
