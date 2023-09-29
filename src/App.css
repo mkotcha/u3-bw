@@ -45,8 +45,9 @@ body {
 @media (max-width: 768px) {
   #Footer {
     padding-inline: 0;
-    display: flex;
-    flex-direction: column;
+  }
+  #footer-select {
+    width: 100%;
   }
 }
 
