@@ -22,29 +22,31 @@ const Jobs = () => {
     fetchJobs();
   }, []);
   return (
-    <Card>
-    {arrayJobs.slice(0,20).map(job => (
-      <Container key={job._id}>
-        <Row>
-          <Col sm={2}>
-            <Card.Img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2673&q=80" className="rounded" />
-          </Col>
-          <Col sm={8}>
-            <Card.Link> {job.title}</Card.Link>
-            <Card.Title>{job.company_name}</Card.Title>
-            <Card.Subtitle>{job.job_type}</Card.Subtitle>
-          </Col>
-          <Col sm={1}>
-            <i className="bi bi-eye-slash-fill"></i>
-          </Col>
-          <Col sm={1}>
-            <i className="bi bi-bookmark"></i>
-          </Col>
-        </Row>
-      </Container>
-    
-    ))}
-    </Card>
+    <div className="rounded border border-secondary-subtle bg-white ">
+      {arrayJobs.slice(0, 20).map(job => (
+        <div className="p-3" key={job._id}>
+          <Row>
+            <Col sm={2}>
+              <Card.Img
+                src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2673&q=80"
+                className="rounded"
+              />
+            </Col>
+            <Col sm={8}>
+              <Card.Link> {job.title}</Card.Link>
+              <Card.Title>{job.company_name}</Card.Title>
+              <Card.Subtitle>{job.job_type}</Card.Subtitle>
+            </Col>
+            <Col sm={1}>
+              <i className="bi bi-eye-slash-fill"></i>
+            </Col>
+            <Col sm={1}>
+              <i className="bi bi-bookmark"></i>
+            </Col>
+          </Row>
+        </div>
+      ))}
+    </div>
   );
 };
 
