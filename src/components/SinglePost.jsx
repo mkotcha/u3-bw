@@ -1,4 +1,3 @@
-import { Col, Container, Row } from "react-bootstrap";
 import { setPostModalId, showPostModal } from "../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 

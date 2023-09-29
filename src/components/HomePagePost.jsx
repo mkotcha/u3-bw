@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import SinglePost from "./SinglePost";
 
