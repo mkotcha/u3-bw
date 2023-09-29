@@ -37,10 +37,10 @@ const SinglePost = ({ post }) => {
         <div className=" ">
           {post.image && (
             <div>
-              <img src={post.image} alt="post img" className="w-100" />
+              <img src={post.image} alt="" className="w-100" />
             </div>
           )}
-          <div className="p-4 ">{post.text}</div>
+          <div className="p-4 overflow-hidden">{post.text}</div>
 
           <div className="d-flex justify-content-around border-top py-2 text-center">
             <div className="d-flex flex-column">

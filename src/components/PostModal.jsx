@@ -107,7 +107,7 @@ const PostModal = () => {
               <img src={picture} alt="" className=" w-50" />
             </div>
             <Form.Group controlId="formFile" className="mb-3" onChange={handleImageChange}>
-              <Form.Label>Company image</Form.Label>
+              <Form.Label>Post image</Form.Label>
               <Form.Control type="file" />
             </Form.Group>
 

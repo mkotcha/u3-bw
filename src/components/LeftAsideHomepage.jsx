@@ -17,7 +17,7 @@ const LeftAsideHomepage = () => {
               style={{ width: "80px" }}
             />
           </Link>
-          <h4>Welcome, Flavio!</h4>
+          <h4>Welcome, {personalProfile.name}!</h4>
           <p>Add a photo</p>
         </div>
         <hr />
