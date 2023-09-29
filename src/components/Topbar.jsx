@@ -128,7 +128,7 @@ const Topbar = () => {
                         <p className="px-3">Quit</p>
                       </NavDropdown>
                     </div>
-                    <div className="align-self-center border-start ps-2 d-flex flex-column align-items-center d-none d-md-block">
+                    <div className="align-self-center border-start ps-2 d-flex flex-column align-items-center d-none d-md-inline text-center">
                       <i className="bi bi-grid-3x3-gap-fill fontSizeIconTopBar"></i>
                       <NavDropdown
                         title="Per le aziende"
