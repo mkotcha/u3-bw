@@ -1,4 +1,4 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import AsideProfilePage from "./AsideProfilePage";
 import MainProfilePage from "./MainProfilePage";
 import Recommended4u from "./recommended4u";
