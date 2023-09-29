@@ -18,8 +18,10 @@ export const HIDE_POST_MODAL = "HIDE_POST_MODAL";
 export const SET_POST_MODAL_ID = "SET_POST_MODAL_ID";
 export const UNSET_POST_MODAL_ID = "UNSET_POST_MODAL_ID";
 
-export const ADD_FRIEND = "ADD_FRIEND";
-export const REM_FRIEND = "REM_FRIEND";
+export const ADD_NEW_FRIEND = "ADD_NEW_FRIEND";
+export const REM_A_FRIEND = "REM_A_FRIEND";
+
+//add new friend
 
 export const setPersonalProfile = personalProfile => ({ type: SET_PERSONAL_PROFILE, payload: personalProfile });
 export const setSelectedProfile = selectedProfile => ({ type: SET_SELECTED_PROFILE, payload: selectedProfile });
@@ -40,6 +42,11 @@ export const showPostModal = () => ({ type: SHOW_POST_MODAL });
 export const hidePostModal = () => ({ type: HIDE_POST_MODAL });
 export const setPostModalId = id => ({ type: SET_POST_MODAL_ID, payload: id });
 export const unsetPostModalId = () => ({ type: UNSET_POST_MODAL_ID });
+
+//ADDING NEW FRIENDS AND REMOVING FRIENDS
+
+export const addNewFriend = addFriend => ({ type: ADD_NEW_FRIEND, payload: addFriend });
+export const removeAFriend = removeAFriend => ({ type: ADD_NEW_FRIEND, payload: removeAFriend });
 
 const url = "https://striveschool-api.herokuapp.com/api/profile/";
 const postsUrl = "https://striveschool-api.herokuapp.com/api/posts/";

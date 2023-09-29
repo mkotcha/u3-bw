@@ -12,6 +12,8 @@ import experiencesReducer from "../reducers/personalExperiences";
 import mainPagePostsReducer from "../reducers/GeneralPosts";
 import profileImageModalReducer from "../reducers/imagineProfileModal";
 import postModalReducer from "../reducers/postModal";
+import addFriendReducer from "../reducers/addFriend";
+import addFriend from "../reducers/addFriend";
 
 // const persistConfig = {
 //   key: "root",
@@ -34,6 +36,7 @@ const mainReducer = combineReducers({
   mainPagePosts: mainPagePostsReducer,
   imageProfilesModal: profileImageModalReducer,
   postModal: postModalReducer,
+  addFriend: addFriend,
 });
 
 // const persistedReducer = persistReducer(persistConfig, mainReducer);
