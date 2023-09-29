@@ -1,4 +1,4 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import AsideProfilePage from "./AsideProfilePage";
 import { useDispatch, useSelector } from "react-redux";
 import { experiencesFetch, showExperienceModal } from "../redux/actions";

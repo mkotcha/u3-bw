@@ -1,4 +1,4 @@
-import { Form, Button, FormControl } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
@@ -43,8 +43,7 @@ const JobSearch = () => {
           placeholder="Search by title or company"
           className="mr-sm-2 d-none d-lg-inline"
           value={searchTitle}
-          onChange={handleChange}
-        ></Form.Control>
+          onChange={handleChange}></Form.Control>
         <Button>
           <i className="bi bi-arrow-right-short text-primary"></i>
         </Button>

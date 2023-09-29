@@ -142,25 +142,4 @@ const Topbar = () => {
   );
 };
 
-// function MyOffcanvas() {
-//   const [show, setShow] = useState(false);
-
-//   const handleClose = () => setShow(false);
-//   const handleShow = () => setShow(true);
-
-//   return (
-//     <>
-//       <Button variant="primary" onClick={handleShow}>
-//         Mostra Offcanvas
-//       </Button>
-
-//       <Offcanvas show={show} onHide={handleClose} placement="end">
-//         <Offcanvas.Header closeButton>
-//           <Offcanvas.Title>Titolo Offcanvas</Offcanvas.Title>
-//         </Offcanvas.Header>
-//         <Offcanvas.Body>Contenuto dell'Offcanvas</Offcanvas.Body>
-//       </Offcanvas>
-//     </>
-//   );
-
 export default Topbar;

@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { Card, Col, Container, Image, Row } from "react-bootstrap";
+import { Card, Col, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 
 const Jobs = () => {
   const [arrayJobs, setArrayJobs] = useState([]);
@@ -24,29 +23,27 @@ const Jobs = () => {
     }
   };
 
-  const fetchJobsTitle = async () => {
-    try {
-      const response = await fetch("https://strive-benchmark.herokuapp.com/api/jobs?search=" + searchJobFilter);
-
-      if (response.ok) {
-        let fetchedJobsTitle = await response.json();
-        // console.log(fetchedJobs);
-        setArrayJobsSearchTitle(fetchedJobsTitle.data);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
     fetchJobs();
   }, []);
 
   useEffect(() => {
+    const fetchJobsTitle = async () => {
+      try {
+        const response = await fetch("https://strive-benchmark.herokuapp.com/api/jobs?search=" + searchJobFilter);
+
+        if (response.ok) {
+          let fetchedJobsTitle = await response.json();
+          // console.log(fetchedJobs);
+          setArrayJobsSearchTitle(fetchedJobsTitle.data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     if (searchJobFilter.length >= 3) {
       fetchJobsTitle();
-      console.log(searchJobFilter);
-      console.log(arrayJobsSearchTitle);
     }
   }, [searchJobFilter]);
 

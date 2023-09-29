@@ -1,7 +1,7 @@
 import Card from "react-bootstrap/Card";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { experiencesFetch, showExperienceModal } from "../redux/actions";
 import ExperienceModal from "./ExperienceModal";
 import { Link, useParams } from "react-router-dom";

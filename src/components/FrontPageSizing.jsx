@@ -1,7 +1,6 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import HomePageMiddle from "./HomePageMiddle";
 import HomePagePost from "./HomePagePost";
-import AsideMainPage from "./AsideMainPage";
 import RightAsideHompage from "./RightAsideHomePage";
 import LeftAsideHomepage from "./LeftAsideHomepage";
 import PostModal from "./PostModal";

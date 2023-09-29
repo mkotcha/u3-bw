@@ -1,4 +1,5 @@
 import { Col, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const RightAsideJobsPage = () => {
   return (
@@ -19,9 +20,9 @@ const RightAsideJobsPage = () => {
           help you land your next opportunity.
         </p>
         <div className="d-flex">
-          <a href="#" className="ps-2">
+          <Link to="/" className="ps-2">
             Show more
-          </a>
+          </Link>
           <i className="bi bi-arrow-right"></i>
         </div>
       </div>

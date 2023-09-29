@@ -1,9 +1,6 @@
-import { useEffect } from "react";
-import { Col, Container, Form, Row } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { fetchPosts, showPostModal } from "../redux/actions";
-import PostModal from "./PostModal";
+import { showPostModal } from "../redux/actions";
 
 const HomePageMiddle = () => {
   const personalProfile = useSelector(state => state.me);
