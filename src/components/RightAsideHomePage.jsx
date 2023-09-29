@@ -1,7 +1,7 @@
 import { Button, Col, Container } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { addNewFriend, otherProfileFetch, removeAFriend } from "../redux/actions";
+import { addNewFriend, removeAFriend } from "../redux/actions";
 
 const RightAsideHompage = () => {
   let profiles = useSelector(state => state.profiles.profiles);
@@ -37,8 +37,7 @@ const RightAsideHompage = () => {
                     <Button
                       onClick={() => handleClick(profile._id)}
                       className="rounded-pill border border-black text-center mx-auto"
-                      variant="light"
-                    >
+                      variant="light">
                       {friendList.includes(profile._id) ? (
                         <>
                           <i className="bi bi-person-dash-fill me-1"></i>
