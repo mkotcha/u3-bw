@@ -81,21 +81,9 @@ body {
 #aside-profile-image {
   margin-top: -40px;
 }
-/* .input-group {
-  width: 100% !important;
+.bg-white-grey {
+  background-color: rgb(248, 250, 253);
 }
-.form-inline {
-  width: 100%;
+.bg-white-grey:hover {
+  background-color: rgb(227, 227, 227);
 }
-
-.form-group {
-  width: 100%;
-}
-
-.input-group {
-  width: 100% !important;
-}
-
-.form-control {
-  width: 80% !important;
-} */
