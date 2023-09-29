@@ -1,7 +1,7 @@
 import { Button, Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { showProfileImageModal, showProfileModal } from "../redux/actions";
+import { addNewFriend, removeAFriend, showProfileImageModal, showProfileModal } from "../redux/actions";
 import ProfileModal from "./ProfileModal";
 import { useEffect, useState } from "react";
 import Test from "./Test";
@@ -11,9 +11,10 @@ const MainProfilePage = () => {
   // let me = null;
   const personalProfile = useSelector(state => state.me);
   const selectedProfile = useSelector(state => state.selectedProfile);
+  const friendsList = useSelector(state => state.addFriend.friendsList);
 
-  const [profile, setProfile] = useState(null);
   const dispatch = useDispatch();
+  const [profile, setProfile] = useState(null);
 
   const handleShow = () => {
     dispatch(showProfileModal());
@@ -21,6 +22,15 @@ const MainProfilePage = () => {
 
   const handleShowImage = () => {
     if (!params.id) dispatch(showProfileImageModal());
+  };
+
+  const handleClick = id => {
+    console.log(friendsList);
+    if (friendsList.includes(id)) {
+      dispatch(removeAFriend(id));
+    } else {
+      dispatch(addNewFriend(id));
+    }
   };
 
   useEffect(() => {
@@ -79,7 +89,22 @@ const MainProfilePage = () => {
                 </span>
               </div>
               <div className="my-3">
-                <Button className="primary rounded-pill px-3 fw-semibold border-2">I am...</Button>
+                <Button
+                  onClick={() => handleClick(profile._id)}
+                  className="primary rounded-pill px-3 fw-semibold border-2"
+                >
+                  {friendsList.includes(profile._id) ? (
+                    <>
+                      <i class="bi bi-send-fill"></i>
+                      <span className="ms-2">Message</span>
+                    </>
+                  ) : (
+                    <>
+                      <i className="bi bi-person-plus-fill me-1"></i>
+                      Connect
+                    </>
+                  )}
+                </Button>
                 <Button className="bg-transparent text-primary mx-2 rounded-pill px-3 fw-semibold border-2">
                   Add profile section
                 </Button>
