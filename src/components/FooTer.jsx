@@ -3,95 +3,64 @@ import LanguageDropdown from "./LanguageDropdown";
 
 const FooTer = () => {
   return (
-    <Container className="d-flex justify-content-center my-4 overflow-hidden" id="Footer">
-      <div className="d-flex overflow-hidden">
-        <Row className="Container">
-          <Col>
-            <p>Information</p>
-            <Row>
-              <Col>
-                <p>Community guideline</p>
-                <Row>
-                  <Col>
-                    <NavDropdown title="Privacy condition" id="basic-nav-dropdown">
-                      <p>Informazioni sulla privacy</p>
-                      <p>Contratto di licenza</p>
-                      <p>Termini e condizioni delle pagine</p>
-                      <p>Informativa sui coockie</p>
-                      <p>Informativa sul copyright</p>
-                    </NavDropdown>
-                    <p>Sale solution</p> <p>Security centre</p>
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-        <Row className="Container">
-          <Col>
-            <p>Accessibility</p>
-            <Row>
-              <Col>
-                <p>Carrer</p>
-                <Row>
-                  <Col>
-                    <p>Advertising options</p>
-                    <p>Mobile</p>
-                  </Col>
-                  <Row></Row>
-                </Row>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-        <Row className="Container">
-          <Col>
-            <p>Talent solution</p>
-            <Row>
-              <Col>
-                <p>Marketing Solutions</p>
-                <Row>
-                  <Col>
-                    <p>Advertising</p>
-                    <p>Small businesses</p>
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-        <Row className="Container">
-          <Col>
-            <h5>
-              <i className="bi bi-question-circle"></i>Request?
-            </h5>
-            <p>Visit our help center</p>
-            <Row>
-              <Col>
-                <h5>
-                  <i className="bi bi-gear-fill"></i> Manage your account and your privacy
-                </h5>
-                <p>Go to settings</p>
-                <Row>
-                  <Col>
-                    <h5>
-                      <i className="bi bi-shield-shaded"></i> Transparency on recommended content
-                    </h5>
-                    <p>Learn more about recommended content.</p>
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-        <Row className="Container">
-          <Col>
-            <p>Select language</p>
-            <LanguageDropdown />
-          </Col>
-        </Row>
-      </div>
-    </Container>
+    <Row className="w-100 mt-5" id="Footer">
+      <Col xs={4} sm={2}>
+        <div className="d-flex flex-column justify-content-around">
+          <p>About</p>
+          <p>Community Guidelines</p>
+          <p>Privacy & Terms</p>
+          <p>Sales Solutions</p>
+          <p>Safety Center</p>
+        </div>
+      </Col>
+      <Col xs={4} sm={2}>
+        <div className="d-flex flex-column justify-content-around">
+          <p>Accessibility</p>
+          <p>Careers</p>
+          <p>Ad Choices</p>
+          <p>Mobile</p>
+        </div>
+      </Col>
+      <Col xs={4} sm={2}>
+        <div className="d-flex flex-column justify-content-around">
+          <p>Talent Solutions</p>
+          <p>Marketing Solutions</p>
+          <p>Advertising</p>
+          <p>Small Business</p>
+        </div>
+      </Col>
+      <Col xs={12} sm={2}>
+        <div className="d-flex flex-column justify-content-around">
+          <div className="d-flex">
+            <i className="bi bi-question-circle-fill"></i>
+            <div>
+              <h6 className="mb-0">Questions?</h6>
+              <p>Visit our Help Center.</p>
+            </div>
+          </div>
+          <div className="d-flex">
+            <i className="bi bi-gear-fill"></i>
+            <div>
+              <h6 className="mb-0">Manage your account and privacy</h6>
+              <p>Go to your Settings.</p>
+            </div>
+          </div>
+          <div className="d-flex">
+            <i className="bi bi-shield-shaded"></i>
+            <div>
+              <h6 className="mb-0">Recommendation transparency</h6>
+              <p>Learn more about Recommended Content.</p>
+            </div>
+          </div>
+        </div>
+      </Col>
+      <Col xs={12} sm={4}>
+        <div className="d-flex flex-column">
+          <p className="mb-0">Select language</p>
+          <LanguageDropdown />
+        </div>
+      </Col>
+    </Row>
   );
 };
 export default FooTer;
