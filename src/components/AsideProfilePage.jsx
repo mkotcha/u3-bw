@@ -52,10 +52,12 @@ const AsideProfilePage = () => {
                       <p>{profile.title}</p>
                     </div>
                   </div>
-                  <Button className="rounded-pill border border-black text-center buttonProfilesAside" variant="light">
-                    <i className="bi bi-person-plus-fill me-1"></i>
-                    Connect
-                  </Button>
+                  <div className="d-flex">
+                    <Button className="rounded-pill border border-black text-center mx-auto" variant="light">
+                      <i className="bi bi-person-plus-fill me-1"></i>
+                      Connect
+                    </Button>
+                  </div>
                 </div>
               );
             })
