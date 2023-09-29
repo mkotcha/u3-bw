@@ -100,8 +100,7 @@ const Topbar = () => {
                             <img
                               src={personalProfile.image}
                               alt="profile"
-                              className="rounded-circle "
-                              style={{ width: "35px" }}
+                              className="rounded-circle topbar-image-profile"
                             />
                           </Link>
                           <NavDropdown title="Me" id="basic-nav-dropdown" className="d-none d-lg-inline">
