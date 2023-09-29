@@ -18,8 +18,10 @@ export const HIDE_POST_MODAL = "HIDE_POST_MODAL";
 export const SET_POST_MODAL_ID = "SET_POST_MODAL_ID";
 export const UNSET_POST_MODAL_ID = "UNSET_POST_MODAL_ID";
 
-export const ADD_FRIEND = "ADD_FRIEND";
-export const REM_FRIEND = "REM_FRIEND";
+export const ADD_NEW_FRIEND = "ADD_NEW_FRIEND";
+export const REM_A_FRIEND = "REM_A_FRIEND";
+
+//add new friend
 
 export const JOB_SEARCH_RESULT = "JOB_SEARCH_RESULT";
 
@@ -53,6 +55,11 @@ export const unsetPostModalId = () => ({ type: UNSET_POST_MODAL_ID });
 export const setExperienceModal = () => ({ type: SET_PERSONAL_POST_ID });
 export const unsetExperienceModal = () => ({ type: UNSET_PERSONAL_EXPERIENCE_ID });
 export const searchForJobs = result => ({ type: JOB_SEARCH_RESULT, payload: result });
+
+//ADDING NEW FRIENDS AND REMOVING FRIENDS
+
+export const addNewFriend = addFriend => ({ type: ADD_NEW_FRIEND, payload: addFriend });
+export const removeAFriend = removeAFriend => ({ type: ADD_NEW_FRIEND, payload: removeAFriend });
 
 const url = "https://striveschool-api.herokuapp.com/api/profile/";
 const postsUrl = "https://striveschool-api.herokuapp.com/api/posts/";
