@@ -13,17 +13,17 @@ const FrontPageSizing = () => {
       <Row className="justify-content-center">
         <Col lg={7}>
           <Row className="justify-content-center">
-            <Col lg={3}>
+            <Col xs={12} sm={10} lg={3}>
               <LeftAsideHomepage />
             </Col>
-            <Col xs={10} lg={6}>
+            <Col xs={12} sm={10} lg={6}>
               <HomePageMiddle />
-              <Container>
-                <hr />
-              </Container>
+
+              <hr />
+
               <HomePagePost />
             </Col>
-            <Col lg={3}>
+            <Col xs={12} sm={10} lg={3}>
               <RightAsideHompage />
             </Col>
           </Row>

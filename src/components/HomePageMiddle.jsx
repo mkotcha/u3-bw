@@ -10,8 +10,8 @@ const HomePageMiddle = () => {
   const dispatch = useDispatch();
   return (
     <>
-      <Container className="my-3 " onClick={() => dispatch(showPostModal())}>
-        <Container className=" border-dark-subtle border w-100 d-flex p-3 align-items-center  bg-white rounded">
+      <div className="my-3 " onClick={() => dispatch(showPostModal())}>
+        <div className=" border-dark-subtle border w-100 d-flex p-3 align-items-center  bg-white rounded">
           <div>
             <img
               className="rounded-circle"
@@ -31,8 +31,8 @@ const HomePageMiddle = () => {
               />
             </Form.Group>
           </div>
-        </Container>
-      </Container>
+        </div>
+      </div>
     </>
   );
 };

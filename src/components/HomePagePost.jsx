@@ -9,7 +9,7 @@ const HomePagePost = () => {
   useEffect(() => {}, []);
   return (
     <>
-      <Container>{posts && posts.slice(0, 21).map(post => <SinglePost key={post._id} post={post} />)}</Container>
+      <div>{posts && posts.slice(0, 21).map(post => <SinglePost key={post._id} post={post} />)}</div>
     </>
   );
 };
