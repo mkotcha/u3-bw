@@ -1,13 +1,23 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { Card, Col, Row } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { Button, Card, Col, Row, Form } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+
+import { searchForJobs } from "../redux/actions";
 
 const Jobs = () => {
   const [arrayJobs, setArrayJobs] = useState([]);
   const [arrayJobsSearchTitle, setArrayJobsSearchTitle] = useState([]);
 
   const searchJobFilter = useSelector(state => state.jobSearch.search);
+
+  const [changeJob, setChangeJob] = useState("");
+  const dispatch = useDispatch();
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    dispatch(searchForJobs(changeJob));
+  };
 
   const fetchJobs = async () => {
     try {
@@ -49,8 +59,26 @@ const Jobs = () => {
 
   return (
     <div className="rounded border border-secondary-subtle bg-white mt-3">
-      <div className="p-3">{searchJobFilter.length >= 3 ? <h2>Serched Jobs</h2> : <h2>Jobs</h2>}</div>
-      {searchJobFilter.length >= 3
+      <div className="p-3">
+        <div className="d-lg-none mb-4 mt-1">
+          <Form onSubmit={handleSubmit} id="searchForm">
+            <Form.Label>Search a job</Form.Label>
+            <div className="d-flex align-items-center gap-3">
+              <Form.Control
+                type="text"
+                placeholder="Search"
+                className="mr-sm-2 "
+                onChange={e => setChangeJob(e.target.value)}
+              />
+              <Button type="submit" variant="outline-primary">
+                Search
+              </Button>
+            </div>
+          </Form>
+        </div>
+        {searchJobFilter.length >= 1 ? <h2>Jobs result :</h2> : <h2>Jobs</h2>}
+      </div>
+      {searchJobFilter.length >= 1
         ? arrayJobsSearchTitle.slice(0, 20).map(job => (
             <div className="p-3" key={job._id}>
               <Row>

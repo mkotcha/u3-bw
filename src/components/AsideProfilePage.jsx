@@ -1,10 +1,20 @@
 import { Button, Container } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { addNewFriend, removeAFriend } from "../redux/actions";
 
 const AsideProfilePage = () => {
   let profiles = useSelector(state => state.profiles.profiles);
+  let friendList = useSelector(state => state.addFriend.friendsList);
+  const dispatch = useDispatch();
 
+  const handleClick = id => {
+    if (friendList.includes(id)) {
+      dispatch(removeAFriend(id));
+    } else {
+      dispatch(addNewFriend(id));
+    }
+  };
   return (
     <>
       <div className="border-dark-subtle border rounded py-2 px-2 mb-2 backgroundWhite mt-4">
@@ -40,7 +50,7 @@ const AsideProfilePage = () => {
         <h6 className="mb-0">People you may know</h6>
         <p className="textGreyAside">From your school</p>
         {profiles
-          ? profiles.slice(0, 6).map(profile => {
+          ? profiles.slice(0, 3).map(profile => {
               return (
                 <div key={profile._id} className="border-bottom  py-2">
                   <div className="d-flex">
@@ -53,9 +63,22 @@ const AsideProfilePage = () => {
                     </div>
                   </div>
                   <div className="d-flex">
-                    <Button className="rounded-pill border border-black text-center mx-auto" variant="light">
-                      <i className="bi bi-person-plus-fill me-1"></i>
-                      Connect
+                    <Button
+                      onClick={() => handleClick(profile._id)}
+                      className="rounded-pill border border-black text-center mx-auto"
+                      variant="light"
+                    >
+                      {friendList.includes(profile._id) ? (
+                        <>
+                          <i className="bi bi-person-dash-fill me-1"></i>
+                          Remove
+                        </>
+                      ) : (
+                        <>
+                          <i className="bi bi-person-plus-fill me-1"></i>
+                          Connect
+                        </>
+                      )}
                     </Button>
                   </div>
                 </div>

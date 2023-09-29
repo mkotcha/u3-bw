@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { hidePostModal, newPostFetch, fetchPosts, postPostImage, putPostFetch } from "../redux/actions";
 
 const PostModal = () => {
+  const navigate = useNavigate();
   const url = "https://striveschool-api.herokuapp.com/api/posts/";
   const options = {
     headers: { Authorization: "Bearer " + process.env.REACT_APP_BEARER },
@@ -30,6 +31,7 @@ const PostModal = () => {
     } else {
       dispatch(newPostFetch(postText, personal._id, formData));
     }
+    navigate("/profilepage");
   };
 
   const handleChange = event => {

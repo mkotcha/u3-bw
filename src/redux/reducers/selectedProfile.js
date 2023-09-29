@@ -9,7 +9,6 @@ const initialState = {
   title: "",
   bio: "",
   area: "",
-  image: "",
   createdAt: "",
   updatedAt: "",
   __v: 0,

@@ -5,22 +5,20 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { searchForJobs } from "../redux/actions";
 
 const Topbar = () => {
   /* const [query, setQuery] = useState(""); */
   const [changeJob, setChangeJob] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = e => {
     e.preventDefault();
-    /* console.log("ciao"); */
-    /*  setQuery(changeJob); */
     dispatch(searchForJobs(changeJob));
+    navigate("/Jobs");
   };
-
-  useEffect(() => {}, []);
 
   const personalProfile = useSelector(state => state.me);
   return (

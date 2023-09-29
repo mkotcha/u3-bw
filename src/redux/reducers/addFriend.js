@@ -14,7 +14,7 @@ const addFriendReducer = (state = initialState, action) => {
     case REM_A_FRIEND:
       return {
         ...state,
-        friendsList: state.friendsList.filter(el => el._id !== action.payload),
+        friendsList: state.friendsList.filter(el => el !== action.payload),
       };
     default:
       return state;

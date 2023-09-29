@@ -17,7 +17,6 @@ const ProfileModal = () => {
       bio: event.target.bio.value,
       title: event.target.title.value,
       area: event.target.area.value,
-      image: event.target.image.value,
     };
 
     dispatch(putPersonalFetch(profile));
@@ -63,10 +62,6 @@ const ProfileModal = () => {
           <Form.Group className="mb-3 text-secondary">
             <Form.Label>Area*</Form.Label>
             <Form.Control id="area" type="text" defaultValue={me.area} required />
-          </Form.Group>
-          <Form.Group className="mb-3 text-secondary">
-            <Form.Label>Image url</Form.Label>
-            <Form.Control id="image" type="text" defaultValue={me.image} />
           </Form.Group>
         </Form>
       </Modal.Body>

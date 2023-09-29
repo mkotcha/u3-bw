@@ -47,32 +47,30 @@ const Test = () => {
   return (
     <>
       <Modal show={show}>
-        <Modal.Dialog>
-          <Modal.Header>
-            <Modal.Title>Modal title</Modal.Title>
-            <Button onClick={handleClose}>
-              <i className="bi bi-x-lg"></i>
-            </Button>
-          </Modal.Header>
+        <Modal.Header>
+          <Modal.Title>Modal title</Modal.Title>
+          <Button onClick={handleClose}>
+            <i className="bi bi-x-lg"></i>
+          </Button>
+        </Modal.Header>
 
-          <Modal.Body>
-            <div>
-              <img src={picture} alt="" className="w-100" />
-            </div>
-          </Modal.Body>
+        <Modal.Body>
+          <div>
+            <img src={picture} alt="" className="w-100" />
+          </div>
+        </Modal.Body>
 
-          <Modal.Footer>
-            <Form onSubmit={handleSubmit}>
-              <Form.Group controlId="formFile" className="mb-3" onChange={handleChange}>
-                <Form.Label>Select a photo</Form.Label>
-                <Form.Control type="file" />
-              </Form.Group>
-              <Form.Group>
-                <Button type="submit">Submit</Button>
-              </Form.Group>
-            </Form>
-          </Modal.Footer>
-        </Modal.Dialog>
+        <div className="p-3 border border-top rounded rounded-bottom">
+          <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="formFile" className="mb-3" onChange={handleChange}>
+              <Form.Label>Select a photo</Form.Label>
+              <Form.Control type="file" />
+            </Form.Group>
+            <Form.Group>
+              <Button type="submit">Submit</Button>
+            </Form.Group>
+          </Form>
+        </div>
       </Modal>
     </>
   );

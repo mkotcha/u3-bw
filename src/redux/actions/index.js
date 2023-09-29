@@ -50,7 +50,7 @@ export const searchForJobs = result => ({ type: JOB_SEARCH_RESULT, payload: resu
 //ADDING NEW FRIENDS AND REMOVING FRIENDS
 
 export const addNewFriend = addFriend => ({ type: ADD_NEW_FRIEND, payload: addFriend });
-export const removeAFriend = removeAFriend => ({ type: ADD_NEW_FRIEND, payload: removeAFriend });
+export const removeAFriend = removeAFriend => ({ type: REM_A_FRIEND, payload: removeAFriend });
 
 const url = "https://striveschool-api.herokuapp.com/api/profile/";
 const postsUrl = "https://striveschool-api.herokuapp.com/api/posts/";

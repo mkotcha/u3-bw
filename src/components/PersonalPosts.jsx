@@ -15,7 +15,7 @@ const PersonalPosts = () => {
   return (
     <>
       <PostModal />
-      {personalPost.map(post => (
+      {personalPost.reverse().map(post => (
         <SinglePost key={post._id} post={post} />
       ))}
     </>
