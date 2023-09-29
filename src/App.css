@@ -28,7 +28,7 @@ body {
   background-color: white;
 }
 .smalltext {
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .contDropdown {
@@ -95,4 +95,8 @@ body {
   aspect-ratio: 1/1;
   object-fit: cover;
   text-align: center;
+}
+
+#basic-nav-dropdown {
+  padding: 0 !important;
 }

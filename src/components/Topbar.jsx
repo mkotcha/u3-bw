@@ -70,7 +70,7 @@ const Topbar = () => {
                         <span className="smalltext text-center d-none d-md-inline">Home</span>
                       </div>
                     </NavLink>
-                    <NavLink to={"/My Network"} className="nav-link">
+                    <NavLink to={"/My Network"} className="nav-link text-nowrap d-none d-sm-block">
                       <div className="d-flex flex-column text-center text-reset text-decoration-none">
                         <i className="bi bi-people-fill text-center fontSizeIconTopBar"></i>
                         <span className="smalltext text-center d-none d-md-inline">My Network</span>
@@ -95,7 +95,7 @@ const Topbar = () => {
                       </div>
                     </NavLink>
 
-                    <div className="align-self-center d-flex-inline flex-column align-items-center me-3">
+                    <div className="align-self-center d-flex-inline flex-column align-items-center ">
                       <Link to={"/profilepage/"}>
                         <img
                           src={personalProfile.image}
@@ -103,29 +103,38 @@ const Topbar = () => {
                           className="rounded-circle topbar-image-profile"
                         />
                       </Link>
-                      <NavDropdown title="Me" id="basic-nav-dropdown" className="d-none d-md-inline">
+
+                      <NavDropdown
+                        title="Me"
+                        style={{ fontSize: "12px" }}
+                        id="basic-nav-dropdown"
+                        className="d-none d-md-inline">
                         <h5 className="px-2">Account</h5>
                         <NavDropdown.Item href="#action/3.4">work </NavDropdown.Item>
                         <Button variant="primary" className="mx-1">
                           View profile
                         </Button>{" "}
                         <hr></hr>
-                        <h5 className="px-2">Account</h5>
-                        <p className="px-2">Try Premium free</p>
-                        <p className="px-2">Setting and Privacy</p>
-                        <p className="px-2">Help</p>
-                        <p className="px-2">Language</p>
+                        <h5 className="px-3">Account</h5>
+                        <p className="px-3">Try Premium free</p>
+                        <p className="px-3">Setting and Privacy</p>
+                        <p className="px-3">Help</p>
+                        <p className="px-3">Language</p>
                         <hr></hr>
-                        <h5 className="px-2">Gestisci</h5>
-                        <p className="px-2">Post an activity</p>
-                        <p className="px-2">Account </p>
+                        <h5 className="px-3">Gestisci</h5>
+                        <p className="px-3">Post an activity</p>
+                        <p className="px-3">Account </p>
                         <hr></hr>
-                        <p className="px-2">Quit</p>
+                        <p className="px-3">Quit</p>
                       </NavDropdown>
                     </div>
-                    <div className="align-self-center border-start d-flex flex-column align-items-center">
-                      <i className="bi bi-grid-3x3-gap-fill ms-3"></i>
-                      <NavDropdown title="Per le aziende" id="basic-nav-dropdown" className="d-none d-md-inline">
+                    <div className="align-self-center border-start ps-2 d-flex flex-column align-items-center d-none d-md-block">
+                      <i className="bi bi-grid-3x3-gap-fill fontSizeIconTopBar"></i>
+                      <NavDropdown
+                        title="Per le aziende"
+                        id="basic-nav-dropdown"
+                        className="d-none d-md-inline"
+                        style={{ fontSize: "12px" }}>
                         <NavDropdown.Item href="#action/3.4">Per le aziende</NavDropdown.Item>
                       </NavDropdown>
                     </div>
