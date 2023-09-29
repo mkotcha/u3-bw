@@ -46,7 +46,7 @@ body {
   #Footer {
     padding-inline: 0;
     display: flex;
-    justify-content: column;
+    flex-direction: column;
   }
 }
 

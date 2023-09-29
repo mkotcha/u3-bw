@@ -24,24 +24,22 @@ const ProfilePage = () => {
 
   return (
     <>
-      <div>
-        <Row className="justify-content-center">
-          <Col xs={12} sm={10} lg={7} xxl={6} className="">
-            <MainProfilePage />
-            <Recommended4u />
-            <ExperienceCard />
-            <PersonalPosts />
-            <AnalyticsCard />
-            <ResourcesCard />
-            <ActivityCard />
-            <EducationCard />
-            <SkillsCard />
-          </Col>
-          <Col xs={12} sm={10} lg={3} xxl={2}>
-            <AsideProfilePage />
-          </Col>
-        </Row>
-      </div>
+      <Row className="justify-content-center w-100">
+        <Col xs={12} sm={10} lg={7} xxl={6} className="">
+          <MainProfilePage />
+          <Recommended4u />
+          <ExperienceCard />
+          <PersonalPosts />
+          <AnalyticsCard />
+          <ResourcesCard />
+          <ActivityCard />
+          <EducationCard />
+          <SkillsCard />
+        </Col>
+        <Col xs={12} sm={10} lg={3} xxl={2}>
+          <AsideProfilePage />
+        </Col>
+      </Row>
     </>
   );
 };

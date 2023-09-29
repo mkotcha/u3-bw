@@ -35,7 +35,7 @@ const ExpeririencePage = () => {
   return (
     <>
       <ExperienceModal />
-      <Row className="justify-content-center">
+      <Row className="justify-content-center w-100">
         <Col xs={12} sm={10} lg={7}>
           <div className="p-4 bg-white my-4 rounded-3 border border-dark-subtle shadow-sm">
             <div className="d-flex  align-items-baseline mb-3">

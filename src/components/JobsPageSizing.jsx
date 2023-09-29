@@ -5,7 +5,7 @@ import LeftAsideJobsPage from "./LeftAsideJobsPage";
 
 const JobsPageSizing = () => {
   return (
-    <Row className="justify-content-center">
+    <Row className="justify-content-center w-100">
       <Col xs={12} sm={10} lg={10} xxl={8}>
         <Row className="justify-content-center">
           <Col xs={12} sm={10} lg={3}>
