@@ -23,7 +23,7 @@ const Topbar = () => {
   const personalProfile = useSelector(state => state.me);
   return (
     <>
-      <Navbar expand="lg" className="bg-body-tertiary sticky-top p-0 w-100 shadow-sm">
+      <Navbar expand="lg" className="bg-body-tertiary sticky-top px-2 py-0 w-100 shadow-sm">
         <Row className="justify-content-center align-items-center w-100 mx-auto">
           <Col xs={12} md={12} lg={10} xxl={8} className="p-0">
             <div className="d-flex w-100">
