@@ -245,7 +245,7 @@ export const postExperienceImage = (userId, expId, xformData) => {
 };
 /* Fetch for newPost */
 
-export const newPostFetch = postText => {
+export const newPostFetch = (postText, userId, postData) => {
   return async dispatch => {
     const newPost = {
       ...options,
@@ -260,6 +260,7 @@ export const newPostFetch = postText => {
       if (resp.ok) {
         const result = await resp.json();
         console.log(result);
+        dispatch(postPostImage(userId, result._id, postData));
         dispatch(hidePostModal());
       }
     } catch (error) {

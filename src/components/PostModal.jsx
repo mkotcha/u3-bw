@@ -76,6 +76,7 @@ const PostModal = () => {
     if (id.length > 0) {
       postFetch();
     }
+    setPicture(postText.image);
   }, [id]);
 
   return (
@@ -83,15 +84,10 @@ const PostModal = () => {
       <Modal.Header closeButton onClick={handleClose}>
         <Link className="text-decoration-none text-dark">
           <div className="d-flex align-items-center  m-3">
-            <img
-              className="rounded-circle"
-              src="https://images.unsplash.com/photo-1591738802175-709fedef8288?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80"
-              alt=""
-              style={{ height: "70px", width: "70px" }}
-            />
+            <img className="rounded-circle" src={personal.image} alt="" style={{ height: "70px", width: "70px" }} />
             <div className="ms-2">
               <span className="fs-5">
-                Name{" "}
+                {personal.name}
                 <span className="ms-2 fs-6">
                   <i className="bi bi-caret-down-fill"></i>
                 </span>
