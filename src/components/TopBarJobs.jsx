@@ -1,4 +1,4 @@
-import { Button, Col Image, Row } from "react-bootstrap";
+import { Button, Col, Form, Image, Row } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -29,8 +29,12 @@ const TopBarJobs = () => {
                     </Link>
 
                     {/* <i className="bi bi-search d-lg-none fontSizeIconTopBar"></i> */}
-                    <JobSearch/>
-                    {/* <Form.Control type="text" placeholder="Search by title or company" className="mr-sm-2 d-none d-lg-inline" /> */}
+                    <JobSearch />
+                    <Form.Control
+                      type="text"
+                      placeholder="Search by title or company"
+                      className="mr-sm-2 d-none d-lg-inline"
+                    />
                   </div>
                 </Col>
                 {/* CONTAINER ICONE NAV */}
@@ -118,4 +122,4 @@ const TopBarJobs = () => {
   );
 };
 
-export default TopBarJobs
+export default TopBarJobs;
