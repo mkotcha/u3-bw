@@ -36,8 +36,8 @@ const MainProfilePage = () => {
       <ProfileModal />
       <Test />
       {profile && (
-        <div className="border rounded shadow-sm bg-white mt-4">
-          <div className="bg-warning profile-background"></div>
+        <div className="border border-secondary-subtle rounded shadow-sm bg-white mt-4">
+          <div className="bg-warning border rounded rounded-bottom-0 profile-background"></div>
           <div className="px-4">
             <div className="d-flex w-100">
               <div className="me-auto" role={!params.id ? "button" : ""}>
