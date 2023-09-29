@@ -22,7 +22,7 @@ const RightAsideJobsPage = () => {
           <a href="#" className="ps-2">
             Show more
           </a>
-          <i class="bi bi-arrow-right"></i>
+          <i className="bi bi-arrow-right"></i>
         </div>
       </div>
       <Container className="text-center">
