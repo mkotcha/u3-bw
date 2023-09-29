@@ -22,7 +22,7 @@ const Jobs = () => {
     fetchJobs();
   }, []);
   return (
-    <div className="rounded border border-secondary-subtle bg-white ">
+    <div className="rounded border border-secondary-subtle bg-white mt-3">
       {arrayJobs.slice(0, 20).map(job => (
         <div className="p-3" key={job._id}>
           <Row>
