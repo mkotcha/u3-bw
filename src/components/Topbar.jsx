@@ -38,7 +38,7 @@ const Topbar = () => {
                       <Nav className="me-auto">
                         <NavLink to={"/"} className="nav-link">
                           <div className="d-flex flex-column text-center text-reset text-decoration-none">
-                            <i className="bi bi-house-door-fill text-center fs-3"></i>
+                            <i className="bi bi-house-door-fill text-center fontSizeIconTopBar"></i>
                             <span className="smalltext text-center d-none d-lg-inline">Home</span>
                           </div>
                         </NavLink>
