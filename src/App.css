@@ -87,3 +87,9 @@ body {
 .bg-white-grey:hover {
   background-color: rgb(227, 227, 227);
 }
+.topbar-image-profile {
+  width: 35px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  text-align: center;
+}
