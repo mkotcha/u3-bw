@@ -24,9 +24,9 @@ const ProfilePage = () => {
 
   return (
     <>
-      <Container>
+      <div>
         <Row className="justify-content-center">
-          <Col xs={8} lg={7} className="">
+          <Col xs={12} sm={10} lg={7} className="">
             <MainProfilePage />
             <Recommended4u />
             <ExperienceCard />
@@ -37,11 +37,11 @@ const ProfilePage = () => {
             <EducationCard />
             <SkillsCard />
           </Col>
-          <Col xs={4} lg={3}>
+          <Col xs={12} sm={10} lg={3}>
             <AsideProfilePage />
           </Col>
         </Row>
-      </Container>
+      </div>
     </>
   );
 };
