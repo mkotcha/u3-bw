@@ -3,14 +3,14 @@ import LanguageDropdown from "./LanguageDropdown";
 
 const FooTer = () => {
   return (
-    <Container className="d-flex justify-content-centre my-4 overflow-hidden" id="Footer" fluid>
+    <Container className="d-flex justify-content-center my-4 overflow-hidden" id="Footer">
       <div className="d-flex overflow-hidden">
         <Row className="Container">
           <Col>
             <p>Information</p>
             <Row>
               <Col>
-                <p>Ccommunity guideline</p>
+                <p>Community guideline</p>
                 <Row>
                   <Col>
                     <NavDropdown title="Privacy condition" id="basic-nav-dropdown">

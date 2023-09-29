@@ -13,6 +13,7 @@ import { useParams } from "react-router";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { personalFetch } from "../redux/actions";
+import FooTer from "./FooTer";
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
@@ -40,6 +41,7 @@ const ProfilePage = () => {
           <AsideProfilePage />
         </Col>
       </Row>
+      <FooTer />
     </>
   );
 };

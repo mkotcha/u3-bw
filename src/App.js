@@ -38,9 +38,8 @@ function App() {
         <Route path="/experience" element={<ExpeririencePage />} />
         <Route path="/experience/:id" element={<ExpeririencePage />} />
         <Route path="/post" element={<PostModal />} />
-        <Route path="/jobs" element={<JobsPageSizing/>} />
+        <Route path="/jobs" element={<JobsPageSizing />} />
       </Routes>
-      <FooTer />
     </BrowserRouter>
   );
 }
