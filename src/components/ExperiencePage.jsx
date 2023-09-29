@@ -34,36 +34,34 @@ const ExpeririencePage = () => {
 
   return (
     <>
-      <Container>
-        <ExperienceModal />
-        <Row className="justify-content-center">
-          <Col xs={8} lg={7}>
-            <Container className="p-4 bg-light my-4 rounded-3 border border-dark-subtle shadow-sm">
-              <div className="d-flex  align-items-baseline mb-3">
-                <div className="fs-2" onClick={() => navigate(-1)}>
-                  <i className="bi bi-arrow-left"></i>
-                </div>
-                <div className="ps-2 me-auto">
-                  <h3 className="fw-bold">Experience</h3>
-                </div>
-                {!params.id && (
-                  <div className="fs-2" onClick={handleShow}>
-                    <i className="bi bi-plus-lg"></i>
-                  </div>
-                )}
+      <ExperienceModal />
+      <Row className="justify-content-center">
+        <Col xs={12} sm={10} lg={7}>
+          <div className="p-4 bg-white my-4 rounded-3 border border-dark-subtle shadow-sm">
+            <div className="d-flex  align-items-baseline mb-3">
+              <div className="fs-2" onClick={() => navigate(-1)}>
+                <i className="bi bi-arrow-left"></i>
               </div>
+              <div className="ps-2 me-auto">
+                <h3 className="fw-bold">Experience</h3>
+              </div>
+              {!params.id && (
+                <div className="fs-2" onClick={handleShow}>
+                  <i className="bi bi-plus-lg"></i>
+                </div>
+              )}
+            </div>
 
-              <div>
-                {experiences &&
-                  experiences.map(experience => <SingleExperience key={experience._id} experience={experience} />)}
-              </div>
-            </Container>
-          </Col>
-          <Col xs={4} lg={3}>
-            <AsideProfilePage />
-          </Col>
-        </Row>
-      </Container>
+            <div>
+              {experiences &&
+                experiences.map(experience => <SingleExperience key={experience._id} experience={experience} />)}
+            </div>
+          </div>
+        </Col>
+        <Col xs={12} sm={10} lg={3}>
+          <AsideProfilePage />
+        </Col>
+      </Row>
     </>
   );
 };

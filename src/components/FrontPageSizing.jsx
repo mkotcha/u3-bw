@@ -11,16 +11,14 @@ const FrontPageSizing = () => {
     <>
       <PostModal />
       <Row className="justify-content-center">
-        <Col lg={7}>
+        <Col xs={12} sm={10} lg={10} xxl={8}>
           <Row className="justify-content-center">
             <Col xs={12} sm={10} lg={3}>
               <LeftAsideHomepage />
             </Col>
             <Col xs={12} sm={10} lg={6}>
               <HomePageMiddle />
-
               <hr />
-
               <HomePagePost />
             </Col>
             <Col xs={12} sm={10} lg={3}>
