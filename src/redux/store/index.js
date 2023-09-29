@@ -12,8 +12,9 @@ import experiencesReducer from "../reducers/personalExperiences";
 import mainPagePostsReducer from "../reducers/GeneralPosts";
 import profileImageModalReducer from "../reducers/imagineProfileModal";
 import postModalReducer from "../reducers/postModal";
+
 import jobSearchReducer from "../reducers/jobSearchReducer";
-import addFriend from "../reducers/addFriend";
+import addFriendReducer from "../reducers/addFriend";
 
 const persistConfig = {
   key: "root",
@@ -36,7 +37,7 @@ const mainReducer = combineReducers({
   imageProfilesModal: profileImageModalReducer,
   postModal: postModalReducer,
   jobSearch: jobSearchReducer,
-  addFriend: addFriend,
+  addFriend: addFriendReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, mainReducer);
