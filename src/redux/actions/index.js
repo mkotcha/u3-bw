@@ -30,14 +30,6 @@ export const setSelectedProfile = selectedProfile => ({ type: SET_SELECTED_PROFI
 export const setOtherProfiles = otherProfils => ({ type: SET_OTHER_PROFILES, payload: otherProfils });
 export const showProfileModal = () => ({ type: SHOW_PROFILE_MODAL });
 export const hideProfileModal = () => ({ type: HIDE_PROFILE_MODAL });
-export const showExperienceModal = () => ({ type: SHOW_EXPERIENCE_MODAL });
-export const hideExperienceModal = () => ({ type: HIDE_EXPERIENCE_MODAL });
-export const setPersonalExperiences = experience => ({ type: SET_PERSONAL_EXPERIENCES, payload: experience });
-export const setPersonalExperienceId = id => ({ type: SET_PERSONAL_EXPERIENCE_ID, payload: id });
-export const unsetPersonalExperienceId = id => ({ type: UNSET_PERSONAL_EXPERIENCE_ID });
-export const putPersonalExperience = experience => ({ type: PUT_PERSONAL_EXPERIENCE, payload: experience });
-export const postPersonalExperience = experience => ({ type: POST_PERSONAL_EXPERIENCE, payload: experience });
-export const setMainPagePosts = posts => ({ type: GENERAL_POSTS, payload: posts });
 export const showProfileImageModal = () => ({ type: SHOW_PROFILE_IMAGE_MODAL });
 export const hideProfileImageModal = () => ({ type: HIDE_PROFILE_IMAGE_MODAL });
 export const showExperienceModal = () => ({ type: SHOW_EXPERIENCE_MODAL });
@@ -52,8 +44,7 @@ export const showPostModal = () => ({ type: SHOW_POST_MODAL });
 export const hidePostModal = () => ({ type: HIDE_POST_MODAL });
 export const setPostModalId = id => ({ type: SET_POST_MODAL_ID, payload: id });
 export const unsetPostModalId = () => ({ type: UNSET_POST_MODAL_ID });
-export const setExperienceModal = () => ({ type: SET_PERSONAL_POST_ID });
-export const unsetExperienceModal = () => ({ type: UNSET_PERSONAL_EXPERIENCE_ID });
+
 export const searchForJobs = result => ({ type: JOB_SEARCH_RESULT, payload: result });
 
 //ADDING NEW FRIENDS AND REMOVING FRIENDS
